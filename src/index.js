@@ -9,17 +9,25 @@ import ReduxThunk from "redux-thunk";
 import App from "./App";
 import reducers from "./reducers";
 
+// global styles
+import "./styles/index.css";
+
+// ReactDOM.render(
+//     <StoreProvider
+//         store={createStore(
+//             reducers,
+//             {},
+//             compose(
+//                 applyMiddleware(ReduxThunk)
+//             )
+//         )}
+//     >
+//         <App />
+//     </StoreProvider>,
+//   document.getElementById('root')
+// );
+
 ReactDOM.render(
-    <StoreProvider
-        store={createStore(
-            reducers,
-            {},
-            compose(
-                applyMiddleware(ReduxThunk)
-            )
-        )}
-    >
-        <App />
-    </StoreProvider>,
+    <App />,
   document.getElementById('root')
 );

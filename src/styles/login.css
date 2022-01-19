@@ -1,0 +1,182 @@
+.loginContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.logInLeftSection {
+    width: 70%;
+}
+
+.logInImage {
+    width: 100%;
+}
+
+.logInRightSection {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 3% 5%;
+    background-color: #fff;
+}
+
+.loginSection {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin-bottom: 15%;
+}
+
+.signUpLoginSectionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signUpLoginText {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    color: #152F48;
+    cursor: pointer;
+}
+
+.signUpHeaderText {
+    text-decoration: none;
+}
+
+.logInActiveSection {
+    width: 94px;
+    height: 7px;
+    background-color: rgba(237, 24, 111, 1);
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+.logInWelcomeSection {
+    color: linear-gradient(45deg, #ED1C6B 100%, #0867B5 100%);
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    width: 80%;
+    /* margin-top: 16%; */
+}
+
+.logInWelcomeSubSection {
+    color: #3C3C3B;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: 'Noto Sans', sans-serif;
+    margin-top: 2%;
+    text-align: center;
+    width: 80%;
+}
+
+.logInFormContainer {
+    margin-top: 8%;
+    width: 80%;
+}
+
+.logInFormInputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.logInFormLabel {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: #152F48;
+}
+
+.logInFormInput {
+    padding-bottom: 10px;
+    margin-top: 3%;
+    border: none;
+    border-bottom: 0.2px solid #152F48;
+    outline: none;
+}
+
+.logInFormMargin {
+    margin-top: 8%;
+}
+
+.forgotPasswordText {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: 'Noto Sans', sans-serif;
+    margin-top: 4%;
+}
+
+.logInFormSubmitButton {
+    background: linear-gradient(90deg, #FBAE2F 0%, #F89116 105%);
+    border: 0.5px solid rgba(21, 47, 72, 0.3);
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 36px;
+    width: 100%;
+    margin: 8% 0;
+    cursor: pointer;
+}
+
+.dividerAlignmentContainer {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.dividerContainer {
+    width: 60%;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.dividerContainer::after {
+    content:'';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: #000;
+    z-index:0
+}
+
+.dividerContainerText {
+    position: relative;
+    color: #152F48;
+    font-size: 15px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bolder;
+    z-index: 1;
+    display: inline-block;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.logInFooterText {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    line-height: 27px;
+    color: #262E36;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: center;
+    margin-top: 3%;
+    cursor: pointer;
+}
