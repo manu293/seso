@@ -4,12 +4,12 @@ import { useLocation } from 'react-router-dom';
 import {
     Queue,
     SignOut,
-    Gauge,
-    Record,
-    UserList,
     User,
-    FilePdf,
-    ListChecks
+    ClipboardText,
+    CheckSquareOffset,
+    ChartPieSlice,
+    AddressBook,
+    CirclesFour
 } from "phosphor-react";
 
 // local imports
@@ -78,22 +78,22 @@ const Navbar = () => {
             <div className="navContainer">
 
                 <div className={(activePath === "dashboard") ? "navItemActiveContainer" : "navItemContainer"}>
-                    <Gauge size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                    <CirclesFour size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
                     <p className="navItemText">Dashboard</p>
                 </div>
 
                 <div className={(activePath === "orders") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <Record size={22} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                    <ClipboardText size={22} weight="bold" color="#fff" className="navbarThirdPartIcon" />
                     <p className="navItemText">Orders</p>
                 </div>
 
                 <div className={(activePath === "subcontract") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <ListChecks size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                    <CheckSquareOffset size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
                     <p className="navItemText">Subcontract</p>
                 </div>
 
                 <div className={(activePath === "report") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <FilePdf size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                    <ChartPieSlice size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
                     <p className="navItemText">Report</p>
                 </div>
 
@@ -141,7 +141,7 @@ const Navbar = () => {
                 }
 
                 <div className={(activePath === "accounts") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <UserList size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                    <AddressBook size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
                     <p className="navItemText">Accounts</p>
                 </div>
 
