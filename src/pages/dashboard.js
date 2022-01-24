@@ -163,15 +163,17 @@ const Dashboard = () => {
                                         }
                                     }
                                 }}
-                                data={{
-                                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
-                                    datasets: [
+                                data={
                                         {
-                                            backgroundColor: "#F88F15",
-                                            data: [250, 450, 450, 320, 450, 320, 450, 320, 450,320, 450, 320],
-                                        }
-                                    ]
-                                }}
+                                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
+                                        datasets: [
+                                            {
+                                                backgroundColor: "#F88F15",
+                                                data: [250, 450, 450, 320, 450, 320, 450, 320, 450,320, 450, 320],
+                                            }
+                                        ],
+                                    }
+                                }
                             />
                         </div>
                     </div>

@@ -78,23 +78,31 @@ const Navbar = () => {
             <div className="navContainer">
 
                 <div className={(activePath === "dashboard") ? "navItemActiveContainer" : "navItemContainer"}>
-                    <CirclesFour size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
-                    <p className="navItemText">Dashboard</p>
+                    <div className={(activePath === "dashboard") ? "navActivePadding" : "navInactivePadding"}>
+                        <CirclesFour size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                        <p className={(activePath === "dashboard") ? "navItemActiveText" : "navItemText"}>Dashboard</p>
+                    </div>
                 </div>
 
                 <div className={(activePath === "orders") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <ClipboardText size={22} weight="bold" color="#fff" className="navbarThirdPartIcon" />
-                    <p className="navItemText">Orders</p>
+                    <div className={(activePath === "orders") ? "navActivePadding" : "navInactivePadding"}>
+                        <ClipboardText size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                        <p className={(activePath === "orders") ? "navItemActiveText" : "navItemText"}>Orders</p>
+                    </div>
                 </div>
 
                 <div className={(activePath === "subcontract") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <CheckSquareOffset size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
-                    <p className="navItemText">Subcontract</p>
+                    <div className={(activePath === "subcontract") ? "navActivePadding" : "navInactivePadding"}>
+                        <CheckSquareOffset size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                        <p className={(activePath === "subcontract") ? "navItemActiveText" : "navItemText"}>Subcontract</p>
+                    </div>
                 </div>
 
                 <div className={(activePath === "report") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <ChartPieSlice size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
-                    <p className="navItemText">Report</p>
+                    <div className={(activePath === "orders") ? "navActivePadding" : "navInactivePadding"}>
+                        <ChartPieSlice size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                        <p className={(activePath === "report") ? "navItemActiveText" : "navItemText"}>Report</p>
+                    </div>
                 </div>
 
                 {   (activePath === "report") &&
@@ -114,15 +122,17 @@ const Navbar = () => {
                 }
 
                 <div className={(activePath === "admin") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <User size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
-                    <p className="navItemText">Admin</p>
+                    <div className={(activePath === "orders") ? "navActivePadding" : "navInactivePadding"}>
+                        <User size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                        <p className={(activePath === "admin") ? "navItemActiveText" : "navItemText"}>Admin</p>
+                    </div>
                 </div>
 
                 {   (activePath === "admin") &&
                     (
                         <ul className="navSubListContainer">
                             <li className="navSubItemText">
-                            <div className="navItemCircle" /> &nbsp; Company
+                                <div className="navItemCircle" /> &nbsp; Company
                             </li>
                             <li className="navSubItemText">
                                 <div className="navItemCircle" /> &nbsp; Customer
@@ -141,8 +151,10 @@ const Navbar = () => {
                 }
 
                 <div className={(activePath === "accounts") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <AddressBook size={20} weight="bold" color="#fff" className="navbarThirdPartIcon" />
-                    <p className="navItemText">Accounts</p>
+                    <div className={(activePath === "accounts") ? "navActivePadding" : "navInactivePadding"}>
+                        <AddressBook size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                        <p className={(activePath === "accounts") ? "navItemActiveText" : "navItemText"}>Accounts</p>
+                    </div>
                 </div>
 
                 {   (activePath === "accounts") &&
@@ -162,7 +174,7 @@ const Navbar = () => {
 
             <div className="navbarFooterContainer">
                 <SignOut
-                    size={20}
+                    size={18}
                     weight="bold"
                     color="#FF6800"
                     className="navbarThirdPartIcon"
