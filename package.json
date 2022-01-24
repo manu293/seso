@@ -2,10 +2,6 @@
   "name": "seso-portal",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "v16.13.2",
-    "npm": "8.1.2"
-  },
   "dependencies": {
     "axios": "^0.24.0",
     "chart.js": "^3.7.0",
