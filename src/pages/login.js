@@ -106,7 +106,7 @@ const Login = () => {
                 </div>
 
                 <p className="logInFooterText">
-                    login with&nbsp;&nbsp;<GoogleLogo size={22} weight="bold" />
+                    login with&nbsp;&nbsp;<GoogleLogo size={22} weight="bold" className="loginFooterLogo" />
                 </p>
                 
 

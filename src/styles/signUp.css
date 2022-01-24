@@ -2,14 +2,17 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    background-color: #fff !important;
 }
 
 .signUpLeftSection {
     width: 70%;
+    background-color: inherit;
 }
 
 .signUpImage {
     width: 100%;
+    background-color: inherit;
 }
 
 .signUpRightSection {
@@ -17,12 +20,14 @@
     display: flex;
     flex-direction: column;
     padding: 3% 5%;
+    background-color: inherit;
 }
 
 .signUpLoginSection {
     display: flex;
     width: 80%;
     justify-content: space-between;
+    background-color: inherit;
 }
 
 .signUpLoginText {
@@ -33,10 +38,12 @@
     line-height: 30px;
     color: #152F48;
     cursor: pointer;
+    background-color: inherit;
 }
 
 .logInHeaderText {
     text-decoration: none;
+    background-color: inherit;
 }
 
 .signUpLoginContainer {
@@ -44,6 +51,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: inherit;
 }
 
 .signUpLoginActiveSection {
@@ -55,12 +63,14 @@
 
 .signUpFormConatiner {
     margin-top: 12%;
+    background-color: inherit;
 }
 
 .signUpFormInputContainer {
     display: flex;
     flex-direction: column;
     width: 80%;
+    background-color: inherit;
 }
 
 .signUpFormLabel {
@@ -69,6 +79,7 @@
     font-size: 18px;
     line-height: 27px;
     color: #152F48;
+    background-color: inherit;
 }
 
 .signUpFormInput {
@@ -77,10 +88,12 @@
     border: none;
     border-bottom: 0.2px solid #152F48;
     outline: none;
+    background-color: inherit;
 }
 
 .signUpFormInputMargin {
     margin-top: 6%;
+    background-color: inherit;
 }
 
 .signUpFormSubmitButton {
@@ -96,8 +109,8 @@
     width: 85%;
     margin: 6% 0 4% 0;
     cursor: pointer;
+    background-color: inherit;
 }
-
 
 .signUpDivider {
     text-align: center;
@@ -107,6 +120,7 @@
     font-family: 'Noto Sans', sans-serif;
     font-weight: bolder;
     width: 80%;
+    background-color: inherit;
 }
 
 .signInFooterText {
@@ -120,4 +134,9 @@
     justify-content: center;
     margin-top: 3%;
     cursor: pointer;
+    background-color: inherit;
+}
+
+.signUpFooterLogo {
+    background-color: inherit; 
 }

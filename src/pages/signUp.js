@@ -130,7 +130,7 @@ const SignUp = () => {
                 </div>
 
                 <p className="signInFooterText">
-                    sign up with&nbsp;&nbsp;<GoogleLogo size={22} weight="bold" />
+                    sign up with&nbsp;&nbsp;<GoogleLogo size={22} weight="bold" className="signUpFooterLogo" />
                 </p>
 
             </div>
