@@ -10,6 +10,7 @@ import {
 import SignUp from "./pages/signUp";
 import Login from "./pages/login";
 import NotFound from "./pages/notFound";
+import Dashboard from "./pages/dashboard";
 
 class App extends React.Component {
 
@@ -19,6 +20,7 @@ class App extends React.Component {
                 <Routes>
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>

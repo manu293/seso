@@ -5,9 +5,26 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit; 
+  box-sizing: inherit;
+  background-color: #E5E5E5;
 }
 
 .linkStyle {
   text-decoration: none;
+}
+
+.mainContainer {
+  width: 100%;
+  display: flex;
+}
+
+.mainContentContainer {
+  width: 100%;
+  margin: 0 3%;
+  overflow: hidden;
+  height: 100vh;
+}
+
+p {
+  background-color: inherit;
 }

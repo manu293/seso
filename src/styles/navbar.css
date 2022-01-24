@@ -1,0 +1,140 @@
+.navbarContainer {
+    width: 12%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #152F48;
+    padding: 0 1%;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.navContainer {
+    margin-top: 25%;
+    background-color: #152F48;
+    cursor: pointer;
+}
+
+.navbarIconContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14%;
+    background-color: inherit;
+}
+
+.navbarIconSubContainer {
+    display: flex;
+    align-items: center;
+    background-color: inherit;
+}
+
+.navItemContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    background-color: #152F48;
+}
+
+.navItemMargin {
+    margin-top: 12%;
+}
+
+.navSubItemText {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    font-family: 'Noto Sans', sans-serif;
+    margin-top: 8%;
+    display: flex;
+    align-items: center;
+    
+}
+
+.navSubListContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    list-style: none;
+}
+
+.navItemCircle {
+    height: 6px;
+    width: 6px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.navItemActiveCircle {
+    height: 12px;
+    width: 12px;
+    background-color: #F78D12;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+.navItemActiveContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    background: linear-gradient(89.8deg, #FEC23C 0.09%, #F78D12 99.77%);
+    border-radius: 8px;
+    padding: 3% 0 3% 3%;
+}
+
+.navItemText {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    font-family: 'Noto Sans', sans-serif;
+    padding-left: 8%;
+    background-color: inherit;
+    width: 80%;
+}
+
+.navbarThirdPartIcon {
+    background-color: inherit;
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbarIcon {
+    width: 20px;
+    height: 20px;
+    background-color: inherit;
+}
+
+.navbarIconText {
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding-left: 10px;
+    background-color: inherit;
+}
+
+.navbarFooterContainer {
+    margin-top: auto;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    margin-bottom: 12%;
+    background-color: inherit;
+}
+
+.navbarLogotText {
+    cursor: pointer;
+    color: #FF6800;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 5%;
+    background-color: inherit;
+}
