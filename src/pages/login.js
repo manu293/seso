@@ -31,13 +31,7 @@ const Login = () => {
     return (
         <div className="loginContainer">
 
-            <div className="logInLeftSection">
-                <img
-                    src="https://ik.imagekit.io/id85c1jhrpf/pic7_6VJtfh-nD?ik-sdk-version=javascript-1.4.3&updatedAt=1642491641813"
-                    alt="Sign Up"
-                    className="logInImage"
-                />
-            </div>
+            <div className="logInLeftSection" />
 
             <div className="logInRightSection">
 
@@ -106,7 +100,7 @@ const Login = () => {
                 </div>
 
                 <p className="logInFooterText">
-                    login with&nbsp;&nbsp;<GoogleLogo size={22} weight="bold" className="loginFooterLogo" />
+                    login with&nbsp;&nbsp; <img src="https://ik.imagekit.io/id85c1jhrpf/image_2_v9qZvQa0Gws.png?ik-sdk-version=javascript-1.4.3&updatedAt=1642490813018" className="googleIcon" />
                 </p>
                 
 
