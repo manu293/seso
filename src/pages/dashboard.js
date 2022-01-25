@@ -50,7 +50,7 @@ const Dashboard = () => {
                         <p className="dashboardDayText">{currentMonth} {currentYear}</p>
                     </div>
 
-                    <div className="dashboardItemContainer dashboardItemMargin">
+                    <div className="dashboardItemContainer">
                         <p className="dashboardItemHeader">Total Orders</p>
 
                         <div className="dashboardSubItemContainer">
@@ -66,7 +66,7 @@ const Dashboard = () => {
                         </div>
                     </div>
 
-                    <div className="dashboardItemContainer dashboardItemMargin">
+                    <div className="dashboardItemContainer">
                         <p className="dashboardItemHeader">New Orders</p>
 
                         <div className="dashboardSubItemContainer">
@@ -82,7 +82,7 @@ const Dashboard = () => {
                         </div>
                     </div>
 
-                    <div className="dashboardItemContainer dashboardItemMargin">
+                    <div className="dashboardItemContainer">
                         <p className="dashboardItemHeader">Pending Orders</p>
 
                         <div className="dashboardSubItemContainer">
@@ -98,7 +98,7 @@ const Dashboard = () => {
                         </div>
                     </div>
 
-                    <div className="dashboardItemContainer dashboardItemMargin">
+                    <div className="dashboardItemContainer">
                         <p className="dashboardItemHeader">Pending Orders</p>
 
                         <div className="dashboardSubItemContainer">

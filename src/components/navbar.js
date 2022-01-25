@@ -23,8 +23,6 @@ const Navbar = () => {
     let subActivePath = "";
     const location = useLocation();
 
-    console.log("location", location.pathname)
-
     switch(location.pathname) {
         case "/dashboard":
             activePath = "dashboard";
@@ -318,10 +316,12 @@ const Navbar = () => {
                                 &nbsp;&nbsp; <p className={(subActivePath === "accountEntry") ? "navSubItemActiveText" : ""}>Account Entry</p>
                             </li>
 
-                            <li className="navSubItemText">
-                                <div className={(subActivePath === "orderReport") ? "navItemActiveCircle" : "navItemCircle"} />
-                                &nbsp;&nbsp; <p className={(subActivePath === "accountReport") ? "navSubItemActiveText" : ""}>Account Report</p>
-                            </li>
+                            <Link to="/accounts/report" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "accountReport") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "accountReport") ? "navSubItemActiveText" : ""}>Account Report</p>
+                                </li>
+                            </Link>
                         </ul>
                     )
                 }

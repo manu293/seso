@@ -6,11 +6,15 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+}
+
+#root {
   background-color: #F8FAFC;
 }
 
 .linkStyle {
   text-decoration: none;
+  background-color: inherit;
 }
 
 .mainContainer {

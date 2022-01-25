@@ -175,6 +175,7 @@
     outline: none;
     width: 95px;
     height: 45px;
+    border: none;
 }
 
 .accountBodyContainer {
@@ -234,4 +235,180 @@
 
 .valueReportMarginSelect {
     margin-right: 5%;
+}
+
+.accountReportHeaderContainer {
+    margin: 2% 0;
+    background-color: #fff;
+    padding: 2%;
+    box-shadow: 0px 4px 4px #F4F8FA;
+    border-radius: 8px
+}
+
+.accountReportTabContainer {
+    margin: 2% 0;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px #F4F8FA;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.accountTabHeader {
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.accountReportText {
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.accountSingleTabContainer {
+    padding: 2% 4%;
+    cursor: pointer;
+    background-color: inherit;
+}
+
+.accountSingleTabActiveContainer {
+    border-bottom:  4px solid #F78D12;
+    border-radius: 4px;
+    padding: 2% 4%;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.accountReportBodyContainer {
+    margin-top: 1%;
+    width: 100%;
+    height: calc(100% - 47%);
+    overflow-y: auto;
+}
+
+.customerLedgerContainer {
+    width: 100%;
+}
+
+.customerLedgerHeaderContainer {
+    width: 100%;
+    margin: 2% 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.customerLedgerNoCardItemContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+
+.customerLedgerCardItemContainer {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 2% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 190px;
+}
+
+.customerLedgerCardHeader {
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+
+.customerLedgerHeaderMargin {
+    margin-top: 3%;
+}
+
+
+.customerLedgerNoCardHeader {
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 16px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.customerLedgerNoCardSubHeader {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    color: #82A3C2;
+    padding-top: 8%;
+}
+
+.iconContainer {
+    margin: 3% 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.iconMargin {
+    margin-right: 3%;
+}
+
+.iconSection {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px 5px 10px rgba(230, 230, 230, 0.2), 5px -5px 10px rgba(230, 230, 230, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.9), 5px 5px 13px rgba(230, 230, 230, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(230, 230, 230, 0.5);
+}
+
+.tableContainer {
+    width: 100%;
+    background-color: inherit;
+}
+
+.tableHeaderSection {
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.tableHeaderContainer {
+    padding: 2% 0;
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+.tableDepthContainer {
+    border-radius: 8px;
+   background-color: #fff !important;
+}
+
+.tableDepthContainer:nth-child(even) {
+    background-color: #F4F8FA !important;
+    border-radius: 8px;
+}
+
+.tableDepth {
+    text-align: center;
+    color: #152F48;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 1% 0;
+    font-family: 'Noto Sans', sans-serif;
 }

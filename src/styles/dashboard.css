@@ -1,6 +1,7 @@
 .dashbaordHeaderContainer {
-    margin: 4% 0;
+    margin: 4% 2%;
     display: flex;
+    justify-content: space-between;
     flex-grow: 1;
 }
 

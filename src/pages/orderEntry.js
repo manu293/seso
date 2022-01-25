@@ -4,7 +4,7 @@ import React from "react";
 // local imports
 import Navbar from "../components/navbar";
 
-// styles
+
 
 const OrderEntry = () => {
 
@@ -14,7 +14,6 @@ const OrderEntry = () => {
             <Navbar />
 
             <div className="mainContentContainer">
-                <p>hi</p>
             </div>
 
         </div>
