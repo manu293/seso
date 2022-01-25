@@ -112,7 +112,7 @@
 
 .mainMiddleConainer {
     overflow-y: auto;
-    height: 400px;
+    height: calc(100% - 35%);
 }
 
 .orderReportContainer {

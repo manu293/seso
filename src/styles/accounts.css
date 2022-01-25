@@ -1,0 +1,237 @@
+.accountCardSection {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2%;
+}
+
+.singleCardContainer {
+    background-color: #fff;
+    box-shadow: 16px 16px 32px rgba(42, 42, 42, 0.1);
+    border-radius: 20px;
+    padding: 1% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sigleCardIconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.singleCardHeader {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #152F48;
+    margin-bottom: 6%;
+}
+
+.dashboardOrderCircle {
+    width: 33px;
+    height: 33px;
+    background-color: #F88F15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.dashboardNewOrderCircle {
+    width: 33px;
+    height: 33px;
+    background-color: #0EAD15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.dashboardNoteOrderCircle {
+    width: 33px;
+    height: 33px;
+    background-color: #FEC23C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.dashboardItemSubText {
+    padding-left: 10px;
+    font-size: 18px;
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+}
+
+.accountMiddleContainer {
+    margin-top: 3%;
+    height: calc(100% - 35%);
+    overflow-y: auto;
+    width: 100%;
+}
+
+.accountRecentActivityContainer {
+    height: 370px;
+    background: #FFFFFF;
+    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 2% 3%;
+}
+
+.accountRecentAcitivityHeader {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #152F48;
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+.accountRecentActivityBodyContainer {
+    height: calc(100% - 16%);
+    overflow-y: auto;
+    background-color: inherit;
+}
+
+.accountRecentSingleActivity {
+    width: 100%;
+    margin: 2% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+}
+
+.accountRecentLeft {
+    width: 70%;
+    padding: 0 2%;
+    background-color: inherit;
+}
+
+.accountRecentRight {
+    width: 30%;
+    background-color: inherit;
+}
+
+.accountRecentLeftText {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #152F48;
+    text-align: left;
+    background-color: inherit;
+}
+
+.accountRecentRightText {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #152F48;
+    text-align: left;
+    background-color: inherit;
+}
+
+.accountSubMiddleSection {
+    width: 100%;
+    display: flex;
+    margin: 2% 0;
+}
+
+.accountSubMiddleLeftSection {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    background: #FFFFFF;
+    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.accountSubMiddleRightSection {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+
+.accountExtractButtonContainer {
+    width: 100%;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.accountExtractButton {
+    background: linear-gradient(90deg, #21AE49 0%, #13C846 100%);
+    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    outline: none;
+    width: 95px;
+    height: 45px;
+}
+
+.accountBodyContainer {
+    padding: 4%;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    margin-top: 4%;
+}
+
+.accountBodyHeaderContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: inherit;
+    padding: 3% 0;
+}
+
+.accountFooterTxt {
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    color: #152F48;
+    margin-top: 5%;
+}
+
+.accountBodySelect {
+    background: #F7F9FB;
+    border: 0.2px solid rgba(21, 47, 72, 0.3);
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 2% 4%;
+}
+
+.accountValueReportContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3%;
+    background-color: inherit;
+}
+
+.valueReportHeaderRight {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.valueReportText {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #152F48;
+}
+
+.valueReportMarginSelect {
+    margin-right: 5%;
+}
