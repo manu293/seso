@@ -5,11 +5,12 @@
 
 .signUpLeftSection {
     width: 70%;
-    background-image: url(https://ik.imagekit.io/id85c1jhrpf/pic2_uuEoKGi8L?ik-sdk-version=javascript-1.4.3&updatedAt=1642490708482);
+    background-image: url(https://ik.imagekit.io/id85c1jhrpf/signup_WeGBXINNX?ik-sdk-version=javascript-1.4.3&updatedAt=1643129379961);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
+    background-color: #fff;
 }
 
 .signUpImage {
@@ -146,4 +147,62 @@
 .googleIcon {
     width: 20px;
     height: 20px;
+}
+
+.loginSignUpTextfield {
+    width: 100% ;
+    position: relative; 
+}
+
+.loginSignUpLabel {
+    position: absolute;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: #262E36;
+    padding: 0 0.3rem;
+    margin: 0 0.5rem;
+    transition: .1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
+}
+
+.loginInSignUpCustomInput {
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #262E36;
+    border-radius: 5px;  
+    padding: 1rem 0.7rem;
+    color: #262E36;
+    transition: 0.1s ease-out;
+    width: 100%;
+}
+
+.loginInSignUpCustomInput::placeholder {
+    opacity: 0;
+}
+
+.loginInSignUpCustomInput:focus {
+    border-color: #262E36;  
+}
+
+.loginInSignUpCustomInput:focus + .loginSignUpLabel {
+    color: #262E36;
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+}
+
+.loginInSignUpCustomInput:focus::placeholder {
+    opacity: 1;
+    font-family: 'Poppins', sans-serif;
+}
+
+.loginInSignUpCustomInput:not([value=""]) + .loginSignUpLabel {
+    color: #262E36;
+    top: 0;
+    transform: translateY(-50%) scale(.9);
 }

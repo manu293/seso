@@ -53,59 +53,59 @@ const SignUp = () => {
                 >
 
                     <div className="signUpFormInputContainer">
-                        <label className="signUpFormLabel">
-                            User Name
-                        </label>
-                        <input
-                            className="signUpFormInput"
-                            type="text"
-                            value={signUpFormContent.userName}
-                            placeholder="Enter User Name"
-                            onChange={(e) => handleSignUpFormInputChange(e)}
-                            id="userName"
-                        />
+                        <div className="loginSignUpTextfield">
+                            <input
+                                className="loginInSignUpCustomInput"
+                                type="text"
+                                id="userName"
+                                placeholder="Enter User Name"
+                                value={signUpFormContent.userName}
+                                onChange={(e) => handleSignUpFormInputChange(e)}
+                            />
+                            <label className="loginSignUpLabel">User Name</label>
+                        </div>
                     </div>
 
                     <div className="signUpFormInputContainer signUpFormInputMargin">
-                        <label className="signUpFormLabel">
-                            Email ID
-                        </label>
-                        <input
-                            className="signUpFormInput"
-                            type="text"
-                            value={signUpFormContent.emailId}
-                            placeholder="Enter User Name"
-                            onChange={(e) => handleSignUpFormInputChange(e)}
-                            id="emailId"
-                        />
+                        <div className="loginSignUpTextfield">
+                            <input
+                                className="loginInSignUpCustomInput"
+                                type="text"
+                                id="emailId"
+                                placeholder="Enter User Email"
+                                value={signUpFormContent.emailId}
+                                onChange={(e) => handleSignUpFormInputChange(e)}
+                            />
+                            <label className="loginSignUpLabel">Email ID</label>
+                        </div>
                     </div>
 
                     <div className="signUpFormInputContainer signUpFormInputMargin">
-                        <label className="signUpFormLabel">
-                            Enter Password
-                        </label>
-                        <input
-                            className="signUpFormInput"
-                            type="password"
-                            value={signUpFormContent.password}
-                            placeholder="Enter User Name"
-                            onChange={(e) => handleSignUpFormInputChange(e)}
-                            id="password"
-                        />
+                        <div className="loginSignUpTextfield">
+                            <input
+                                className="loginInSignUpCustomInput"
+                                type="password"
+                                id="password"
+                                placeholder="Enter Password"
+                                value={signUpFormContent.password}
+                                onChange={(e) => handleSignUpFormInputChange(e)}
+                            />
+                            <label className="loginSignUpLabel">Enter Password</label>
+                        </div>
                     </div>
 
                     <div className="signUpFormInputContainer signUpFormInputMargin">
-                        <label className="signUpFormLabel">
-                            Confirm Password
-                        </label>
-                        <input
-                            className="signUpFormInput"
-                            type="password"
-                            value={signUpFormContent.confirmPassword}
-                            placeholder="Enter User Name"
-                            onChange={(e) => handleSignUpFormInputChange(e)}
-                            id="confirmPassword"
-                        />
+                        <div className="loginSignUpTextfield">
+                            <input
+                                className="loginInSignUpCustomInput"
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Confirm Password"
+                                value={signUpFormContent.confirmPassword}
+                                onChange={(e) => handleSignUpFormInputChange(e)}
+                            />
+                            <label className="loginSignUpLabel">Confirm Password</label>
+                        </div>
                     </div>
 
                     <button

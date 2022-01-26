@@ -1,10 +1,8 @@
 // import
 import React, { useState } from "react";
-import {GoogleLogo} from "phosphor-react";
 import {Link} from "react-router-dom";
 
 // local imports
-
 
 // styles
 import "../styles/login.css";
@@ -18,6 +16,7 @@ const Login = () => {
 
     const handleLoginFormInputChange = (e) => {
         const intermediateLoginForm = {...loginFormContent};
+        console.log("e.target.value", e.target.value)
         intermediateLoginForm[e.target.id] = e.target.value;
 
         setLoginFormContent(intermediateLoginForm);
@@ -27,6 +26,8 @@ const Login = () => {
         e.preventDefault();
         console.log("loginFormContent", loginFormContent)
     }
+      
+    console.log("loginFormContent.userName", loginFormContent.userName)
 
     return (
         <div className="loginContainer">
@@ -55,31 +56,31 @@ const Login = () => {
                 >
 
                     <div className="logInFormInputContainer">
-                        <label className="logInFormLabel">
-                            User Name
-                        </label>
-                        <input
-                            id="userName"
-                            className="logInFormInput"
-                            type="text"
-                            value={loginFormContent.userName}
-                            placeholder="Enter User Name"
-                            onChange={(e) => handleLoginFormInputChange(e)}
-                        />
+                        <div className="loginSignUpTextfield">
+                            <input
+                                className="loginInSignUpCustomInput"
+                                type="text"
+                                id="userName"
+                                placeholder="Enter User Name"
+                                value={loginFormContent.userName}
+                                onChange={(e) => handleLoginFormInputChange(e)}
+                            />
+                            <label className="loginSignUpLabel">User Name</label>
+                        </div>
                     </div>
 
                     <div className="logInFormInputContainer logInFormMargin">
-                        <label className="logInFormLabel">
-                            Password
-                        </label>
-                        <input
-                            id="password"
-                            className="logInFormInput"
-                            type="password"
-                            value={loginFormContent.password}
-                            placeholder="Enter Password"
-                            onChange={(e) => handleLoginFormInputChange(e)}
-                        />
+                        <div className="loginSignUpTextfield">
+                            <input
+                                className="loginInSignUpCustomInput"
+                                type="password"
+                                id="password"
+                                placeholder="Enter Password"
+                                value={loginFormContent.password}
+                                onChange={(e) => handleLoginFormInputChange(e)}
+                            />
+                            <label className="loginSignUpLabel">Password</label>
+                        </div>
                     </div>
 
                     <p className="forgotPasswordText">Forgot Password</p>
