@@ -1,0 +1,436 @@
+.orderEntryHeader {
+    background-color: #fff;
+    padding: 2%;
+    justify-content: space-between;
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+}
+
+.orderEntryHeaderLeftSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+}
+
+.orderEntryRightSection {
+    display: flex;
+    justify-content: flex-end ;
+}
+
+.orderEntryHeaderButton {
+    background: linear-gradient(89.8deg, #FEC23C 0.09%, #F78D12 99.77%);
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Noto Sans', sans-serif;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 97px;
+    cursor: pointer;
+}
+
+.orderEntryHeaderSubText {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'Noto Sans', sans-serif;
+    text-transform: uppercase;
+    color: #152F48;
+    display: flex;
+    align-items: center;
+}
+
+.orderEntryHeaderIconContainer {
+    display: flex;
+    width: 90px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.orderEntryMiddleContainer {
+    height: calc(100% - 41%);
+    width: 100%;
+    overflow-y: auto;
+    margin-top: 1%;
+}
+
+.orderEntryFooterContainer {
+    background-color: #fff;
+    padding: 2% 0%;
+    width: 100%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.orderEntryRightText {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #152F48;
+    width: 100px;
+}
+
+.orderEntryFooterPageSection {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    margin-right: 25%;
+}
+
+.orderEntryPageNumberContainer {
+    display: flex;
+    margin-left: 2%;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.orderEntryActivePageNumber {
+    width: 20px;
+    height: 20px;
+    background: #FED4A2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.orderEntryInactivePageNumber {
+    font-weight: 600;
+    font-size: 14px;
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.orderEntryTable {
+    width: 100%;
+}
+
+.orderEntryTableHeader {
+    background-color: #fff;
+}
+
+.orderEntryTableHeaderText {
+    padding: 1%;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #152F48;
+    cursor: pointer;
+}
+
+.orderEntryTableRow:nth-child(even) {
+    background-color: #fff;
+}
+
+.orderStatusContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circleYellow {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: linear-gradient(124.99deg, #FFDD0D 11.29%, #ECBB4E 95.88%);
+}
+
+.circleGreen {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: linear-gradient(124.99deg, #25A549 12.35%, rgba(19, 200, 70, 0.95) 94.8%);
+}
+
+.circleRed {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: linear-gradient(120.3deg, #FD7979 -8.93%, #FF0606 89.23%);
+}
+
+.orderStatusText {
+    padding-left: 4%;
+}
+
+.orderStatusSubText {
+    font-size: 10px;
+    font-family: 'Noto Sans', sans-serif;
+    color: #152F48;
+}
+
+.entryFilterContainer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    left: 0;
+    top: 0;
+    overflow: hidden; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.enteryFilterSection {
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.entryFilterHeaderSection {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 2%;
+    cursor: pointer;
+}
+
+.entryFilterFooterSection {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.entryFilterMiddleSection {
+    margin: 3% 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.entryFilterFooterButton {
+    background: #FFA412;
+    border-radius: 8px;
+    height: 45px;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Noto Sans', sans-serif;
+    color: #fff;
+    outline: none;
+    border: none;
+    width: 114px;
+    cursor: pointer;
+}
+
+.accountReportTextField {
+    position: relative;
+}
+
+.accountReportSelectField {
+    position: relative;
+    width: 20%;
+}
+
+.renderGrnSelectField {
+    position: relative;
+    width: 22%;
+}
+
+.loginSignUpLabel {
+    position: absolute;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: #262E36;
+    padding: 0 0.3rem;
+    margin: 0 0.5rem;
+    transition: .1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
+}
+
+.loginInSignUpCustomInput {
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #262E36;
+    border-radius: 5px;  
+    padding: 1rem 0.7rem;
+    color: #262E36;
+    transition: 0.1s ease-out;
+    width: 90%;
+}
+
+.loginInSignUpCustomInput::placeholder {
+    opacity: 0;
+}
+
+.loginInSignUpCustomInput:focus {
+    border-color: #262E36;  
+}
+
+.loginInSignUpCustomInput:focus + .loginSignUpLabel {
+    color: #262E36;
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+}
+
+.loginInSignUpCustomInput:focus::placeholder {
+    opacity: 1;
+    font-family: 'Poppins', sans-serif;
+}
+
+.loginInSignUpCustomInput:not([value=""]) + .loginSignUpLabel {
+    color: #262E36;
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+}
+
+.addNewOrderFooter {
+    padding-top: 2%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid rgba(21, 47, 72, 0.2);
+}
+
+.addNewOrderFooterMargin {
+    margin-right: 4%;
+}
+
+.addNewOrderFooterCancel {
+    background-color: #fff;
+    color: #152F48;
+    border: 2px solid #152F48;
+    border-radius: 8px;
+    width: 97px;
+    height: 45px;
+    outline: none;
+    cursor: pointer;
+}
+
+.addNewOrderFooterSubmit {
+    background: linear-gradient(89.8deg, #FEC23C 0.09%, #F78D12 99.77%);        
+    border-radius: 8px;
+    width: 97px;
+    height: 45px;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.entryFilterMiddleSection {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 2% 0;
+}
+
+.entryFilterMiddleSectionMargin {
+    margin-top: 2%;
+}
+
+.yarnAndFabricContainer {
+    display: flex;
+    justify-content: center;
+    margin: 2% 0;
+    width: 100%;
+}
+
+.yarnContainer {
+    display: flex;
+    width: 250px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.yarnContainerLabel {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #152F48;
+}
+
+.yarnContainer input[type='radio']:checked {
+    background-color: #F78D12;
+}
+
+.yarnContainer input[type='radio'] {
+    border:2px solid white;
+    box-shadow:0 0 0 1px #F78D12;
+    appearance:none;
+    border-radius:50%;
+    width:12px;
+    height:12px;
+    background-color:#fff;
+    transition:all ease-in 0.2s;
+}
+
+.entryFilterMiddleHeader {
+    background-color: #fff;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    border-bottom: 1px solid rgba(21, 47, 72, 0.2);
+    margin-bottom: 2%;
+}
+
+.entryFilterMiddleHeaderText {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #152F48;
+    padding-bottom: 2%;
+    cursor: pointer;
+  
+}
+
+.entryFilterMiddleHeaderActiveText {
+    border-radius: 5px  ;
+    border-bottom: 4px solid #F78D12;
+}
+
+.entryFilterCircleIndicatorContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    left: 8%;
+    width: 85%;
+    margin: 2% 0;
+}
+
+.lineIndicator {
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px dashed rgba(21, 47, 72, 0.3);
+}
+
+.circleIndicator {
+    width: 20px;
+    height: 20px;
+    z-index: 5;
+    border-radius: 50%;
+    background: #C4C4C4;
+}
+
+.circleIndicatorActive {
+    width: 20px;
+    height: 20px;
+    z-index: 5;
+    border-radius: 50%;
+    background-color: #FFA412;
+}
