@@ -272,20 +272,28 @@ const NewOrder = (props) => {
                     )
                 }
 
-                <div className="addNewOrderFooter">
-                    <button
-                        onClick={() => setAddOrder(false)}
-                        className="addNewOrderFooterCancel addNewOrderFooterMargin"
-                    >
-                        Cancel
-                    </button>
-                    <button
-                        onClick={() => setAddOrder(false)}
-                        className="addNewOrderFooterSubmit"
-                    >
-                        Submit
-                    </button>
-                </div>
+                {
+                    (
+                        ((currentActiveTab === 1) && (currentRadioButton === "fabricDetail")) || 
+                        (currentActiveTab === 2)
+                    ) &&
+                    (
+                        <div className="addNewOrderFooter">
+                            <button
+                                onClick={() => setAddOrder(false)}
+                                className="addNewOrderFooterCancel addNewOrderFooterMargin"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={() => setAddOrder(false)}
+                                className="addNewOrderFooterSubmit"
+                            >
+                                Submit
+                            </button>
+                        </div>
+                    )
+                }
 
             </div>
         </div>
