@@ -57,7 +57,7 @@ const OrderEntry = () => {
                                 value={orderEntryFilter.date}
                                 onChange={(e) => handleOrderEntryFilterInput(e)}
                             />
-                            <label className="loginSignUpLabel">Date</label>
+                            <label className="orderInputLabel">Date</label>
                         </div>
 
                         <div className="accountReportTextField">
@@ -69,7 +69,7 @@ const OrderEntry = () => {
                                 value={orderEntryFilter.orderId}
                                 onChange={(e) => handleOrderEntryFilterInput(e)}
                             />
-                            <label className="loginSignUpLabel">Order Id</label>
+                            <label className="orderInputLabel">Order Id</label>
                         </div>
 
                         <div className="accountReportTextField">
@@ -81,7 +81,7 @@ const OrderEntry = () => {
                                 value={orderEntryFilter.customerName}
                                 onChange={(e) => handleOrderEntryFilterInput(e)}
                             />
-                            <label className="loginSignUpLabel">Customer Name</label>
+                            <label className="orderInputLabel">Customer Name</label>
                         </div>
                     </div>
 
@@ -143,48 +143,48 @@ const OrderEntry = () => {
 
                         <tbody>
                             <tr className="orderEntryTableRow">
-                                <td className="orderEntryTableHeaderText">2/20/2022</td>
-                                <td className="orderEntryTableHeaderText">ORD1235</td>
-                                <td className="orderEntryTableHeaderText">New Appeal</td>
-                                <td className="orderEntryTableHeaderText">Jersy</td>
-                                <td className="orderEntryTableHeaderText">
+                                <td className="orderEntryTableText">2/20/2022</td>
+                                <td className="orderEntryTableText">ORD1235</td>
+                                <td className="orderEntryTableText">New Appeal</td>
+                                <td className="orderEntryTableText">Jersy</td>
+                                <td className="orderEntryTableText">
                                     <div className="orderStatusContainer">
                                         <div className="circleYellow" />
                                         <p className="orderStatusText"> 1000 / 200</p>&nbsp;&nbsp;<p className="orderStatusSubText">in kg</p>
                                     </div>
                                 </td>
-                                <td className="orderEntryTableHeaderText"><Eye size={23} weight="bold" color="#F78D12" /></td>
-                                <td className="orderEntryTableHeaderText"><DotsThreeVertical size={23} weight="bold" color="#F78D12" /></td>
+                                <td className="orderEntryTableText"><Eye size={23} weight="bold" color="#F78D12" /></td>
+                                <td className="orderEntryTableText"><DotsThreeVertical size={23} weight="bold" color="#F78D12" /></td>
                             </tr>
 
                             <tr className="orderEntryTableRow">
-                                <td className="orderEntryTableHeaderText">2/20/2022</td>
-                                <td className="orderEntryTableHeaderText">ORD1235</td>
-                                <td className="orderEntryTableHeaderText">New Appeal</td>
-                                <td className="orderEntryTableHeaderText">Jersy</td>
-                                <td className="orderEntryTableHeaderText">
+                                <td className="orderEntryTableText">2/20/2022</td>
+                                <td className="orderEntryTableText">ORD1235</td>
+                                <td className="orderEntryTableText">New Appeal</td>
+                                <td className="orderEntryTableText">Jersy</td>
+                                <td className="orderEntryTableText">
                                     <div className="orderStatusContainer">
                                         <div className="circleGreen" />
                                         <p className="orderStatusText"> 1000 / 200</p>&nbsp;&nbsp;<p className="orderStatusSubText">in kg</p>
                                     </div>
                                 </td>
-                                <td className="orderEntryTableHeaderText"><Eye size={23} weight="bold" color="#F78D12" /></td>
-                                <td className="orderEntryTableHeaderText"><DotsThreeVertical size={23} weight="bold" color="#F78D12" /></td>
+                                <td className="orderEntryTableText"><Eye size={23} weight="bold" color="#F78D12" /></td>
+                                <td className="orderEntryTableText"><DotsThreeVertical size={23} weight="bold" color="#F78D12" /></td>
                             </tr>
 
                             <tr className="orderEntryTableRow">
-                                <td className="orderEntryTableHeaderText">2/20/2022</td>
-                                <td className="orderEntryTableHeaderText">ORD1235</td>
-                                <td className="orderEntryTableHeaderText">New Appeal</td>
-                                <td className="orderEntryTableHeaderText">Jersy</td>
-                                <td className="orderEntryTableHeaderText">
+                                <td className="orderEntryTableText">2/20/2022</td>
+                                <td className="orderEntryTableText">ORD1235</td>
+                                <td className="orderEntryTableText">New Appeal</td>
+                                <td className="orderEntryTableText">Jersy</td>
+                                <td className="orderEntryTableText">
                                     <div className="orderStatusContainer">
                                         <div className="circleRed" />
                                         <p className="orderStatusText"> 1000 / 200</p>&nbsp;&nbsp;<p className="orderStatusSubText">in kg</p>
                                     </div>
                                 </td>
-                                <td className="orderEntryTableHeaderText"><Eye size={23} weight="bold" color="#F78D12" /></td>
-                                <td className="orderEntryTableHeaderText"><DotsThreeVertical size={23} weight="bold" color="#F78D12" /></td>
+                                <td className="orderEntryTableText"><Eye size={23} weight="bold" color="#F78D12" /></td>
+                                <td className="orderEntryTableText"><DotsThreeVertical size={23} weight="bold" color="#F78D12" /></td>
                             </tr>
                         </tbody>
                     </table>

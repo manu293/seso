@@ -244,28 +244,36 @@ const Navbar = () => {
                     )
                 }
 
-                <div className={(activePath === "report") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <div className={(activePath === "orders") ? "navActivePadding" : "navInactivePadding"}>
-                        <ChartPieSlice size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
-                        <p className={(activePath === "report") ? "navItemActiveText" : "navItemText"}>Report</p>
+                <Link to="/report/orderReport" className="linkStyle">
+                    <div className={(activePath === "report") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
+                        <div className={(activePath === "orders") ? "navActivePadding" : "navInactivePadding"}>
+                            <ChartPieSlice size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                            <p className={(activePath === "report") ? "navItemActiveText" : "navItemText"}>Report</p>
+                        </div>
                     </div>
-                </div>
+                </Link>
 
                 {   (activePath === "report") &&
                     (
                         <ul className="navSubListContainer">
-                            <li className="navSubItemText">
-                                <div className={(subActivePath === "orderReport") ? "navItemActiveCircle" : "navItemCircle"} />
-                                &nbsp;&nbsp; <p className={(subActivePath === "orderReport") ? "navSubItemActiveText" : ""}>Order Report</p>
-                            </li>
-                            <li className="navSubItemText">
-                                <div className={(subActivePath === "vendorOrderReport") ? "navItemActiveCircle" : "navItemCircle"} />
-                                &nbsp;&nbsp; <p className={(subActivePath === "vendorOrderReport") ? "navSubItemActiveText" : ""}>Vendor Order Report</p>
-                            </li>
-                            <li className="navSubItemText">
-                                <div className={(subActivePath === "productionReport") ? "navItemActiveCircle" : "navItemCircle"} />
-                                &nbsp;&nbsp; <p className={(subActivePath === "productionReport") ? "navSubItemActiveText" : ""}>Production Report</p>
-                            </li>
+                            <Link to="/report/orderReport" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "orderReport") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "orderReport") ? "navSubItemActiveText" : ""}>Order Report</p>
+                                </li>
+                            </Link>
+                            <Link to="/report/vendorOrderReport" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "vendorOrderReport") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "vendorOrderReport") ? "navSubItemActiveText" : ""}>Vendor Order Report</p>
+                                </li>
+                            </Link>
+                            <Link to="/report/productionReport" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "productionReport") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "productionReport") ? "navSubItemActiveText" : ""}>Production Report</p>
+                                </li>
+                            </Link>
                         </ul>
                     )
                 }

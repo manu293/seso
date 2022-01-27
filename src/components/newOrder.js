@@ -24,7 +24,7 @@ const NewOrder = (props) => {
                         placeholder="Enter Document Date"
                         value=""
                     />
-                    <label className="loginSignUpLabel">Document Date</label>
+                    <label className="orderInputLabel">Document Date</label>
                 </div>
 
                 <div className="accountReportTextField entryFilterMiddleSectionMargin">
@@ -35,7 +35,7 @@ const NewOrder = (props) => {
                         placeholder="Enter Customer Name"
                         value=""
                     />
-                    <label className="loginSignUpLabel">Customer Name</label>
+                    <label className="orderInputLabel">Customer Name</label>
                 </div>
 
                 <div className="accountReportTextField entryFilterMiddleSectionMargin">
@@ -46,7 +46,7 @@ const NewOrder = (props) => {
                         placeholder="Enter Order Id"
                         value=""
                     />
-                    <label className="loginSignUpLabel">Order Id</label>
+                    <label className="orderInputLabel">Order Id</label>
                 </div>
 
                 <div className="accountReportTextField entryFilterMiddleSectionMargin">
@@ -57,7 +57,7 @@ const NewOrder = (props) => {
                         placeholder="Enter Reference Number"
                         value=""
                     />
-                    <label className="loginSignUpLabel">References</label>
+                    <label className="orderInputLabel">References</label>
                 </div>
             </>
         )
@@ -72,7 +72,7 @@ const NewOrder = (props) => {
                         <option value="type1">Type 1</option>
                         <option value="type2">Type 2</option>
                     </select>
-                    <label className="loginSignUpLabel">Fabric Type</label>
+                    <label className="orderInputLabel">Fabric Type</label>
                 </div>
 
                 <div className="accountReportSelectField entryFilterMiddleSectionMargin">
@@ -80,7 +80,7 @@ const NewOrder = (props) => {
                         <option value="type1">Type 1</option>
                         <option value="type2">Type 2</option>
                     </select>
-                    <label className="loginSignUpLabel">Gauge</label>
+                    <label className="orderInputLabel">Gauge</label>
                 </div>
 
                 <div className="accountReportTextField entryFilterMiddleSectionMargin">
@@ -91,7 +91,7 @@ const NewOrder = (props) => {
                         placeholder="Enter Document Date"
                         value=""
                     />
-                    <label className="loginSignUpLabel">Loop Length</label>
+                    <label className="orderInputLabel">Loop Length</label>
                 </div>
 
                 <div className="accountReportTextField entryFilterMiddleSectionMargin">
@@ -102,7 +102,7 @@ const NewOrder = (props) => {
                         placeholder="Enter Document Date"
                         value=""
                     />
-                    <label className="loginSignUpLabel">GSM</label>
+                    <label className="orderInputLabel">GSM</label>
                 </div>
 
                 <div className="accountReportSelectField entryFilterMiddleSectionMargin">
@@ -110,7 +110,7 @@ const NewOrder = (props) => {
                         <option value="type1">Type 1</option>
                         <option value="type2">Type 2</option>
                     </select>
-                    <label className="loginSignUpLabel">Knit Type</label>
+                    <label className="orderInputLabel">Knit Type</label>
                 </div>
 
                 <div className="accountReportSelectField entryFilterMiddleSectionMargin">
@@ -118,7 +118,7 @@ const NewOrder = (props) => {
                         <option value="type1">Type 1</option>
                         <option value="type2">Type 2</option>
                     </select>
-                    <label className="loginSignUpLabel">Counts</label>
+                    <label className="orderInputLabel">Counts</label>
                 </div>
 
                 <div className="accountReportSelectField entryFilterMiddleSectionMargin">
@@ -126,7 +126,7 @@ const NewOrder = (props) => {
                         <option value="type1">Type 1</option>
                         <option value="type2">Type 2</option>
                     </select>
-                    <label className="loginSignUpLabel">Mill</label>
+                    <label className="orderInputLabel">Mill</label>
                 </div>
             </>
         )
@@ -140,7 +140,7 @@ const NewOrder = (props) => {
                         <option value="type1">Type 1</option>
                         <option value="type2">Type 2</option>
                     </select>
-                    <label className="loginSignUpLabel">Counts</label>
+                    <label className="orderInputLabel">Counts</label>
                 </div>
 
                 <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
@@ -148,7 +148,7 @@ const NewOrder = (props) => {
                         <option value="type1">Type 1</option>
                         <option value="type2">Type 2</option>
                     </select>
-                    <label className="loginSignUpLabel">Mill</label>
+                    <label className="orderInputLabel">Mill</label>
                 </div>
 
                 <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
@@ -156,7 +156,7 @@ const NewOrder = (props) => {
                         <option value="type1">Type 1</option>
                         <option value="type2">Type 2</option>
                     </select>
-                    <label className="loginSignUpLabel">Type Of Yarn</label>
+                    <label className="orderInputLabel">Type Of Yarn</label>
                 </div>
 
                 <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
@@ -164,7 +164,7 @@ const NewOrder = (props) => {
                         <option value="type1">Type 1</option>
                         <option value="type2">Type 2</option>
                     </select>
-                    <label className="loginSignUpLabel">Variety Of Yarn</label>
+                    <label className="orderInputLabel">Variety Of Yarn</label>
                 </div>
 
                 <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
@@ -172,7 +172,7 @@ const NewOrder = (props) => {
                         <option value="type1">Type 1</option>
                         <option value="type2">Type 2</option>
                     </select>
-                    <label className="loginSignUpLabel">Colour</label>
+                    <label className="orderInputLabel">Colour</label>
                 </div>
 
             </>

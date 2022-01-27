@@ -1,0 +1,134 @@
+.orderReportHeaderContainer2 {
+    display: flex;
+    margin: 2% 0;
+    justify-content: space-between;
+}
+
+.orderReportHeaderItemContainer {
+    width: 320px;
+    height: 140px;
+    background: #FFFFFF;
+    border: 0.2px solid rgba(21, 47, 72, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1%;
+}
+
+.orderHeaderItemMargin {
+    margin: 0 2%;
+}
+
+.orderEntryInputMargin {
+    margin-top: 2%;
+}
+
+.orderReportHeaderGraphContainer {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orderReportHeaderTextContainer {
+    width: 45%;
+}
+
+.orderReportHeaderGraphText {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #152F48;
+    text-align: center;
+}
+
+.orderReportTableBodyContainer {
+    width: 100%;
+    background-color: #fff;
+    height: calc(100% - 50%);
+    overflow-y: auto;
+}
+
+.productionReportTableBodyContainer {
+    width: 100%;
+    margin-top: 2%;
+    background-color: #fff;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.prodcutionReportTableTotalButton {
+    background: #152F48;
+    border-radius: 8px;
+    padding: 2%;
+    color: #F8FAFC;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.orderReportTableBodyContainerHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 0;
+}
+
+.orderReportTableBodyContainerHeaderText {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #152F48;
+    padding-left: 2%;
+}
+
+.orderReportTableBodyContainerHeaderIconContainer {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    padding-right: 2%;
+}
+
+.orderReportTableBodyContainerTable {
+    width: 100%;
+}
+
+.orderReportTableBodyContainerTableHeader {
+    background: #F4F8FA;
+    border-radius: 8px;
+}
+
+.orderReportTableBodyContainerTableHeaderText {
+    padding: 1%;
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: capitalize;
+    color: #152F48;
+}
+
+.orderReportTableBodyContainerTableBodyRow:nth-child(even) {
+    background-color: #F4F8FA;
+}
+
+.orderReportTableBodyContainerTableBodyRowText {
+    padding: 1%;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: #152F48;
+    cursor: pointer;
+}

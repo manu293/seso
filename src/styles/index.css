@@ -33,3 +33,107 @@
 p {
   background-color: inherit;
 }
+
+.progressCircle {
+  position: relative;
+  width: 114px;
+  height: 114px;
+}
+
+.progressCircle svg {
+  width: 114px;
+  height: 114px;
+}
+
+
+.yellowBackground {
+  fill: none;
+  stroke-width: 10px;
+  stroke: #FAEEDA;
+}
+
+.greenBackground {
+  fill: none;
+  stroke-width: 10px;
+  stroke: #C3F2D0;
+}
+
+.redBackground {
+  fill: none;
+  stroke-width: 10px;
+  stroke: #FFA6A6;
+}
+
+.redCircleProgress {
+  fill: none;
+  stroke-width: 10px;
+  stroke: #FF1E1E;
+  stroke-linecap: round;
+  stroke-dasharray: 326.56;
+  stroke-dashoffset: 60;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+  animation: big 1.5s ease-in-out;
+}
+
+.greenCircleProgress {
+  fill: none;
+  stroke-width: 10px;
+  stroke: #22AB49;
+  stroke-linecap: round;
+  stroke-dasharray: 326.56;
+  stroke-dashoffset: 60;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+  animation: big 1.5s ease-in-out;
+}
+
+.yellowCircleProgress {
+  fill: none;
+  stroke-width: 10px;
+  stroke: #FFB744;
+  stroke-linecap: round;
+  stroke-dasharray: 326.56;
+  stroke-dashoffset: 60;
+  transform: rotate(-190deg);
+  transform-origin: 50% 50%;
+  animation: big 1.5s ease-in-out;
+}
+
+.progressCircleText {
+  position: absolute;
+  width: 100%;
+  top: 45px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #152F48;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+@keyframes big {
+  from {
+    stroke-dashoffset: 326.56;
+  }
+  to {
+    stroke-dashoffset: 60;
+  }
+}
+
+@keyframes two {
+  from {
+    stroke-dashoffset: 232.36;
+  }
+  to {
+    stroke-dashoffset: 80;
+  }
+}
+
+@keyframes appear {
+	0%, 50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
