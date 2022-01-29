@@ -331,7 +331,6 @@
     margin-top: 3%;
 }
 
-
 .customerLedgerNoCardHeader {
     color: #152F48;
     font-family: 'Noto Sans', sans-serif;
@@ -411,4 +410,160 @@
     font-weight: 500;
     padding: 1% 0;
     font-family: 'Noto Sans', sans-serif;
+}
+
+.createEntryPopUpContainer {
+    height: calc(100% - 15%);
+    background-color: #F8FAFC;
+    padding: 1%;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.createEntryPopUpLeftContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    width: 200px;
+    background: #FFFFFF;
+    border: 1px solid rgba(21, 47, 72, 0.2);
+    border-radius: 20px;
+    padding: 0 2%;
+    margin-right: 2%;
+}
+
+.createEntryPopUpRightContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 630px;
+    justify-content: space-between;
+}
+
+.createEntryPopUpRightBottomContainer {
+    display: flex;
+    justify-content: center;
+    width: 630px;
+    align-items: center;
+    margin-top: 2%;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 2% 0;
+}
+
+.rightContainerCustomerName {
+    border: 1px solid rgba(21, 47, 72, 0.2);
+    border-radius: 20px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 0;
+    display: flex;
+}
+
+.customerNamePopUpContainer {
+    position: relative;
+    width: 75%;
+}
+
+.customerBodyContainer {
+    position: relative;
+    width: 45%;
+}
+
+.middleContainerPopUp {
+    margin-top: 1%;
+    border: 1px solid rgba(21, 47, 72, 0.2);
+    border-radius: 20px;
+    flex-wrap: wrap;
+    height: calc(100% - 30%);
+    overflow-y: auto;
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.middleContainerPopUpPadding {
+    padding: 2% 1%;
+}
+
+.createEntryPopUpLeftContainerText {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #152F48;
+    cursor: pointer;
+}
+
+.createEntryPopUpLeftContainerActiveText {
+    color: #F78D12;
+}
+
+.createEntryCancelButton {
+    width: 114px;
+    height: 45px;
+    text-align: center;
+    border: 1px solid #152F48;
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #152F48;
+    margin-right: 4%;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.createEntrySaveButton {
+    width: 114px;
+    height: 45px;
+    background: #FFA412;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.accountEntryInputLabel {
+    position: absolute;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Noto Sans', sans-serif;
+    left: 0;
+    top: 27%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: #262E36;
+    padding: 0 0.3rem;
+    margin: 0 0.5rem;
+    transition: .1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
+}
+
+.loginInSignUpCustomInput:focus + .accountEntryInputLabel {
+    color: #262E36;
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+}
+
+.loginInSignUpCustomInput:focus::placeholder {
+    opacity: 1;
+    font-family: 'Poppins', sans-serif;
+}
+
+.loginInSignUpCustomInput:not([value=""]) + .accountEntryInputLabel {
+    color: #262E36;
+    top: 0;
+    transform: translateY(-50%) scale(.9);
 }

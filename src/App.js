@@ -22,6 +22,7 @@ import AdminUsers from "./pages/adminUser";
 import AdminCustomer from "./pages/adminCustomer";
 import AdminVendor from "./pages/adminVendor";
 import AdminCompany from "./pages/adminCompany";
+import AccountEntry from "./pages/accountEntry";
 
 class App extends React.Component {
 
@@ -32,9 +33,7 @@ class App extends React.Component {
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/orders" element={<OrderEntry />}>
-                        <Route path="orderEntry" element={<OrderEntry />} />
-                    </Route>
+                    <Route path="/orders/orderEntry" element={<OrderEntry />} />
                     <Route path="/admin/company" element={<AdminCompany />} />
                     <Route path="/admin/users" element={<AdminUsers />} />
                     <Route path="/admin/vendor" element={<AdminVendor />} />
@@ -45,6 +44,7 @@ class App extends React.Component {
                     <Route path="/report/productionReport" element={<ProductionReport />} />
                     <Route path="/accounts" element={<Accounts />} />
                     <Route path="/accounts/report" element={<AccountReport />} />
+                    <Route path="/accounts/accountEntry" element={<AccountEntry />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>

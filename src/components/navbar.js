@@ -126,7 +126,7 @@ const Navbar = () => {
             subActivePath = "";
             break;
 
-        case "/accounts/entry":
+        case "/accounts/accountEntry":
             activePath = "accounts";
             subActivePath = "accountEntry";
             break;
@@ -336,10 +336,12 @@ const Navbar = () => {
                 {   (activePath === "accounts") &&
                     (
                         <ul className="navSubListContainer">
-                            <li className="navSubItemText">
-                                <div className={(subActivePath === "orderReport") ? "navItemActiveCircle" : "navItemCircle"} />
-                                &nbsp;&nbsp; <p className={(subActivePath === "accountEntry") ? "navSubItemActiveText" : ""}>Account Entry</p>
-                            </li>
+                            <Link to="/accounts/accountEntry" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "accountEntry") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "accountEntry") ? "navSubItemActiveText" : ""}>Account Entry</p>
+                                </li>
+                            </Link>
 
                             <Link to="/accounts/report" className="linkStyle">
                                 <li className="navSubItemText">
