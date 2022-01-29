@@ -110,9 +110,9 @@ const Navbar = () => {
             break;
 
 
-        case "/admin/user":
+        case "/admin/users":
             activePath = "admin";
-            subActivePath = "user";
+            subActivePath = "users";
             break;
 
 
@@ -278,31 +278,48 @@ const Navbar = () => {
                     )
                 }
 
-                <div className={(activePath === "admin") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <div className={(activePath === "orders") ? "navActivePadding" : "navInactivePadding"}>
-                        <User size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
-                        <p className={(activePath === "admin") ? "navItemActiveText" : "navItemText"}>Admin</p>
+                <Link to="/admin/users" className="linkStyle">
+                    <div className={(activePath === "admin") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
+                        <div className={(activePath === "orders") ? "navActivePadding" : "navInactivePadding"}>
+                            <User size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                            <p className={(activePath === "admin") ? "navItemActiveText" : "navItemText"}>Admin</p>
+                        </div>
                     </div>
-                </div>
+                </Link>
 
                 {   (activePath === "admin") &&
                     (
                         <ul className="navSubListContainer">
-                            <li className="navSubItemText">
-                                <div className="navItemCircle" /> &nbsp; Company
-                            </li>
-                            <li className="navSubItemText">
-                                <div className="navItemCircle" /> &nbsp; Customer
-                            </li>
-                            <li className="navSubItemText">
-                                <div className="navItemCircle" /> &nbsp; Vendor
-                            </li>
-                            <li className="navSubItemText">
-                                <div className="navItemCircle" /> &nbsp; User
-                            </li>
-                            <li className="navSubItemText">
-                                <div className="navItemCircle" /> &nbsp; User
-                            </li>
+                            <Link  to="/admin/company" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "company") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "company") ? "navSubItemActiveText" : ""}>Company</p>
+                                </li>
+                            </Link>
+                            <Link  to="/admin/customer" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "customer") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "customer") ? "navSubItemActiveText" : ""}>Customers</p>
+                                </li>
+                            </Link>
+                            <Link  to="/admin/vendor" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "vendor") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "vendor") ? "navSubItemActiveText" : ""}>Vendor</p>
+                                </li>
+                            </Link>
+                            <Link to="/admin/users" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "users") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "users") ? "navSubItemActiveText" : ""}>Users</p>
+                                </li>
+                            </Link>
+                            <Link  to="/admin/customization" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "customization") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "customization") ? "navSubItemActiveText" : ""}>Customization</p>
+                                </li>
+                            </Link>
                         </ul>
                     )
                 }

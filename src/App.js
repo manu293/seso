@@ -17,6 +17,11 @@ import Accounts from "./pages/accounts";
 import AccountReport from "./pages/accountReport";
 import VendorOrderReport from "./pages/vendorOrderReport";
 import ProductionReport from "./pages/productionReport";
+import Customization from "./pages/customization";
+import AdminUsers from "./pages/adminUser";
+import AdminCustomer from "./pages/adminCustomer";
+import AdminVendor from "./pages/adminVendor";
+import AdminCompany from "./pages/adminCompany";
 
 class App extends React.Component {
 
@@ -30,6 +35,11 @@ class App extends React.Component {
                     <Route path="/orders" element={<OrderEntry />}>
                         <Route path="orderEntry" element={<OrderEntry />} />
                     </Route>
+                    <Route path="/admin/company" element={<AdminCompany />} />
+                    <Route path="/admin/users" element={<AdminUsers />} />
+                    <Route path="/admin/vendor" element={<AdminVendor />} />
+                    <Route path="/admin/customer" element={<AdminCustomer />} />
+                    <Route path="/admin/customization" element={<Customization />} />
                     <Route path="/report/orderReport" element={<OrderReport />} />
                     <Route path="/report/vendorOrderReport" element={<VendorOrderReport />} />
                     <Route path="/report/productionReport" element={<ProductionReport />} />

@@ -1,0 +1,304 @@
+.adminUserFooterSection {
+    background-color: #fff;
+    padding: 2% 0%;
+    width: 100%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.adminUserFooterPageSection {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.adminUserTableBodyRow:nth-child(even) {
+    background-color: #fff;
+}
+
+.adminUserTableBodyCustomerName {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2%;
+}
+
+.adminUserTableBodyProfileSection {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+}
+
+.adminUserTableBodyCustomerNameText {
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: #152F48; 
+}
+
+.adminUserTableBodyText {
+    padding: 1%;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: #152F48;
+    cursor: pointer;
+}
+
+.adminUserTableBodyIcon {
+    padding: 1%;
+    cursor: pointer;
+}
+
+.adminFooterRightText {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #152F48;
+    padding-left: 2%;
+}
+
+.addAdminContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 1% 2%;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 15%);
+    width: 280px;
+}
+
+.addAdminUserCancelButton {
+    background: #fff;
+    border-radius: 8px;
+    border-color: #152F48;
+    width: 97px;
+    height: 45px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+    cursor: pointer;
+}
+
+.addAdminUserSaveButton {
+    background: #FFA412;;
+    border-radius: 8px;
+    width: 97px;
+    height: 45px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-family: 'Noto Sans', sans-serif;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.addAdminUserBodyContainer {
+    width: 100%;
+    height: calc(100% - 15%);
+    overflow-y: scroll;
+}
+
+.addAdminUserButtonContainer {
+    padding-top: 2%;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.addAdminUserMargin {
+    margin-top: 8%;
+}
+
+.customizationMargin {
+    margin-top: 3%;
+}
+
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 50px auto;
+}
+
+.customizationAvatarProfile {
+    position: relative;
+}
+
+.avatar-edit {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 10px;
+}
+
+.avatar-edit input {
+    display: none;
+}
+
+.avatar-edit label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #FFFFFF;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all .2s ease-in-out;
+}
+
+.avatar-edit label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+}
+
+.avatar-preview  {
+    width: 192px;
+    height: 192px;
+    position: relative;
+    border-radius: 100%;
+    border: 6px solid #F8F8F8;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.csutomizationAvatarPreview {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    border-radius: 100%;
+    border: 6px solid #F8F8F8;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+#imagePreview {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#imagePreviewTextContainer {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #F4F8FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addUserImagePreviewText {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: capitalize;
+    color: #152F48;
+}
+
+.adminCustomizationTabHeader {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+    padding: 1% 3%;
+    cursor: pointer;
+    align-items: center;
+}
+
+.adminCustomizationTabHeaderAcitveText {
+    border-bottom: 5px solid #F78D12;
+    border-radius: 10px;
+}
+
+.adminCustomizationTabHeaderText {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: capitalize;
+    color: #152F48;
+    padding-bottom: 1%;
+}
+
+.adminCustomizationProfileSection {
+    margin-top: 2%;
+    padding: 2% 0;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.adminOrganizationDetailHeader {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #152F48;
+}
+
+.customizationDetailBodyContainer {
+    height: calc(100% - 30%);
+    overflow-y: auto;
+}
+
+.customizationDetailSection {
+    margin-top: 2%;
+    background-color: #fff;
+    padding: 2% 3%;
+}
+
+.customizationDetailSectionHeader {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: capitalize;
+    color: #152F48;
+}
+
+.customizationDocumentationContainer {
+    margin-top: 2%;
+    background-color: #fff;
+}
+
+.customizationDocSection {
+    padding: 2%;
+}
+
+.customizationDocSectionText {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    text-transform: capitalize;
+    color: #152F48;
+}
+
+.customizationDocSubSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
