@@ -1,4 +1,5 @@
 // imports
+import { MinusCircle, PlusCircle, X } from "phosphor-react";
 import React, { useState } from "react";
 
 // styles
@@ -8,21 +9,182 @@ const NewOrder = (props) => {
     const {setAddOrder} = props;
 
     const [currentActiveTab, setCurrentActiveTab] = useState(0);
+    const [showDiaQtySection, setDiaQtySection] = useState(false);
+    const [showBagWeightSection, setBagWeightSection] = useState(false);
     const [currentRadioButton, setCurrentRadioButton] = useState("yarnGrn");
+    const [orderDetailSection, setOrderDetailSection] = useState([
+       {
+           documentDate: "",
+           customerName: "",
+           orderId: "",
+           reference: "",
+       } 
+    ]);
+    const [fabricDetaiSection, setFabricDetailSection] = useState([
+        {
+            fabricType: "type1",
+            gauge: "",
+            loopLength:  "",
+            gsm: "",
+            kintType: "",
+            counts: "",
+            mill: "",
+        }
+    ]);
+    const [goodNoteSection, setGoodNoteSection] = useState([
+        {
+            counts: "",
+            mill: "",
+            typeOfYarn: "",
+            varietyOfYarn: "",
+            colour: "",
+        }
+    ]);
+    const [diaQty, setDiaQty] = useState([
+        {
+            dia: "",
+            qty: "",
+        }
+    ]);
+    const [bagWeight, setBagWeight] = useState([
+        {
+            bag: "",
+            weight: "",
+        }
+    ]);
 
+    let renderCurrentSection;
     let currentSection;
 
-    const renderOrderDetailSection = () => {
+    const handleAddNewDetailSection = (sectionTab) => {
+        const newOrderSection = {
+            documentDate: "",
+            customerName: "",
+            orderId: "",
+            reference: "",
+        };
+
+        const newFabricSection = {
+            fabricType: "type1",
+            gauge: "",
+            loopLength:  "",
+            gsm: "",
+            kintType: "",
+            counts: "",
+            mill: "",
+        };
+
+        const newGoodSection = {
+            counts: "",
+            mill: "",
+            typeOfYarn: "",
+            varietyOfYarn: "",
+            colour: "",
+        };
+
+        switch(sectionTab) {
+
+            case 0: 
+                const intermediateOrderSection = [...orderDetailSection];
+                intermediateOrderSection.push(newOrderSection);
+                setOrderDetailSection(intermediateOrderSection);
+                break;
+
+            case 1: 
+                const interFabricSection = [...fabricDetaiSection];
+                interFabricSection.push(newFabricSection);
+                setFabricDetailSection(interFabricSection);
+                break;
+
+            case 2: 
+                const interNoteSection = [...goodNoteSection];
+                interNoteSection.push(newGoodSection);
+                setGoodNoteSection(interNoteSection);
+                break;
+
+            default: 
+                const interDefaultSection = [...orderDetailSection];
+                interDefaultSection.push(newOrderSection);
+                setOrderDetailSection(interDefaultSection);
+                break;
+
+        }
+
+    }
+
+    const handleRemoveNewDetailsSection = (sectionTab, indexVal) => {
+        switch(sectionTab) {
+            case 0:
+                const intOrderDetail = [...orderDetailSection];
+                intOrderDetail.splice(indexVal, 1);
+                setOrderDetailSection(intOrderDetail);
+                break;
+
+            case 1:
+                const intFabDetail = [...fabricDetaiSection];
+                intFabDetail.splice(indexVal, 1);
+                setFabricDetailSection(intFabDetail);
+                break;
+
+            case 2:
+                const intGoodNoteSection = [...goodNoteSection];
+                intGoodNoteSection.splice(indexVal, 1);
+                setGoodNoteSection(intGoodNoteSection);
+                break;
+
+            default:
+                const defaultOrderDetail = [...orderDetailSection];
+                defaultOrderDetail.splice(indexVal, 1);
+                setOrderDetailSection(defaultOrderDetail);
+                break;
+        }
+    }
+
+    const handleAddNewDiaQty = () => {
+        const newDiaQty = {
+            dia: "",
+            qty: "",
+        };
+
+        const inerDia = [...diaQty];
+        inerDia.push(newDiaQty);
+        setDiaQty(inerDia);
+    }
+
+    const handleRemoveDiaQty = (indexVal) => {
+        const inerDia = [...diaQty];
+        inerDia.splice(indexVal, 1);
+        setDiaQty(inerDia)
+    }
+
+    const handleAddNewBagWeight = () => {
+        const newBagWeight = {
+            bag: "",
+            weight: "",
+        };
+
+        const inerDia = [...bagWeight];
+        inerDia.push(newBagWeight);
+        setBagWeight(inerDia);
+    }
+
+    const handleRemoveBagWeight = (indexVal) => {
+        const inerDia = [...bagWeight];
+        inerDia.splice(indexVal, 1);
+        setBagWeight(inerDia)
+    }
+
+    const renderOrderDetailSection = (singleOrder) => {
 
         return (
-            <>
+            <div className="fabricDetailContainer">
                 <div className="accountReportTextField entryFilterMiddleSectionMargin">
                     <input
                         className="loginInSignUpCustomInput"
                         type="text"
                         id="documentDate"
                         placeholder="Enter Document Date"
-                        value=""
+                        value={singleOrder.documentDate}
                     />
                     <label className="orderInputLabel">Document Date</label>
                 </div>
@@ -33,7 +195,7 @@ const NewOrder = (props) => {
                         type="text"
                         id="customerName"
                         placeholder="Enter Customer Name"
-                        value=""
+                        value={singleOrder.customerName}
                     />
                     <label className="orderInputLabel">Customer Name</label>
                 </div>
@@ -44,7 +206,7 @@ const NewOrder = (props) => {
                         type="text"
                         id="orderId"
                         placeholder="Enter Order Id"
-                        value=""
+                        value={singleOrder.orderId}
                     />
                     <label className="orderInputLabel">Order Id</label>
                 </div>
@@ -53,144 +215,343 @@ const NewOrder = (props) => {
                     <input
                         className="loginInSignUpCustomInput"
                         type="text"
-                        id="referenceNumber"
+                        id="reference"
                         placeholder="Enter Reference Number"
-                        value=""
+                        value={singleOrder.reference}
                     />
                     <label className="orderInputLabel">References</label>
                 </div>
-            </>
+            </div>
         )
 
     }
 
-    const renderFabricDetailSection = () => {
+    const renderFabricDetailSection = (singleFabric, indexVal) => {
         return (
             <>
-                <div className="accountReportSelectField entryFilterMiddleSectionMargin">
-                    <select className="loginInSignUpCustomInput">
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                    </select>
-                    <label className="orderInputLabel">Fabric Type</label>
+                <div className="fabricDetailContainer">
+                    <div className="accountReportSelectField entryFilterMiddleSectionMargin">
+                        <select
+                            className="loginInSignUpCustomInput"
+                            id="fabricType"
+                            value={singleFabric.fabricType}
+                        >
+                            <option value="type1">Type 1</option>
+                            <option value="type2">Type 2</option>
+                        </select>
+                        <label className="orderInputLabel">Fabric Type</label>
+                    </div>
+
+                    <div className="accountReportSelectField entryFilterMiddleSectionMargin">
+                        <select
+                            className="loginInSignUpCustomInput"
+                            id="gauge"
+                            value={singleFabric.gauge}
+                        >
+                            <option value="type1">Type 1</option>
+                            <option value="type2">Type 2</option>
+                        </select>
+                        <label className="orderInputLabel">Gauge</label>
+                    </div>
+
+                    <div className="accountReportTextField entryFilterMiddleSectionMargin">
+                        <input
+                            className="loginInSignUpCustomInput"
+                            type="text"
+                            id="loopLength"
+                            placeholder="Enter Document Date"
+                            value={singleFabric.loopLength}
+                        />
+                        <label className="orderInputLabel">Loop Length</label>
+                    </div>
+
+                    <div className="accountReportTextField entryFilterMiddleSectionMargin">
+                        <input
+                            className="loginInSignUpCustomInput"
+                            type="text"
+                            id="gsm"
+                            placeholder="Enter Document Date"
+                            value={singleFabric.gsm}
+                        />
+                        <label className="orderInputLabel">GSM</label>
+                    </div>
+
+                    <div className="accountReportSelectField entryFilterMiddleSectionMargin">
+                        <select
+                            id="knitType"
+                            value={singleFabric.knitType}
+                            className="loginInSignUpCustomInput"
+                        >
+                            <option value="type1">Type 1</option>
+                            <option value="type2">Type 2</option>
+                        </select>
+                        <label className="orderInputLabel">Knit Type</label>
+                    </div>
+
+                    <div className="accountReportSelectField entryFilterMiddleSectionMargin">
+                        <select
+                            id="counts"
+                            value={singleFabric.counts}
+                            className="loginInSignUpCustomInput"
+                        >
+                            <option value="type1">Type 1</option>
+                            <option value="type2">Type 2</option>
+                        </select>
+                        <label className="orderInputLabel">Counts</label>
+                    </div>
+
+                    <div className="accountReportSelectField entryFilterMiddleSectionMargin">
+                        <select
+                            id="mill"
+                            value={singleFabric.mill}
+                            className="loginInSignUpCustomInput"
+                        >
+                            <option value="type1">Type 1</option>
+                            <option value="type2">Type 2</option>
+                        </select>
+                        <label className="orderInputLabel">Mill</label>
+                    </div>
                 </div>
 
-                <div className="accountReportSelectField entryFilterMiddleSectionMargin">
-                    <select className="loginInSignUpCustomInput">
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                    </select>
-                    <label className="orderInputLabel">Gauge</label>
-                </div>
-
-                <div className="accountReportTextField entryFilterMiddleSectionMargin">
-                    <input
-                        className="loginInSignUpCustomInput"
-                        type="text"
-                        id="documentDate"
-                        placeholder="Enter Document Date"
-                        value=""
-                    />
-                    <label className="orderInputLabel">Loop Length</label>
-                </div>
-
-                <div className="accountReportTextField entryFilterMiddleSectionMargin">
-                    <input
-                        className="loginInSignUpCustomInput"
-                        type="text"
-                        id="documentDate"
-                        placeholder="Enter Document Date"
-                        value=""
-                    />
-                    <label className="orderInputLabel">GSM</label>
-                </div>
-
-                <div className="accountReportSelectField entryFilterMiddleSectionMargin">
-                    <select className="loginInSignUpCustomInput">
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                    </select>
-                    <label className="orderInputLabel">Knit Type</label>
-                </div>
-
-                <div className="accountReportSelectField entryFilterMiddleSectionMargin">
-                    <select className="loginInSignUpCustomInput">
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                    </select>
-                    <label className="orderInputLabel">Counts</label>
-                </div>
-
-                <div className="accountReportSelectField entryFilterMiddleSectionMargin">
-                    <select className="loginInSignUpCustomInput">
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                    </select>
-                    <label className="orderInputLabel">Mill</label>
+                <div className="accountReportBottomButtonContainer">
+                    <div />
+                    <button className="addNewOrderFooterSubmitPopUp" onClick={() => setDiaQtySection(true)}>{`Dia & Qty`}</button>
+                    {
+                            (indexVal === 0)
+                        ?
+                            <PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewDetailSection(1)} />
+                        :
+                            <MinusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleRemoveNewDetailsSection(1, indexVal)} />
+                    }
                 </div>
             </>
         )
     }
 
-    const renderGrnSection = () => {
+    const renderGrnSection = (singleGoodNode, indexVal) => {
         return (
             <>
-                <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
-                    <select className="loginInSignUpCustomInput">
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                    </select>
-                    <label className="orderInputLabel">Counts</label>
-                </div>
+                <div className="fabricDetailContainer">
+                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
+                        <select
+                            className="loginInSignUpCustomInput"
+                            value={singleGoodNode.counts}
+                            id="counts"
+                        >
+                            <option value="type1">Type 1</option>
+                            <option value="type2">Type 2</option>
+                        </select>
+                        <label className="orderInputLabel">Counts</label>
+                    </div>
 
-                <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
-                    <select className="loginInSignUpCustomInput">
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                    </select>
-                    <label className="orderInputLabel">Mill</label>
-                </div>
+                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
+                        <select
+                            className="loginInSignUpCustomInput"
+                            value={singleGoodNode.mill}
+                            id="mill"
+                        >
+                            <option value="type1">Type 1</option>
+                            <option value="type2">Type 2</option>
+                        </select>
+                        <label className="orderInputLabel">Mill</label>
+                    </div>
 
-                <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
-                    <select className="loginInSignUpCustomInput">
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                    </select>
-                    <label className="orderInputLabel">Type Of Yarn</label>
-                </div>
+                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
+                        <select
+                            className="loginInSignUpCustomInput"
+                            value={singleGoodNode.typeOfYarn}
+                            id="typeOfYarn"
+                        >
+                            <option value="type1">Type 1</option>
+                            <option value="type2">Type 2</option>
+                        </select>
+                        <label className="orderInputLabel">Type Of Yarn</label>
+                    </div>
 
-                <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
-                    <select className="loginInSignUpCustomInput">
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                    </select>
-                    <label className="orderInputLabel">Variety Of Yarn</label>
-                </div>
+                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
+                        <select
+                            className="loginInSignUpCustomInput"
+                            value={singleGoodNode.varietyOfYarn}
+                            id="varietyOfYarn"
+                        >
+                            <option value="type1">Type 1</option>
+                            <option value="type2">Type 2</option>
+                        </select>
+                        <label className="orderInputLabel">Variety Of Yarn</label>
+                    </div>
 
-                <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
-                    <select className="loginInSignUpCustomInput">
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                    </select>
-                    <label className="orderInputLabel">Colour</label>
-                </div>
+                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
+                        <select
+                            className="loginInSignUpCustomInput"
+                            value={singleGoodNode.colour}
+                            id="colour"
+                        >
+                            <option value="type1">Type 1</option>
+                            <option value="type2">Type 2</option>
+                        </select>
+                        <label className="orderInputLabel">Colour</label>
+                    </div>
 
+                    <div className="accountReportBottomButtonContainer">
+                        <div />
+                        <button className="addNewOrderFooterSubmitPopUp" onClick={() => setBagWeightSection(true)}>{`Bag & Weight`}</button>
+                        {
+                                (indexVal === 0)
+                            ?
+                                <PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewDetailSection(2)} />
+                            :
+                                <MinusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleRemoveNewDetailsSection(2, indexVal)} />
+                        }
+                        
+                    </div>
+
+                </div>
             </>
+        )
+    }
+
+    const renderDiaQtyPopUp = () => {
+        return (
+            <div className="detailPopUpContainer">
+                <div className="detailPopUpSection">
+
+                    <div className="detailPopUpSectionHeader">
+                        <X size={40} weight="bold" color="#F78D12" onClick={() => setDiaQtySection(false)} />
+                    </div>
+
+                    <div className="detailPopUpSectionMiddle">
+                        {
+                            diaQty.map((dQty, indexVal) => {
+                                return (
+                                    <div className="detailPopUpSectionMiddleElement">
+
+                                        <div className="detailsPopUpLeftSection">
+
+                                            <div className="accountReportTextField">
+                                                <input
+                                                    className="detailsPopUpInput"
+                                                    type="text"
+                                                    id="dia"
+                                                    placeholder="Enter Document Date"
+                                                    value={dQty.dia}
+                                                />
+                                                <label className="orderInputLabel">Dia</label>
+                                            </div>
+
+                                            <div className="accountReportTextField entryFilterMiddleSectionMargin">
+                                                <input
+                                                    className="detailsPopUpInput"
+                                                    type="text"
+                                                    id="qty"
+                                                    placeholder="Enter Document Date"
+                                                    value={dQty.qty}
+                                                />
+                                                <label className="orderInputLabel">Qty</label>
+                                            </div>
+
+                                        </div>
+
+                                        <div className="detailsPopUpRightSection">
+
+                                            <PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewDiaQty()}/>
+                                            {
+                                                (indexVal !== 0) && <MinusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleRemoveDiaQty(indexVal)} /> 
+                                            }
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+
+                    <div className="detailPopUpSectionFooter">
+                        <button className="addNewOrderFooterSubmit">Save</button>
+                    </div>
+
+                </div>
+            </div>
+        )
+    }
+
+    const renderBagWeightSection = () => {
+        return (
+            <div className="detailPopUpContainer">
+                <div className="detailPopUpSection">
+
+                    <div className="detailPopUpSectionHeader">
+                        <X size={40} weight="bold" color="#F78D12" onClick={() => setBagWeightSection(false)} />
+                    </div>
+
+                    <div className="detailPopUpSectionMiddle">
+                        {
+                            bagWeight.map((bWegight, indexVal) => {
+                                return (
+                                    <div className="detailPopUpSectionMiddleElement">
+
+                                        <div className="detailsPopUpLeftSection">
+
+                                            <div className="accountReportTextField">
+                                                <input
+                                                    className="detailsPopUpInput"
+                                                    type="text"
+                                                    id="bag"
+                                                    placeholder="Enter Document Date"
+                                                    value={bWegight.bag}
+                                                />
+                                                <label className="orderInputLabel">Bag</label>
+                                            </div>
+
+                                            <div className="accountReportTextField entryFilterMiddleSectionMargin">
+                                                <input
+                                                    className="detailsPopUpInput"
+                                                    type="text"
+                                                    id="weight"
+                                                    placeholder="Enter Document Date"
+                                                    value={bWegight.weight}
+                                                />
+                                                <label className="orderInputLabel">Weight</label>
+                                            </div>
+
+                                        </div>
+
+                                        <div className="detailsPopUpRightSection">
+
+                                            <PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewBagWeight()}/>
+                                            {
+                                                (indexVal !== 0) && <MinusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleRemoveBagWeight(indexVal)} /> 
+                                            }
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+
+                    <div className="detailPopUpSectionFooter">
+                        <button className="addNewOrderFooterSubmit">Save</button>
+                    </div>
+
+                </div>
+            </div>
         )
     }
 
     switch(currentActiveTab) {
         case 0:
-            currentSection = renderOrderDetailSection();
+            renderCurrentSection = renderOrderDetailSection;
+            currentSection = orderDetailSection;
             break;
         case 1:
-            currentSection = renderFabricDetailSection();
+            renderCurrentSection = renderFabricDetailSection;
+            currentSection = fabricDetaiSection;
             break;
         case 2:
-            currentSection = renderGrnSection();
+            renderCurrentSection = renderGrnSection;
+            currentSection = goodNoteSection;
             break;
         default:
-            currentSection = renderOrderDetailSection();
+            renderCurrentSection = renderOrderDetailSection;
+            currentSection = orderDetailSection;
             break;
     }
 
@@ -237,7 +598,11 @@ const NewOrder = (props) => {
 
                 <div className="entryFilterMiddleSection">
                     
-                    {currentSection}
+                    {
+                        currentSection.map((cValue, index) => {
+                            return renderCurrentSection(cValue, index)
+                        })
+                    }
 
                 </div>
 
@@ -296,6 +661,14 @@ const NewOrder = (props) => {
                 }
 
             </div>
+
+            {
+                (showDiaQtySection === true) && renderDiaQtyPopUp()
+            }
+
+{
+                (showBagWeightSection === true) && renderBagWeightSection()
+            }
         </div>
     )
 
