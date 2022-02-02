@@ -280,6 +280,17 @@
     overflow-y: auto;
 }
 
+.entryFilterBodyContainer {
+    display: flex;
+    justify-content: center;
+    width: 850px;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2%;
+    justify-content: space-between;
+}
+
 .entryFilterHeaderSection {
     display: flex;
     width: 100%;
@@ -309,6 +320,10 @@
 }
 
 .accountReportTextField {
+    position: relative;
+}
+
+.filterTextFieldContainer {
     position: relative;
 }
 
@@ -431,6 +446,15 @@
     overflow-y: auto;
 }
 
+.filterMiddleSection {
+    display: flex;
+    justify-content: space-between;
+    margin: 2% 0;
+    width: 100%;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+
 .accountReportBottomButtonContainer {
     margin-top: 3%;
     display: flex;
@@ -443,11 +467,12 @@
     display: flex;
     flex-grow: 1;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 98%;
 }
 
 .entryFilterMiddleSectionMargin {
-    margin-top: 2%;
+    margin-top: 4%;
 }
 
 .accountEntryMargin {

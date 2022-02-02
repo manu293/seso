@@ -29,7 +29,7 @@ const ProductionReport = () => {
     const OrderEntryFilter = () => {
         return (
             <div className="entryFilterContainer">
-                <div className="enteryFilterSection">
+                <div className="entryFilterBodyContainer">
                     <div className="entryFilterHeaderSection">
                         <X
                             size={25}
@@ -39,7 +39,7 @@ const ProductionReport = () => {
                         />
                     </div>
 
-                    <div className="entryFilterMiddleSection">
+                    <div className="filterMiddleSection">
 
                         <div className="accountReportTextField orderEntryInputMargin">
                             <input

@@ -36,7 +36,7 @@ const OrderEntry = () => {
     const OrderEntryFilter = () => {
         return (
             <div className="entryFilterContainer">
-                <div className="enteryFilterSection">
+                <div className="entryFilterBodyContainer">
                     <div className="entryFilterHeaderSection">
                         <X
                             size={25}
@@ -46,9 +46,9 @@ const OrderEntry = () => {
                         />
                     </div>
 
-                    <div className="entryFilterMiddleSection">
+                    <div className="filterMiddleSection">
 
-                        <div className="accountReportTextField">
+                        <div className="filterTextFieldContainer">
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="text"
@@ -60,7 +60,7 @@ const OrderEntry = () => {
                             <label className="orderInputLabel">Date</label>
                         </div>
 
-                        <div className="accountReportTextField">
+                        <div className="filterTextFieldContainer">
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="text"
@@ -72,7 +72,7 @@ const OrderEntry = () => {
                             <label className="orderInputLabel">Order Id</label>
                         </div>
 
-                        <div className="accountReportTextField">
+                        <div className="filterTextFieldContainer">
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="text"

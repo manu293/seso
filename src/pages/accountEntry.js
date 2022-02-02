@@ -39,7 +39,7 @@ const AccountEntry = () => {
     const handleAccountEntryFilter = () => {
         return (
             <div className="entryFilterContainer">
-                <div className="enteryFilterSection">
+                <div className="entryFilterBodyContainer">
                     <div className="entryFilterHeaderSection">
                         <X
                             size={25}
@@ -49,7 +49,7 @@ const AccountEntry = () => {
                         />
                     </div>
 
-                    <div className="entryFilterMiddleSection">
+                    <div className="filterMiddleSection">
 
                         <div className="accountReportTextField customerLedgerHeaderMargin">
                             <input
