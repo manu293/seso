@@ -36,6 +36,10 @@
 
 .orderReportHeaderTextContainer {
     width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .orderReportHeaderGraphText {
@@ -54,12 +58,16 @@
     overflow-y: auto;
 }
 
-.productionReportTableBodyContainer {
+.productionReportBodyContainer {
     width: 100%;
     margin-top: 2%;
-    background-color: #fff;
-    height: 100%;
-    overflow-y: hidden;
+    height: calc(100% - 20%);
+    overflow-y: auto;
+}
+
+.productionReportTableBodyContainer {
+    width: 100%;
+    margin: 2% 0;
 }
 
 .prodcutionReportTableTotalButton {
@@ -131,4 +139,113 @@
     font-size: 14px;
     color: #152F48;
     cursor: pointer;
+}
+
+.productionStartSection {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.productionStartItemContainer {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    background: #FFFFFF;
+    box-shadow: 16px 16px 32px rgba(21, 47, 72, 0.08);
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.productionStartItemHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 2% 0;
+}
+
+.productionStartBodyContainer {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+}
+
+.productionStartItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productionStartItemLeft {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #152F48;
+}
+
+.productionStartItemRight {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #FFA412;
+}
+
+.productionGraphContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.productionGraphItem {
+    width: 480px;
+    background: #FFFFFF;
+    box-shadow: 16px 16px 32px rgba(21, 47, 72, 0.08);
+    border-radius: 10px;
+    display: flex;
+    padding: 2% 0;
+}
+
+.productionReportGraphText {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #152F48;
+    text-align: left;
+    width: 100%;
+}
+
+.productionReportGraphSubText {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: left;
+    color: #152F48;
+    margin-top: 3%;
+    width: 100%;
+}
+
+.productionReportGraphSelectContainer {
+    width: 80%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: right;
+}
+
+.productionReportGraphSelect {
+    background: #F4F8FA;
+    border: 0.5px solid #152F48;
+    box-sizing: border-box;
+    border-radius: 40px;
+    padding: 2% 4%;
 }

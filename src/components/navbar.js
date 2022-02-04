@@ -187,14 +187,18 @@ const Navbar = () => {
                 {   (activePath === "orders") &&
                     (
                         <ul className="navSubListContainer">
-                            <li className="navSubItemText">
-                                <div className={(subActivePath === "orderEntry") ? "navItemActiveCircle" : "navItemCircle"} />
-                                &nbsp;&nbsp; <p className={(subActivePath === "orderEntry") ? "navSubItemActiveText" : ""}>Order Entry</p>
-                            </li>
-                            <li className="navSubItemText">
-                                <div className={(subActivePath === "grn") ? "navItemActiveCircle" : "navItemCircle"} />
-                                &nbsp;&nbsp; <p className={(subActivePath === "grn") ? "navSubItemActiveText" : ""}>GRN</p>
-                            </li>
+                            <Link to="/orders/orderEntry" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "orderEntry") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "orderEntry") ? "navSubItemActiveText" : ""}>Order Entry</p>
+                                </li>
+                            </Link>
+                            <Link to="/orders/grn" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "grn") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "grn") ? "navSubItemActiveText" : ""}>GRN</p>
+                                </li>
+                            </Link>
                             <li className="navSubItemText">
                                 <div className={(subActivePath === "productionEntry") ? "navItemActiveCircle" : "navItemCircle"} />
                                 &nbsp;&nbsp; <p className={(subActivePath === "productionEntry") ? "navSubItemActiveText" : ""}>Production Entry</p>

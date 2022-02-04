@@ -5,7 +5,7 @@ class DateFormatter {
     }
 
     getCurrentDay() {
-        const currDay = this.currentDate.getDay();
+        const currDay = this.currentDate.getDay() - 1;
         const dayList = {
             0: "Mon",
             1: "Tue",
@@ -14,6 +14,21 @@ class DateFormatter {
             4: "Fri",
             5: "Sat",
             6: "Sun"
+        };
+
+        return dayList[currDay];
+    }
+
+    getCurrentFullDay() {
+        const currDay = this.currentDate.getDay();
+        const dayList = {
+            0: "Monday",
+            1: "Tuesday",
+            2: "Wednesday",
+            3: "Thuesday",
+            4: "Friday",
+            5: "Saturday",
+            6: "Sunday"
         };
 
         return dayList[currDay];
@@ -43,9 +58,34 @@ class DateFormatter {
             11: "Dec",
         };
 
-        const currMonth = this.currentDate.getMonth() + 1;
+        const currMonth = this.currentDate.getMonth();
 
         return monthList[currMonth];
+    }
+
+    getFormattedMonth(date) {
+        const monthList = {
+            0: "Jan",
+            1: "Feb",
+            2: "Mar",
+            3: "Apr",
+            4: "May",
+            5: "Jun",
+            6: "Jul",
+            7: "Aug",
+            8: "Sep",
+            9: "Oct",
+            10: "Nov",
+            11: "Dec",
+        };
+
+        const currMonth = date.getMonth();
+
+        return monthList[currMonth];
+    }
+
+    getFormattedDate(date) {
+        return date.getDate();
     }
 
 }
