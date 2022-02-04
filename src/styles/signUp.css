@@ -171,7 +171,7 @@
     pointer-events: none;
 }
 
-.loginInSignUpCustomInput {
+.signUpComponentInput {
     font-size: 1rem;
     outline: none;
     border: 1px solid #262E36;
@@ -182,26 +182,26 @@
     width: 100%;
 }
 
-.loginInSignUpCustomInput::placeholder {
+.signUpComponentInput::placeholder {
     opacity: 0;
 }
 
-.loginInSignUpCustomInput:focus {
+.signUpComponentInput:focus {
     border-color: #262E36;  
 }
 
-.loginInSignUpCustomInput:focus + .loginSignUpLabel {
+.signUpComponentInput:focus + .loginSignUpLabel {
     color: #262E36;
     top: 0;
     transform: translateY(-50%) scale(.9);
 }
 
-.loginInSignUpCustomInput:focus::placeholder {
+.signUpComponentInput:focus::placeholder {
     opacity: 1;
     font-family: 'Poppins', sans-serif;
 }
 
-.loginInSignUpCustomInput:not([value=""]) + .loginSignUpLabel {
+.signUpComponentInput:not([value=""]) + .loginSignUpLabel {
     color: #262E36;
     top: 0;
     transform: translateY(-50%) scale(.9);

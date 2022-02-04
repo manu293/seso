@@ -58,7 +58,7 @@ const Accounts = () => {
                     </div>
 
                     <div className="singleCardContainer">
-                        <p className="singleCardHeader">Notes Received</p>
+                        <p className="singleCardHeader">Notes Receivable</p>
 
                         <div className="sigleCardIconContainer">
                             <div className="dashboardNewOrderCircle">
@@ -115,53 +115,44 @@ const Accounts = () => {
                 
                             </div>
 
-                            <div>
-                                <Bar
-                                    className="chartCanvas"
-                                    options={{
-                                        responsive: true,
-                                        plugins: {
-                                            legend: {
-                                                display: false
-                                            }
-                                        },
-                                        scales: {
-                                            x: {
-                                            grid: {
-                                                display: false
-                                            }
-                                            },
-                                            y: {
-                                            grid: {
-                                                display: false
-                                            }
-                                            }
+                            <Bar
+                                className="accountsChartContainer"
+                                options={{
+                                    responsive: true,
+                                    plugins: {
+                                        legend: {
+                                            display: false
                                         }
-                                    }}
-                                    data={
-                                            {
-                                            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
-                                            datasets: [
-                                                {
-                                                    backgroundColor: "#F88F15",
-                                                    data: [250, 450, 450, 320, 450, 320, 450, 320, 450,320, 450, 320],
-                                                }
-                                            ],
+                                    },
+                                    scales: {
+                                        x: {
+                                        grid: {
+                                            display: false
+                                        }
+                                        },
+                                        y: {
+                                        grid: {
+                                            display: false
+                                        }
                                         }
                                     }
-                                />
-                            </div>
+                                }}
+                                data={
+                                        {
+                                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep","Oct", "Nov", "Dec"],
+                                        datasets: [
+                                            {
+                                                backgroundColor: "#F88F15",
+                                                data: [250, 450, 450, 320, 450, 320, 450, 320, 450,320, 450, 320],
+                                            }
+                                        ],
+                                    }
+                                }
+                            />
 
                         </div>
 
                         <div className="accountSubMiddleRightSection">
-
-                            <div className="accountExtractButtonContainer">
-                                <button className="accountExtractButton">
-                                    Extract
-                                </button>
-                            </div>
-
                             <div className="accountBodyContainer">
                                 <div className="accountBodyHeaderContainer">
                                     <select className="accountBodySelect">
@@ -180,7 +171,7 @@ const Accounts = () => {
 
                     </div>
 
-                    <div className="accountRecentActivityContainer">
+                    {/* <div className="accountRecentActivityContainer">
 
                         <p className="accountRecentAcitivityHeader">Recent Activity</p>
 
@@ -242,7 +233,7 @@ const Accounts = () => {
 
                         </div>
 
-                    </div>
+                    </div> */}
 
                 </div>
 

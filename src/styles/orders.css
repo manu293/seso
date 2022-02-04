@@ -369,6 +369,18 @@
     width: 90%;
 }
 
+.loginInSignUpCustomInput::-webkit-datetime-edit {
+    color: transparent;
+}
+
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
+}
+
+input[type=date]:not([value=""])::-webkit-datetime-edit {
+    color: black !important;
+}
+
 .loginInSignUpCustomInput::placeholder {
     opacity: 0;
 }
@@ -385,7 +397,7 @@
 
 .loginInSignUpCustomInput:focus::placeholder {
     opacity: 1;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .loginInSignUpCustomInput:not([value=""]) + .orderInputLabel {

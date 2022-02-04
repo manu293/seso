@@ -77,6 +77,7 @@ const Customization = () => {
                             type="text"
                             id="adminName"
                             placeholder="Enter Admin Name"
+                            style={{width: "35%"}}
                             value={organizationDetail.adminName}
                             onChange={(e) => handleInputChange(e)}
                         />
@@ -88,6 +89,7 @@ const Customization = () => {
                             className="loginInSignUpCustomInput"
                             type="text"
                             id="phoneNumber"
+                            style={{width: "35%"}}
                             placeholder="Enter Phone Number"
                             value={organizationDetail.phoneNumber}
                             onChange={(e) => handleInputChange(e)}
@@ -100,6 +102,7 @@ const Customization = () => {
                             className="loginInSignUpCustomInput"
                             type="text"
                             id="gstNo"
+                            style={{width: "35%"}}
                             placeholder="Enter GST Number"
                             value={organizationDetail.gstNo}
                             onChange={(e) => handleInputChange(e)}
@@ -112,6 +115,7 @@ const Customization = () => {
                             className="loginInSignUpCustomInput"
                             type="text"
                             id="panNo"
+                            style={{width: "35%"}}
                             placeholder="Enter PAN Number"
                             value={organizationDetail.panNo}
                             onChange={(e) => handleInputChange(e)}
@@ -119,11 +123,14 @@ const Customization = () => {
                         <label className="orderInputLabel">PAN Number</label>
                     </div>
 
+                    <p className="customizationDetailSectionHeader customizationMargin">Address Information</p>
+
                     <div className="accountReportTextField customizationMargin">
                         <textarea
                             className="loginInSignUpCustomInput"
                             type="text"
                             id="address"
+                            style={{width: "35%"}}
                             placeholder="Enter Address"
                             value={organizationDetail.address}
                             onChange={(e) => handleInputChange(e)}

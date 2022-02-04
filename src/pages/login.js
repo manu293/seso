@@ -58,7 +58,7 @@ const Login = () => {
                     <div className="logInFormInputContainer">
                         <div className="loginSignUpTextfield">
                             <input
-                                className="loginInSignUpCustomInput"
+                                className="loginComponentInputField"
                                 type="text"
                                 id="userName"
                                 placeholder="Enter User Name"
@@ -72,7 +72,7 @@ const Login = () => {
                     <div className="logInFormInputContainer logInFormMargin">
                         <div className="loginSignUpTextfield">
                             <input
-                                className="loginInSignUpCustomInput"
+                                className="loginComponentInputField"
                                 type="password"
                                 id="password"
                                 placeholder="Enter Password"

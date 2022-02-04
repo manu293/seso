@@ -22,7 +22,8 @@ const OrderEntry = () => {
     const [showFilterEntry, setFilterEntry] = useState(false);
     const [showAddOrder, setAddOrder] = useState(false);
     const [orderEntryFilter, setOrderEntryFilter] = useState({
-        date: "",
+        fromDate: "",
+        toDate: "",
         orderId: "",
         customerName: "",
     });
@@ -51,13 +52,25 @@ const OrderEntry = () => {
                         <div className="filterTextFieldContainer">
                             <input
                                 className="loginInSignUpCustomInput"
-                                type="text"
-                                id="date"
+                                type="date"
+                                id="fromDate"
                                 placeholder="Enter Date"
-                                value={orderEntryFilter.date}
+                                value={orderEntryFilter.fromDate}
                                 onChange={(e) => handleOrderEntryFilterInput(e)}
                             />
-                            <label className="orderInputLabel">Date</label>
+                            <label className="orderInputLabel">From Date</label>
+                        </div>
+
+                        <div className="filterTextFieldContainer">
+                            <input
+                                className="loginInSignUpCustomInput"
+                                type="date"
+                                id="toDate"
+                                placeholder="Enter Date"
+                                value={orderEntryFilter.toDate}
+                                onChange={(e) => handleOrderEntryFilterInput(e)}
+                            />
+                            <label className="orderInputLabel">To Date</label>
                         </div>
 
                         <div className="filterTextFieldContainer">

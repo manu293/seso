@@ -55,7 +55,7 @@ const SignUp = () => {
                     <div className="signUpFormInputContainer">
                         <div className="loginSignUpTextfield">
                             <input
-                                className="loginInSignUpCustomInput"
+                                className="signUpComponentInput"
                                 type="text"
                                 id="userName"
                                 placeholder="Enter User Name"
@@ -69,7 +69,7 @@ const SignUp = () => {
                     <div className="signUpFormInputContainer signUpFormInputMargin">
                         <div className="loginSignUpTextfield">
                             <input
-                                className="loginInSignUpCustomInput"
+                                className="signUpComponentInput"
                                 type="text"
                                 id="emailId"
                                 placeholder="Enter User Email"
@@ -83,7 +83,7 @@ const SignUp = () => {
                     <div className="signUpFormInputContainer signUpFormInputMargin">
                         <div className="loginSignUpTextfield">
                             <input
-                                className="loginInSignUpCustomInput"
+                                className="signUpComponentInput"
                                 type="password"
                                 id="password"
                                 placeholder="Enter Password"
@@ -97,7 +97,7 @@ const SignUp = () => {
                     <div className="signUpFormInputContainer signUpFormInputMargin">
                         <div className="loginSignUpTextfield">
                             <input
-                                className="loginInSignUpCustomInput"
+                                className="signUpComponentInput"
                                 type="password"
                                 id="confirmPassword"
                                 placeholder="Confirm Password"

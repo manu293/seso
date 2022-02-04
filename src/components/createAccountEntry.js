@@ -68,14 +68,14 @@ const CreateAccountEntry = (props) => {
                 </div>
 
                 <div className="customerBodyContainer accountEntryMargin">
-                    <textarea
+                    <input
                         className="loginInSignUpCustomInput"
                         type="text"
                         id="totalAmount"
-                        placeholder="Enter Total Amount"
+                        placeholder="Enter Narration"
                         value=""
                     />
-                    <label className="accountEntryInputLabel">Total Amount</label>
+                    <label className="accountEntryInputLabel">Narration</label>
                 </div>
             </>
         )
@@ -144,7 +144,7 @@ const CreateAccountEntry = (props) => {
                 </div>
 
                 <div className="customerBodyContainer accountEntryMargin">
-                    <textarea
+                    <input
                         className="loginInSignUpCustomInput"
                         type="text"
                         id="totalAmount"
@@ -220,7 +220,7 @@ const CreateAccountEntry = (props) => {
                 </div>
 
                 <div className="customerBodyContainer accountEntryMargin">
-                    <textarea
+                    <input
                         className="loginInSignUpCustomInput"
                         type="text"
                         id="totalAmount"
@@ -303,7 +303,7 @@ const CreateAccountEntry = (props) => {
                 </div>
 
                 <div className="customerBodyContainer accountEntryMargin">
-                    <textarea
+                    <input
                         className="loginInSignUpCustomInput"
                         type="text"
                         id="totalAmount"
@@ -386,7 +386,7 @@ const CreateAccountEntry = (props) => {
                 </div>
 
                 <div className="customerBodyContainer accountEntryMargin">
-                    <textarea
+                    <input
                         className="loginInSignUpCustomInput"
                         type="text"
                         id="totalAmount"
