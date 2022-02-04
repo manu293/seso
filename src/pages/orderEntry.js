@@ -1,5 +1,5 @@
 // imports
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
     Export,
     FadersHorizontal,
@@ -18,6 +18,8 @@ import CustomHeader from "../components/customHeader";
 import "../styles/orders.css";
 
 const OrderEntry = () => {
+    const orderFilterRef = useRef();
+    const orderEntryCreateRef = useRef();
 
     const [showFilterEntry, setFilterEntry] = useState(false);
     const [showAddOrder, setAddOrder] = useState(false);
@@ -34,10 +36,50 @@ const OrderEntry = () => {
         setOrderEntryFilter(intermediateInput);
     }
 
+    useEffect(() => {
+
+        const checkIfClickedOutside = (e) => {
+            if (
+                (showFilterEntry === true) &&
+                (orderFilterRef.current) &&
+                (!orderFilterRef.current.contains(e.target))
+            ) {
+                setFilterEntry(false);
+            }
+        }
+
+        document.addEventListener("mousedown", checkIfClickedOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+
+    }, [showFilterEntry]);
+
+    useEffect(() => {
+
+        const checkIfClickedOutside = (e) => {
+            if (
+                (showAddOrder === true) &&
+                (orderEntryCreateRef.current) &&
+                (!orderEntryCreateRef.current.contains(e.target))
+            ) {
+                setAddOrder(false);
+            }
+        }
+
+        document.addEventListener("mousedown", checkIfClickedOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+
+    }, [showAddOrder]);
+
     const OrderEntryFilter = () => {
         return (
             <div className="entryFilterContainer">
-                <div className="entryFilterBodyContainer">
+                <div className="entryFilterBodyContainer" ref={orderFilterRef}>
                     <div className="entryFilterHeaderSection">
                         <X
                             size={25}
@@ -111,7 +153,7 @@ const OrderEntry = () => {
 
             <Navbar />
 
-            <div className="mainContentContainer">
+            <div className="mainContentContainer" >
 
                 <CustomHeader />
 
@@ -222,7 +264,7 @@ const OrderEntry = () => {
 
             {(showFilterEntry === true) && OrderEntryFilter()}
 
-            {(showAddOrder === true) && <NewOrder setAddOrder={setAddOrder} />}
+            {(showAddOrder === true) && <NewOrder setAddOrder={setAddOrder} passedDownRef={orderEntryCreateRef} />}
 
         </div>
     )

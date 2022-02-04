@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import "../styles/orders.css";
 
 const NewOrder = (props) => {
-    const {setAddOrder} = props;
+    const {setAddOrder, passedDownRef} = props;
 
     const [currentActiveTab, setCurrentActiveTab] = useState(0);
     const [showDiaQtySection, setDiaQtySection] = useState(false);
@@ -578,7 +578,7 @@ const NewOrder = (props) => {
 
     return (
         <div className="entryFilterContainer">
-            <div className="enteryFilterSection">
+            <div className="enteryFilterSection" ref={passedDownRef}>
 
                 <div className="entryFilterMiddleHeader">
 
