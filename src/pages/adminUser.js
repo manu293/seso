@@ -124,7 +124,7 @@ const AdminUsers = () => {
                         </div>
 
                         <div className="accountReportTextField addAdminUserMargin">
-                            <textarea
+                            <input
                                 className="loginInSignUpCustomInput"
                                 type="text"
                                 id="address"

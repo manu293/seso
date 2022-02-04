@@ -22,7 +22,7 @@ const NewOrder = (props) => {
     ]);
     const [fabricDetaiSection, setFabricDetailSection] = useState([
         {
-            fabricType: "type1",
+            fabricType: "",
             gauge: "",
             loopLength:  "",
             gsm: "",
@@ -62,10 +62,11 @@ const NewOrder = (props) => {
             customerName: "",
             orderId: "",
             reference: "",
+            doNo: "",
         };
 
         const newFabricSection = {
-            fabricType: "type1",
+            fabricType: "",
             gauge: "",
             loopLength:  "",
             gsm: "",
@@ -181,7 +182,7 @@ const NewOrder = (props) => {
                 <div className="accountReportTextField entryFilterMiddleSectionMargin">
                     <input
                         className="loginInSignUpCustomInput"
-                        type="text"
+                        type="date"
                         id="documentDate"
                         placeholder="Enter Document Date"
                         value={singleOrder.documentDate}
@@ -221,6 +222,17 @@ const NewOrder = (props) => {
                     />
                     <label className="orderInputLabel">References</label>
                 </div>
+
+                <div className="accountReportTextField entryFilterMiddleSectionMargin">
+                    <input
+                        className="loginInSignUpCustomInput"
+                        type="text"
+                        id="dcNo"
+                        placeholder="Enter Customer DC Number"
+                        value={singleOrder.dcNo}
+                    />
+                    <label className="orderInputLabel">Customer DC No</label>
+                </div>
             </div>
         )
 
@@ -230,7 +242,7 @@ const NewOrder = (props) => {
         return (
             <>
                 <div className="fabricDetailContainer">
-                    <div className="accountReportSelectField entryFilterMiddleSectionMargin">
+                    <div className="accountReportSelectField entryFilterMiddleSectionMargin" style={{width: "45%"}}>
                         <select
                             className="loginInSignUpCustomInput"
                             id="fabricType"
@@ -242,7 +254,7 @@ const NewOrder = (props) => {
                         <label className="orderInputLabel">Fabric Type</label>
                     </div>
 
-                    <div className="accountReportSelectField entryFilterMiddleSectionMargin">
+                    <div className="accountReportSelectField entryFilterMiddleSectionMargin" style={{width: "45%"}}>
                         <select
                             className="loginInSignUpCustomInput"
                             id="gauge"
@@ -254,7 +266,7 @@ const NewOrder = (props) => {
                         <label className="orderInputLabel">Gauge</label>
                     </div>
 
-                    <div className="accountReportTextField entryFilterMiddleSectionMargin">
+                    <div className="accountReportTextField entryFilterMiddleSectionMargin" style={{width: "20%"}}>
                         <input
                             className="loginInSignUpCustomInput"
                             type="text"
@@ -265,7 +277,7 @@ const NewOrder = (props) => {
                         <label className="orderInputLabel">Loop Length</label>
                     </div>
 
-                    <div className="accountReportTextField entryFilterMiddleSectionMargin">
+                    <div className="accountReportTextField entryFilterMiddleSectionMargin" style={{width: "12%"}}>
                         <input
                             className="loginInSignUpCustomInput"
                             type="text"
@@ -276,7 +288,7 @@ const NewOrder = (props) => {
                         <label className="orderInputLabel">GSM</label>
                     </div>
 
-                    <div className="accountReportSelectField entryFilterMiddleSectionMargin">
+                    <div className="accountReportSelectField entryFilterMiddleSectionMargin" style={{width: "15%"}}>
                         <select
                             id="knitType"
                             value={singleFabric.knitType}
@@ -288,7 +300,7 @@ const NewOrder = (props) => {
                         <label className="orderInputLabel">Knit Type</label>
                     </div>
 
-                    <div className="accountReportSelectField entryFilterMiddleSectionMargin">
+                    <div className="accountReportSelectField entryFilterMiddleSectionMargin" style={{width: "15%"}}>
                         <select
                             id="counts"
                             value={singleFabric.counts}
@@ -300,7 +312,7 @@ const NewOrder = (props) => {
                         <label className="orderInputLabel">Counts</label>
                     </div>
 
-                    <div className="accountReportSelectField entryFilterMiddleSectionMargin">
+                    <div className="accountReportSelectField entryFilterMiddleSectionMargin" style={{width: "15%"}}>
                         <select
                             id="mill"
                             value={singleFabric.mill}
@@ -316,12 +328,17 @@ const NewOrder = (props) => {
                 <div className="accountReportBottomButtonContainer">
                     <div />
                     <button className="addNewOrderFooterSubmitPopUp" onClick={() => setDiaQtySection(true)}>{`Dia & Qty`}</button>
+                    
                     {
                             (indexVal === 0)
                         ?
-                            <PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewDetailSection(1)} />
+                            <div style={{display: "flex", width: "120px", justifyContent: "space-around"}}><div /><PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewDetailSection(1)} /></div>
+
                         :
-                            <MinusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleRemoveNewDetailsSection(1, indexVal)} />
+                            <div style={{display: "flex", width: "120px", justifyContent: "space-evenly"}}>
+                                <PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewDetailSection(1)} />
+                                <MinusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleRemoveNewDetailsSection(1, indexVal)}  />
+                            </div>
                     }
                 </div>
             </>
@@ -332,7 +349,7 @@ const NewOrder = (props) => {
         return (
             <>
                 <div className="fabricDetailContainer">
-                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
+                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin" style={{width: "35%"}}>
                         <select
                             className="loginInSignUpCustomInput"
                             value={singleGoodNode.counts}
@@ -344,7 +361,7 @@ const NewOrder = (props) => {
                         <label className="orderInputLabel">Counts</label>
                     </div>
 
-                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
+                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin" style={{width: "45%"}}>
                         <select
                             className="loginInSignUpCustomInput"
                             value={singleGoodNode.mill}
@@ -356,7 +373,7 @@ const NewOrder = (props) => {
                         <label className="orderInputLabel">Mill</label>
                     </div>
 
-                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
+                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin" style={{width: "30%"}}>
                         <select
                             className="loginInSignUpCustomInput"
                             value={singleGoodNode.typeOfYarn}
@@ -368,7 +385,7 @@ const NewOrder = (props) => {
                         <label className="orderInputLabel">Type Of Yarn</label>
                     </div>
 
-                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
+                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin" style={{width: "30%"}}>
                         <select
                             className="loginInSignUpCustomInput"
                             value={singleGoodNode.varietyOfYarn}
@@ -380,7 +397,7 @@ const NewOrder = (props) => {
                         <label className="orderInputLabel">Variety Of Yarn</label>
                     </div>
 
-                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin">
+                    <div className="renderGrnSelectField entryFilterMiddleSectionMargin" style={{width: "30%"}}>
                         <select
                             className="loginInSignUpCustomInput"
                             value={singleGoodNode.colour}
@@ -396,11 +413,15 @@ const NewOrder = (props) => {
                         <div />
                         <button className="addNewOrderFooterSubmitPopUp" onClick={() => setBagWeightSection(true)}>{`Bag & Weight`}</button>
                         {
-                                (indexVal === 0)
+                            (indexVal === 0)
                             ?
-                                <PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewDetailSection(2)} />
+                                <div style={{display: "flex", width: "120px", justifyContent: "space-around"}}><div /><PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewDetailSection(1)} /></div>
+
                             :
-                                <MinusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleRemoveNewDetailsSection(2, indexVal)} />
+                                <div style={{display: "flex", width: "120px", justifyContent: "space-evenly"}}>
+                                    <PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewDetailSection(2)} />
+                                    <MinusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleRemoveNewDetailsSection(2, indexVal)}  />
+                                </div>
                         }
                         
                     </div>

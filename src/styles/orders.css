@@ -427,6 +427,7 @@ input[type=date]:not([value=""])::-webkit-datetime-edit {
     height: 45px;
     outline: none;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .addNewOrderFooterSubmit {
@@ -561,7 +562,7 @@ input[type=date]:not([value=""])::-webkit-datetime-edit {
     align-items: center;
     justify-content: space-between;
     position: relative;
-    left: 5%;
+    left: 4%;
     width: 85%;
     margin: 2% 0;
 }
