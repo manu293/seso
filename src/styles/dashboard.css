@@ -250,9 +250,6 @@
 }
 
 .lastSectionTableBody {
-    font-size: 16px;
-    color: #152F48;
-    text-align: center;
     background-color: inherit;
     padding-top: 3%;
 }
@@ -260,7 +257,7 @@
 .lastSectionCompleted {
     background: #0EAD15;
     border: 0.2px solid rgba(21, 47, 72, 0.3);
-    padding: 1%;
+    padding: 4%;
     border-radius: 8px;
 }
 
@@ -275,7 +272,7 @@
     border: 1px solid #F78D12;
     background-color: #fff;
     border-radius: 8px;
-    padding: 1%;
+    padding: 4%;
 }
 
 .lastSectionButtonOnGoing {
@@ -283,4 +280,19 @@
     text-align: center;
     font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
+}
+
+.lastSectionTableText {
+    font-size: 16px;
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+}
+
+.lastSectionTableActiveText {
+    font-size: 16px;
+    font-weight: bold;
+    color: #152F48;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
 }

@@ -1,6 +1,6 @@
 // imports
 import { CheckSquareOffset, ClipboardText } from "phosphor-react";
-import React from "react";
+import React, { useState } from "react";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -29,6 +29,13 @@ ChartJS.register(
 );
 
 const Dashboard = () => {
+    const [reportSection, setReport] = useState("orderReport");
+
+    const orderList = {
+        orderReport: "Order Report",
+        vendorReport: "Vendor Report",
+        productionReport: "Production Report"
+    }
     const dateFormatter = new DateFormatter();
 
     const currentDate = dateFormatter.getCurrentDate();
@@ -67,7 +74,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="dashboardItemContainer">
-                        <p className="dashboardItemHeader">New Orders</p>
+                        <p className="dashboardItemHeader">Running Orders</p>
 
                         <div className="dashboardSubItemContainer">
                             <div className="dashboardNewOrderCircle">
@@ -83,7 +90,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="dashboardItemContainer">
-                        <p className="dashboardItemHeader">Pending Orders</p>
+                        <p className="dashboardItemHeader">Completed Orders</p>
 
                         <div className="dashboardSubItemContainer">
                             <div className="dashboardPendingOrderCircle">
@@ -123,17 +130,23 @@ const Dashboard = () => {
                         <div className="orderReportContainer">
                             <div className="orderReportHeaderContainer">
 
-                                <p className="orderReportHeaderText">Order Report 2022</p>
+                                <p className="orderReportHeaderText">
+                                    {orderList[reportSection]}
+                                </p>
 
                                 <div className="orderReportRightSection">
                                     <select className="orderHeaderSelect orderSelectMargin">
                                         <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
                                     </select>
 
-                                    <select className="orderHeaderSelect">
-                                        <option value="order_report">Order Report</option>
-                                        <option value="vendor_report">Vendor Report</option>
+                                    <select
+                                        className="orderHeaderSelect"
+                                        value={reportSection}
+                                        onChange={(e) => setReport(e.target.value)}
+                                    >
+                                        <option value="orderReport">Order Report</option>
+                                        <option value="vendorReport">Vendor Report</option>
+                                        <option value="productionReport">Production Report</option>
                                     </select>
                                 </div>
 
@@ -182,7 +195,7 @@ const Dashboard = () => {
 
                         <div className="priorityContainer">
                                 
-                            <p className="lastSectionHeader">Priority Order</p>
+                            <p className="lastSectionHeader">Order Status</p>
 
                             <div className="lastSectionBody">
                                 <table className="lastSectionTable">
@@ -198,9 +211,15 @@ const Dashboard = () => {
                                     <tbody className="lastSectionTableContainer">
 
                                         <tr className="lastSectionTableContainer">
-                                            <td className="lastSectionTableBody">100</td>
-                                            <td className="lastSectionTableBody">Total order</td>
-                                            <td className="lastSectionTableBody">Total order</td>
+                                            <td className="lastSectionTableBody">
+                                                <p className="lastSectionTableText">100</p>
+                                            </td>
+                                            <td className="lastSectionTableBody">
+                                                <p className="lastSectionTableActiveText">Total order</p>
+                                            </td>
+                                            <td className="lastSectionTableBody">
+                                                <p className="lastSectionTableActiveText">Total order</p>
+                                            </td>
                                             <td className="lastSectionTableBody">
                                                 <div className="lastSectionCompleted">
                                                     <p className="lastSectionButtonText">Completed</p>
@@ -209,9 +228,15 @@ const Dashboard = () => {
                                         </tr>
 
                                         <tr className="lastSectionTableContainer">
-                                            <td className="lastSectionTableBody">100</td>
-                                            <td className="lastSectionTableBody">Total order</td>
-                                            <td className="lastSectionTableBody">Total order</td>
+                                            <td className="lastSectionTableBody">
+                                                <p className="lastSectionTableText">100</p>
+                                            </td>
+                                            <td className="lastSectionTableBody">
+                                                <p className="lastSectionTableActiveText">Total order</p>
+                                            </td>
+                                            <td className="lastSectionTableBody">
+                                                <p className="lastSectionTableActiveText">Total order</p>
+                                            </td>
                                             <td className="lastSectionTableBody">
                                                 <div className="lastSectionOnGoing">
                                                     <p className="lastSectionButtonOnGoing">On Going</p>
@@ -220,20 +245,15 @@ const Dashboard = () => {
                                         </tr>
 
                                         <tr className="lastSectionTableContainer">
-                                            <td className="lastSectionTableBody">100</td>
-                                            <td className="lastSectionTableBody">Total order</td>
-                                            <td className="lastSectionTableBody">Total order</td>
                                             <td className="lastSectionTableBody">
-                                                <div className="lastSectionOnGoing">
-                                                    <p className="lastSectionButtonOnGoing">On Going</p>
-                                                </div>
+                                                <p className="lastSectionTableText">100</p>
                                             </td>
-                                        </tr>
-
-                                        <tr className="lastSectionTableContainer">
-                                            <td className="lastSectionTableBody">100</td>
-                                            <td className="lastSectionTableBody">Total order</td>
-                                            <td className="lastSectionTableBody">Total order</td>
+                                            <td className="lastSectionTableBody">
+                                                <p className="lastSectionTableActiveText">Total order</p>
+                                            </td>
+                                            <td className="lastSectionTableBody">
+                                                <p className="lastSectionTableActiveText">Total order</p>
+                                            </td>
                                             <td className="lastSectionTableBody">
                                                 <div className="lastSectionCompleted">
                                                     <p className="lastSectionButtonText">Completed</p>
@@ -242,9 +262,15 @@ const Dashboard = () => {
                                         </tr>
 
                                         <tr className="lastSectionTableContainer">
-                                            <td className="lastSectionTableBody">100</td>
-                                            <td className="lastSectionTableBody">Total order</td>
-                                            <td className="lastSectionTableBody">Total order</td>
+                                            <td className="lastSectionTableBody">
+                                                <p className="lastSectionTableText">100</p>
+                                            </td>
+                                            <td className="lastSectionTableBody">
+                                                <p className="lastSectionTableActiveText">Total order</p>
+                                            </td>
+                                            <td className="lastSectionTableBody">
+                                                <p className="lastSectionTableActiveText">Total order</p>
+                                            </td>
                                             <td className="lastSectionTableBody">
                                                 <div className="lastSectionCompleted">
                                                     <p className="lastSectionButtonText">Completed</p>
