@@ -192,8 +192,7 @@ const OrderGrn = () => {
         const checkIfClickedOutsideAddGrn = (e) => {
             if (
                 (showGrnSection === true) &&
-                (previewAddGrnRef.current) &&
-                (!previewAddGrnRef.current.contains(e.target))
+                (previewAddGrnRef.current)
             ) {
                 setShowGrnSection(false);
             }
@@ -209,7 +208,7 @@ const OrderGrn = () => {
             document.removeEventListener("mousedown", checkIfClickedOutsideAddGrn);
         }
 
-    }, [showOrderPopUp, showFilterEntry]);
+    }, [showOrderPopUp, showFilterEntry, showGrnSection]);
 
     return (
         <div className="mainContainer">

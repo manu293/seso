@@ -190,7 +190,7 @@ const GoodReceivedNotes = (props) => {
     }
 
     return (
-        <div className="entryFilterContainer">
+        <div className="entryFilterContainer" >
             <div className="enteryFilterSection" ref={previewAddGrnRef}>
 
                 <div className="selectOrderPopUpHeaderContainer">
