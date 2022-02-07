@@ -1,5 +1,5 @@
 // imports
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
     CaretLeft,
     Eye,
@@ -18,6 +18,7 @@ import "../styles/orders.css";
 import "../styles/admin.css";
 
 const AdminUsers = () => {
+    const adinUsersPopUpRef = useRef();
     const [newUser, setNewUser] = useState({
         avatar: "",
         name: "",
@@ -44,10 +45,30 @@ const AdminUsers = () => {
         setNewUser(intermediateNewUser);
     }
 
+    useEffect(() => {
+
+        const checkIfClickedOutside = (e) => {
+            if (
+                (showAdminUserPopUp === true) &&
+                (adinUsersPopUpRef.current) &&
+                (!adinUsersPopUpRef.current.contains(e.target))
+            ) {
+                setAdminUserPopUp(false);
+            }
+        }
+
+        document.addEventListener("mousedown", checkIfClickedOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+
+    }, [showAdminUserPopUp]);
+
     const handleAddAdminUser = () => {
         return (
             <div className="entryFilterContainer">
-                <div className="addAdminContainer">
+                <div className="addAdminContainer" ref={adinUsersPopUpRef}>
 
                     <div className="addAdminUserBodyContainer">
 

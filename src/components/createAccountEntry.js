@@ -1,8 +1,8 @@
 // imports
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 const CreateAccountEntry = (props) => {
-    const {setCreateEntryPopUp} = props;
+    const {setCreateEntryPopUp, createEntryRef} = props;
     const [createEntryTab, setCreateEntryTab] = useState(0);
 
     const renderPayableSection = () => {
@@ -431,7 +431,7 @@ const CreateAccountEntry = (props) => {
 
     return (
         <div className="entryFilterContainer">
-            <div className="createEntryPopUpContainer">
+            <div className="createEntryPopUpContainer" ref={createEntryRef}>
 
                 <div className="createEntryPopUpLeftContainer">
                     <p

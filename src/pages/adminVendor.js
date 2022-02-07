@@ -1,5 +1,5 @@
 // imports
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
     CaretLeft,
     Eye,
@@ -18,6 +18,7 @@ import "../styles/orders.css";
 import "../styles/admin.css";
 
 const AdminVendor = () => {
+    const adminCompanyPopUpRef = useRef();
     const [newCustomer, setNewCustomer] = useState({
         avatar: "",
         companyName: "",
@@ -48,7 +49,7 @@ const AdminVendor = () => {
     const handleAddAdminCustomer = () => {
         return (
             <div className="entryFilterContainer">
-                <div className="addAdminContainer">
+                <div className="addAdminContainer" ref={adminCompanyPopUpRef}>
 
                     <div className="addAdminUserBodyContainer">
 
@@ -164,6 +165,26 @@ const AdminVendor = () => {
             </div>
         )
     }
+
+    useEffect(() => {
+
+        const checkIfClickedOutside = (e) => {
+            if (
+                (adminCustomerPopUp === true) &&
+                (adminCompanyPopUpRef.current) &&
+                (!adminCompanyPopUpRef.current.contains(e.target))
+            ) {
+                setAdminCustomerPopUp(false);
+            }
+        }
+
+        document.addEventListener("mousedown", checkIfClickedOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+
+    }, [adminCustomerPopUp]);
 
     return (
         <div className="mainContainer">

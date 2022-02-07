@@ -1,5 +1,5 @@
 // imports
-import React, {useState} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import { Export, Faders, Printer, X } from "phosphor-react";
 
 // local imports
@@ -11,7 +11,7 @@ import CircularProgressBar from "../components/circularProgressBar";
 import "../styles/orderReport.css";
 
 const OrderReport = () => {
-
+    const orderFilterRef = useRef();
     const [orderEntryFilter, setOrderEntryFilter] = useState({
         date: "",
         orderId: "",
@@ -25,10 +25,31 @@ const OrderReport = () => {
         setOrderEntryFilter(intermediateInput);
     }
 
+    useEffect(() => {
+
+        const checkIfClickedOutside = (e) => {
+            if (
+                (showFilterEntry === true) &&
+                (orderFilterRef.current) &&
+                (!orderFilterRef.current.contains(e.target))
+            ) {
+                setFilterEntry(false);
+            }
+        }
+
+        document.addEventListener("mousedown", checkIfClickedOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+
+    }, [showFilterEntry]);
+
+
     const OrderEntryFilter = () => {
         return (
             <div className="entryFilterContainer">
-                <div className="entryFilterBodyContainer">
+                <div className="entryFilterBodyContainer" ref={orderFilterRef}>
                     <div className="entryFilterHeaderSection">
                         <X
                             size={25}

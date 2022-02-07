@@ -1,5 +1,5 @@
 // imports
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
     CaretRight,
     FadersHorizontal,
@@ -20,7 +20,8 @@ import "../styles/orders.css";
 import "../styles/admin.css";
 
 const AccountEntry = () => {
-
+    const accountEntryPopUpRef = useRef();
+    const createEntryRef = useRef();
     const [showCreateEntryPopUp, setCreateEntryPopUp] = useState(false);
     const [accountEntryFilter, setAccountEntryFilter] = useState(false);
     const [entryFilterInput, setEntryFilterInput] = useState({
@@ -39,7 +40,7 @@ const AccountEntry = () => {
     const handleAccountEntryFilter = () => {
         return (
             <div className="entryFilterContainer">
-                <div className="entryFilterBodyContainer">
+                <div className="entryFilterBodyContainer" ref={accountEntryPopUpRef}>
                     <div className="entryFilterHeaderSection">
                         <X
                             size={25}
@@ -107,6 +108,38 @@ const AccountEntry = () => {
             </div>
         )
     }
+
+    useEffect(() => {
+
+        const checkIfClickedOutside = (e) => {
+            if (
+                (accountEntryFilter === true) &&
+                (accountEntryPopUpRef.current) &&
+                (!accountEntryPopUpRef.current.contains(e.target))
+            ) {
+                setAccountEntryFilter(false);
+            }
+        }
+
+        const checkIfAddClickedOutside = (e) => {
+            if (
+                (showCreateEntryPopUp === true) &&
+                (createEntryRef.current) &&
+                (!createEntryRef.current.contains(e.target))
+            ) {
+                setCreateEntryPopUp(false);
+            }
+        }
+
+        document.addEventListener("mousedown", checkIfClickedOutside);
+        document.addEventListener("mousedown", checkIfAddClickedOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+            document.removeEventListener("mousedown", checkIfAddClickedOutside)
+        }
+
+    }, [accountEntryFilter, showCreateEntryPopUp]);
 
     return (
         <div className="mainContainer">
@@ -204,7 +237,7 @@ const AccountEntry = () => {
             }
 
             {
-                (showCreateEntryPopUp === true) && <CreateAccountEntry setCreateEntryPopUp={setCreateEntryPopUp} />
+                (showCreateEntryPopUp === true) && <CreateAccountEntry setCreateEntryPopUp={setCreateEntryPopUp} createEntryRef={createEntryRef} />
             }
 
         </div>

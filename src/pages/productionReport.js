@@ -1,5 +1,5 @@
 // imports
-import React, {useState} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import { Export, Faders, Printer, X, Star } from "phosphor-react";
 
 // local imports
@@ -13,6 +13,7 @@ import "../styles/orderReport.css";
 
 const ProductionReport = () => {
     const dateFormatter = new DateFormatter();
+    const orderFilterRef = useRef();
 
     const currentDate = dateFormatter.getCurrentDate();
     const currentDay = dateFormatter.getCurrentFullDay();
@@ -36,7 +37,7 @@ const ProductionReport = () => {
     const OrderEntryFilter = () => {
         return (
             <div className="entryFilterContainer">
-                <div className="entryFilterBodyContainer">
+                <div className="entryFilterBodyContainer" ref={orderFilterRef}>
                     <div className="entryFilterHeaderSection">
                         <X
                             size={25}
@@ -104,6 +105,26 @@ const ProductionReport = () => {
             </div>
         )
     }
+
+    useEffect(() => {
+
+        const checkIfClickedOutside = (e) => {
+            if (
+                (showFilterEntry === true) &&
+                (orderFilterRef.current) &&
+                (!orderFilterRef.current.contains(e.target))
+            ) {
+                setFilterEntry(false);
+            }
+        }
+
+        document.addEventListener("mousedown", checkIfClickedOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+
+    }, [showFilterEntry]);
 
     const weekEndDate = new Date();
     const weekStartDate = new Date();
