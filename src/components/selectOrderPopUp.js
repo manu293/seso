@@ -8,12 +8,12 @@ import {
 } from "phosphor-react";
 
 const SelectOrderPopUp = (props) => {
-    const {hideOrderPopUp} = props;
+    const {hideOrderPopUp, previewPopUpRef} = props;
     const [searchField, setSearchField] = useState("");
 
     return (
         <div className="entryFilterContainer">
-            <div className="enteryFilterSection">
+            <div className="enteryFilterSection" ref={previewPopUpRef}>
 
                 <div className="selectOrderPopUpHeaderContainer">
                     <p className="selectOrderPopUpHeaderText">Select the order</p>

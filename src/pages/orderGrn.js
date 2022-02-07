@@ -1,5 +1,5 @@
 // imports
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
     Export,
     FadersHorizontal,
@@ -22,10 +22,13 @@ import GoodReceivedNotes from "../components/goodReceivedNotes";
 import "../styles/orders.css";
 
 const OrderGrn = () => {
+    const previewPopUpRef = useRef();
+    const previewFilterPopUpRef = useRef();
+    const previewAddGrnRef = useRef();
 
     const [showFilterEntry, setFilterEntry] = useState(false);
-    const [showAddOrder, setAddOrder] = useState(false);
     const [showOrderPopUp, setOrderPopUp] = useState(false);
+    const [showGrnSection, setShowGrnSection] = useState(false);
     const [showActionSection, setActionSection] = useState("");
     const [orderGrnFilter, setOrderGrnFilter] = useState({
         date: "",
@@ -33,6 +36,38 @@ const OrderGrn = () => {
         grnNo: "",
         customerName: "",
     });
+    const [grnSection, setGrnSection] = useState([
+        {
+            counts: "",
+            mill: "",
+            typeOfYarn: "",
+            varietyOfYarn: "",
+            colour: "",
+        }
+    ]);
+    const [bagWeight, setBagWeight] = useState([
+        {
+            bag: "",
+            weight: "",
+        }
+    ]);
+
+    const handleAddNewBagWeight = () => {
+        const newBagWeight = {
+            bag: "",
+            weight: "",
+        };
+
+        const inerDia = [...bagWeight];
+        inerDia.push(newBagWeight);
+        setBagWeight(inerDia);
+    }
+
+    const handleRemoveBagWeight = (indexVal) => {
+        const inerDia = [...bagWeight];
+        inerDia.splice(indexVal, 1);
+        setBagWeight(inerDia)
+    }
 
     const handleOrderEntryFilterInput = (e) => {
         const intermediateInput = {...orderGrnFilter};
@@ -40,10 +75,30 @@ const OrderGrn = () => {
         setOrderGrnFilter(intermediateInput);
     }
 
+    const addGrnSection = () => {
+        const initalData = {
+            counts: "",
+            mill: "",
+            typeOfYarn: "",
+            varietyOfYarn: "",
+            colour: "",
+        }
+
+        const intermediateData = [...grnSection];
+        intermediateData.push(initalData);
+        setGrnSection(intermediateData);
+    }
+
+    const removeGrnSection = (indexVal) => {
+        const intermediateData = [...grnSection];
+        intermediateData.splice(indexVal, 1);
+        setGrnSection(intermediateData);
+    }
+
     const OrderGrnFilter = () => {
         return (
             <div className="entryFilterContainer">
-                <div className="entryFilterBodyContainer">
+                <div className="entryFilterBodyContainer" ref={previewFilterPopUpRef}>
                     <div className="entryFilterHeaderSection">
                         <X
                             size={25}
@@ -112,6 +167,50 @@ const OrderGrn = () => {
         )
     }
 
+    useEffect(() => {
+
+        const checkIfClickedOutside = (e) => {
+            if (
+                (showOrderPopUp === true) &&
+                (previewPopUpRef.current) &&
+                (!previewPopUpRef.current.contains(e.target))
+            ) {
+                setOrderPopUp(false);
+            }
+        }
+
+        const checkIfClickedOutsideFilter = (e) => {
+            if (
+                (showFilterEntry === true) &&
+                (previewFilterPopUpRef.current) &&
+                (!previewFilterPopUpRef.current.contains(e.target))
+            ) {
+                setFilterEntry(false);
+            }
+        }
+
+        const checkIfClickedOutsideAddGrn = (e) => {
+            if (
+                (showGrnSection === true) &&
+                (previewAddGrnRef.current) &&
+                (!previewAddGrnRef.current.contains(e.target))
+            ) {
+                setShowGrnSection(false);
+            }
+        }
+
+        document.addEventListener("mousedown", checkIfClickedOutside);
+        document.addEventListener("mousedown", checkIfClickedOutsideFilter);
+        document.addEventListener("mousedown", checkIfClickedOutsideAddGrn);
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside);
+            document.removeEventListener("mousedown", checkIfClickedOutsideFilter);
+            document.removeEventListener("mousedown", checkIfClickedOutsideAddGrn);
+        }
+
+    }, [showOrderPopUp, showFilterEntry]);
+
     return (
         <div className="mainContainer">
 
@@ -137,7 +236,7 @@ const OrderGrn = () => {
 
                     <div className="orderEntryRightSection">
                         <button
-                            onClick={() => setAddOrder(true)}
+                            onClick={() => setShowGrnSection(true)}
                             className="orderEntryHeaderButton"
                         >
                             Create
@@ -169,7 +268,9 @@ const OrderGrn = () => {
                                 <td className="orderEntryTableText">Jersy</td>
                                 <td className="orderEntryTableText">Jersy</td>
                                 <td className="orderEntryTableText">Jersy</td>
-                                <td className="orderEntryTableText"><Eye size={23} weight="bold" color="#F78D12" /></td>
+                                <td className="orderEntryTableText" onClick={() => setOrderPopUp(true)}>
+                                    <Eye size={23} weight="bold" color="#F78D12" />
+                                </td>
                                 <td className="orderEntryTableText editActionIconContainer">
                                     <DotsThreeVertical size={23} weight="bold" color="#F78D12" onClick={() => setActionSection("0") } />
 
@@ -181,10 +282,7 @@ const OrderGrn = () => {
                                                 onMouseLeave={() => setActionSection("")}
                                             >
 
-                                                <div
-                                                    className="editActionBodyItemContainer"
-                                                    onClick={() => setOrderPopUp(true)}
-                                                >
+                                                <div className="editActionBodyItemContainer">
                                                     <p>Edit</p>
                                                     <MinusCircle size={20} weight="bold" color="#F78D12" />
                                                 </div>
@@ -207,7 +305,9 @@ const OrderGrn = () => {
                                 <td className="orderEntryTableText">Jersy123</td>
                                 <td className="orderEntryTableText">Jersy123</td>
                                 <td className="orderEntryTableText">Jersy123</td>
-                                <td className="orderEntryTableText"><Eye size={23} weight="bold" color="#F78D12" /></td>
+                                <td className="orderEntryTableText" onClick={() => setOrderPopUp(true)}>
+                                    <Eye size={23} weight="bold" color="#F78D12" />
+                                </td>
                                 <td className="orderEntryTableText editActionIconContainer">
                                     <DotsThreeVertical size={23} weight="bold" color="#F78D12" onClick={() => setActionSection("1") } />
 
@@ -219,10 +319,7 @@ const OrderGrn = () => {
                                                 onMouseLeave={() => setActionSection("")}
                                             >
 
-                                                <div
-                                                    className="editActionBodyItemContainer"
-                                                    onClick={() => setOrderPopUp(true)}
-                                                >
+                                                <div className="editActionBodyItemContainer">
                                                     <p>Edit</p>
                                                     <MinusCircle size={20} weight="bold" color="#F78D12" />
                                                 </div>
@@ -259,14 +356,26 @@ const OrderGrn = () => {
             </div>
 
             
-            {(showOrderPopUp === true) && <SelectOrderPopUp hideOrderPopUp={setOrderPopUp} />}
+            {(showOrderPopUp === true) && <SelectOrderPopUp hideOrderPopUp={setOrderPopUp} previewPopUpRef={previewPopUpRef} />}
 
             {(showFilterEntry === true) && OrderGrnFilter()}
 
-            {(showAddOrder === true) && <NewOrder setAddOrder={setAddOrder} />}
+            {
+                (showGrnSection === true) &&
+                (
+                    <GoodReceivedNotes
+                        grnSection={grnSection}
+                        addGrnSection={addGrnSection}
+                        removeGrnSection={removeGrnSection}
+                        bagWeight={bagWeight}
+                        handleAddNewBagWeight={handleAddNewBagWeight}
+                        handleRemoveBagWeight={handleRemoveBagWeight}
+                        setShowGrnSection={setShowGrnSection}
+                        previewAddGrnRef={previewAddGrnRef}
+                    />
+                )
+            }
             
-            {/* <GoodReceivedNotes /> */}
-
         </div>
     )
 
