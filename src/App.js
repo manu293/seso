@@ -24,6 +24,7 @@ import AdminVendor from "./pages/adminVendor";
 import AdminCompany from "./pages/adminCompany";
 import AccountEntry from "./pages/accountEntry";
 import OrderGrn from "./pages/orderGrn";
+import OrderProductionEntry from "./pages/orderProductionEntry";
 
 class App extends React.Component {
 
@@ -37,6 +38,7 @@ class App extends React.Component {
 
                     <Route path="/orders/orderEntry" element={<OrderEntry />} />
                     <Route path="/orders/grn" element={<OrderGrn />} />
+                    <Route path="/orders/productionEntry" element={<OrderProductionEntry />} />
 
                     <Route path="/admin/company" element={<AdminCompany />} />
                     <Route path="/admin/users" element={<AdminUsers />} />
