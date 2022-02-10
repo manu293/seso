@@ -192,7 +192,8 @@ const OrderGrn = () => {
         const checkIfClickedOutsideAddGrn = (e) => {
             if (
                 (showGrnSection === true) &&
-                (previewAddGrnRef.current)
+                (previewAddGrnRef.current) &&
+                (!previewFilterPopUpRef.current.contains(e.target))
             ) {
                 setShowGrnSection(false);
             }
