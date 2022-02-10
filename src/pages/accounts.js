@@ -1,5 +1,5 @@
 // imports
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {ClipboardText} from "phosphor-react";
 import {
     Chart as ChartJS,
@@ -11,6 +11,7 @@ import {
     Legend,
   } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import {X} from "phosphor-react";
 
 // local imports
 import CustomHeader from "../components/customHeader";
@@ -30,6 +31,92 @@ ChartJS.register(
 );
 
 const Accounts = () => {
+    const accountPopUpRef = useRef();
+
+    const [showAccountsPopUp, setAccountsPopUp] = React.useState(false);
+    const [filterSection, setFilterSection] = useState({
+        fromDate: "",
+        toDate: "",
+    })
+
+    const handleAccountPopUpInputSection = (e) => {
+        const intermediateContent = {...filterSection};
+        intermediateContent[e.target.id] = e.target.value;
+        setFilterSection(intermediateContent);
+    }
+
+    useEffect(() => {
+
+        const checkIfClickedOutsideAcountsPopUp = (e) => {
+            if (
+                (showAccountsPopUp === true) &&
+                (accountPopUpRef.current) &&
+                (!accountPopUpRef.current.contains(e.target))
+            ) {
+                setAccountsPopUp(false);
+            }
+        }
+
+        document.addEventListener("mousedown", checkIfClickedOutsideAcountsPopUp);
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutsideAcountsPopUp)
+        }
+
+    }, [showAccountsPopUp])
+
+    const showAccountPopUpSection = () => {
+        return (
+            <div className="entryFilterContainer">
+                <div className="entryFilterBodyContainer" ref={accountPopUpRef}>
+
+                    <div className="entryFilterHeaderSection" style={{justifyContent: "space-between"}}>
+                        <div />
+                        <p className="accountsGrtPopUpReportHeader">
+                            Select Accounting Period
+                        </p>
+                        <X
+                            size={25}
+                            weight="bold"
+                            color="#FFA412"
+                            onClick={() => setAccountsPopUp(false)}
+                        />
+                    </div>
+
+                    <div className="filterMiddleSection" style={{justifyContent: "space-around"}}>
+                        <div className="filterTextFieldContainer">
+                            <input
+                                className="loginInSignUpCustomInput"
+                                type="date"
+                                id="fromDate"
+                                placeholder="Enter Date"
+                                value={filterSection.fromDate}
+                                onChange={(e) => handleAccountPopUpInputSection(e)}
+                            />
+                            <label className="orderInputLabel">From Date</label>
+                        </div>
+
+                        <div className="filterTextFieldContainer">
+                            <input
+                                className="loginInSignUpCustomInput"
+                                type="date"
+                                id="fromDate"
+                                placeholder="Enter Date"
+                                value={filterSection.toDate}
+                                onChange={(e) => handleAccountPopUpInputSection(e)}
+                            />
+                            <label className="orderInputLabel">To Date</label>
+                        </div>
+                    </div>
+
+                    <div className="entryFilterFooterSection">
+                        <button className="entryFilterFooterButton">Extract</button>
+                    </div>
+
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="mainContainer">
@@ -153,6 +240,13 @@ const Accounts = () => {
                         </div>
 
                         <div className="accountSubMiddleRightSection">
+                            <button
+                                className="accountGstReportButton"
+                                onClick={() => setAccountsPopUp(true)}
+                            >
+                                Extract GST Report
+                            </button>
+
                             <div className="accountBodyContainer">
                                 <div className="accountBodyHeaderContainer">
                                     <select className="accountBodySelect">
@@ -238,6 +332,10 @@ const Accounts = () => {
                 </div>
 
             </div>
+
+            {
+                (showAccountsPopUp === true) && showAccountPopUpSection()
+            }
 
         </div>
     )

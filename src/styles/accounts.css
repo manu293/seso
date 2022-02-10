@@ -188,7 +188,7 @@
     background: #FFFFFF;
     box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
-    height: 100%;
+    /* height: 80%; */
     justify-content: space-around;
 }
 
@@ -579,4 +579,28 @@
 
 .accountsChartContainer {
     padding: 3% 0;
+}
+
+.accountGstReportButton {
+    width: 100%;
+    margin: 2% 0;
+    background: linear-gradient(90deg, #21AE49 0%, #13C846 100%);
+    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5% 0;
+    font-family: 'Noto Sans', sans-serif;
+    cursor: pointer;
+}
+
+.accountsGrtPopUpReportHeader {
+    color: rgba(21, 47, 72, 0.8);
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'Noto Sans', sans-serif;
 }
