@@ -11,7 +11,7 @@ const GoodReceivedNotes = (props) => {
         handleAddNewBagWeight,
         handleRemoveBagWeight,
         setShowGrnSection,
-        previewAddGrnRef
+        currentAddGrnRef
     } = props;
     const [showBagSection, setBagSection] = useState(false);
 
@@ -191,7 +191,7 @@ const GoodReceivedNotes = (props) => {
 
     return (
         <div className="entryFilterContainer" >
-            <div className="enteryFilterSection" ref={previewAddGrnRef}>
+            <div className="enteryFilterSection" ref={currentAddGrnRef}>
 
                 <div className="selectOrderPopUpHeaderContainer">
                     <p className="selectOrderPopUpHeaderText">Good Received Notes</p>

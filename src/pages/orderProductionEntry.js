@@ -306,7 +306,7 @@ const OrderProductionEntry = () => {
                 <div className="orderEntryHeader">
 
                     <div className="orderEntryHeaderLeftSection" style={{width: "600px"}}>
-                        <p className="orderEntryHeaderSubText">Orders &nbsp; <CaretRight size={30} weight="bold" /> &nbsp; PProduction Entry</p>
+                        <p className="orderEntryHeaderSubText">Orders &nbsp; <CaretRight size={30} weight="bold" /> &nbsp; Production Entry</p>
                         <div className="orderEntryHeaderIconContainer">
                             <FadersHorizontal
                                 size={28}

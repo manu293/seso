@@ -190,10 +190,11 @@ const OrderGrn = () => {
         }
 
         const checkIfClickedOutsideAddGrn = (e) => {
+            console.log("This is run", previewAddGrnRef.current)
             if (
                 (showGrnSection === true) &&
                 (previewAddGrnRef.current) &&
-                (!previewFilterPopUpRef.current.contains(e.target))
+                (!previewAddGrnRef.current.contains(e.target))
             ) {
                 setShowGrnSection(false);
             }
@@ -371,7 +372,7 @@ const OrderGrn = () => {
                         handleAddNewBagWeight={handleAddNewBagWeight}
                         handleRemoveBagWeight={handleRemoveBagWeight}
                         setShowGrnSection={setShowGrnSection}
-                        previewAddGrnRef={previewAddGrnRef}
+                        currentAddGrnRef={previewAddGrnRef}
                     />
                 )
             }
