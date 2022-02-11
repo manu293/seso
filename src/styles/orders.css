@@ -797,3 +797,122 @@ input[type=date]:not([value=""])::-webkit-datetime-edit {
     padding: 0 2%;
     justify-content: space-between;
 }
+
+.fabricDeliveryHeaderContainer {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid rgba(21, 47, 72, 0.2);
+}
+
+.fabricDeliveryHeaderText {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #152F48;
+    cursor: pointer;
+    padding-bottom: 2%;
+}
+
+.fabricPopUpHeaderAcitve {
+    border-bottom: 5px solid #F78D12;
+}
+
+.fabricDeliverySubheaderContainer {
+    background: #F8FAFC;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fabricDeliveryBodyContainer {
+    height: 100%;
+    overflow-y: auto;
+    padding: 2%;    
+}
+
+.fabricDeliverySubHeaderText {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #152F48;
+}
+
+.fabricDeliverySubheaderPadding {
+    padding-top: 4%;
+}
+
+.customCheckboxGroup {
+    display: flex;
+    align-items: center;
+}
+
+.customCheckboxGroup input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+}
+
+.customCheckboxGroup label {
+    position: relative;
+    cursor: pointer;
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #152F48;
+    width: 100%;
+}
+
+.customCheckboxGroup label:before {
+    content:'';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #FFA412;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 2%;
+}
+  
+.customCheckboxGroup input:checked + label:after {
+    content: '';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: 6px;
+    height: 14px;
+    border: solid #FFA412;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.fabricProgramContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin: 2% 0;
+}
+
+.fabricProgramContainerButton {
+    background: #FFA412;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Noto Sans', sans-serif;
+    width: 20%;
+    height: 45px;
+    cursor: pointer;
+}

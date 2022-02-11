@@ -459,7 +459,7 @@ const NewOrder = (props) => {
                                                 <label className="orderInputLabel">Dia</label>
                                             </div>
 
-                                            <div className="accountReportTextField entryFilterMiddleSectionMargin">
+                                            <div className="accountReportTextField">
                                                 <input
                                                     className="detailsPopUpInput"
                                                     type="text"
@@ -578,7 +578,7 @@ const NewOrder = (props) => {
 
     return (
         <div className="entryFilterContainer">
-            <div className="enteryFilterSection" ref={passedDownRef}>
+            <div className="enteryFilterSection">
 
                 <div className="entryFilterMiddleHeader">
 

@@ -1,103 +1,52 @@
 // imports
-import React, { useRef, useState, useEffect } from "react";
+import React, {useState, useRef, useEffect} from "react";
 import {
-    Export,
-    FadersHorizontal,
-    CaretRight,
-    DotsThreeVertical,
-    Eye,
-    X,
-    Trash,
-    MinusCircle
-} from "phosphor-react";
+        Export,
+        FadersHorizontal,
+        Eye,
+        X, 
+        DotsThreeVertical,
+        CaretRight,
+        Trash,
+        MinusCircle,
+
+    } from "phosphor-react";
 
 // local imports
-import Navbar from "../components/navbar";
 import CustomHeader from "../components/customHeader";
+import Navbar from "../components/navbar";
 import SelectOrderPopUp from "../components/selectOrderPopUp";
-import GoodReceivedNotes from "../components/goodReceivedNotes";
+import FabricDeliveryPopUp from "../components/fabricDeliveryPopUp";
 
 // styles
-import "../styles/orders.css";
+import "../styles/orderReport.css";
 
-const OrderGrn = () => {
+const OrderFabricDelivery = () => {
+    const orderFilterRef = useRef();
     const previewPopUpRef = useRef();
-    const previewFilterPopUpRef = useRef();
-    const previewAddGrnRef = useRef();
+    const fabricDeliveryRef = useRef();
 
-    const [showFilterEntry, setFilterEntry] = useState(false);
-    const [showOrderPopUp, setOrderPopUp] = useState(false);
-    const [showGrnSection, setShowGrnSection] = useState(false);
-    const [showActionSection, setActionSection] = useState("");
-    const [orderGrnFilter, setOrderGrnFilter] = useState({
+    const [orderFabricDeliveryFilter, setOrderFabricDeliveryFilter] = useState({
         date: "",
         orderId: "",
-        grnNo: "",
+        dcNo: "",
         customerName: "",
     });
-    const [grnSection, setGrnSection] = useState([
-        {
-            counts: "",
-            mill: "",
-            typeOfYarn: "",
-            varietyOfYarn: "",
-            colour: "",
-        }
-    ]);
-    const [bagWeight, setBagWeight] = useState([
-        {
-            bag: "",
-            weight: "",
-        }
-    ]);
+    const [showFilterEntry, setFilterEntry] = useState(false);
+    const [showOrderPopUp, setOrderPopUp] = useState(false);
+    const [showFabricDeliveryPopUp, setFabricDeliveryPopUp] = useState(false);
+    const [showActionSection, setActionSection] = useState("");
 
-    const handleAddNewBagWeight = () => {
-        const newBagWeight = {
-            bag: "",
-            weight: "",
-        };
-
-        const inerDia = [...bagWeight];
-        inerDia.push(newBagWeight);
-        setBagWeight(inerDia);
-    }
-
-    const handleRemoveBagWeight = (indexVal) => {
-        const inerDia = [...bagWeight];
-        inerDia.splice(indexVal, 1);
-        setBagWeight(inerDia)
-    }
-
-    const handleOrderEntryFilterInput = (e) => {
-        const intermediateInput = {...orderGrnFilter};
+    const handleFabricDeliveryFilterInput = (e) => {
+        const intermediateInput = {...orderFabricDeliveryFilter};
         intermediateInput[e.target.id] = e.target.value;
-        setOrderGrnFilter(intermediateInput);
+        setOrderFabricDeliveryFilter(intermediateInput);
     }
 
-    const addGrnSection = () => {
-        const initalData = {
-            counts: "",
-            mill: "",
-            typeOfYarn: "",
-            varietyOfYarn: "",
-            colour: "",
-        }
-
-        const intermediateData = [...grnSection];
-        intermediateData.push(initalData);
-        setGrnSection(intermediateData);
-    }
-
-    const removeGrnSection = (indexVal) => {
-        const intermediateData = [...grnSection];
-        intermediateData.splice(indexVal, 1);
-        setGrnSection(intermediateData);
-    }
-
-    const OrderGrnFilter = () => {
+    const FabricDeliveryFilter = () => {
         return (
             <div className="entryFilterContainer">
-                <div className="entryFilterBodyContainer" ref={previewFilterPopUpRef}>
+                <div className="entryFilterBodyContainer" ref={orderFilterRef}>
                     <div className="entryFilterHeaderSection">
                         <X
                             size={25}
@@ -109,50 +58,50 @@ const OrderGrn = () => {
 
                     <div className="filterMiddleSection">
 
-                        <div className="filterTextFieldContainer orderEntryInputMargin">
+                        <div className="accountReportTextField orderEntryInputMargin" style={{width: "22%"}}>
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="text"
                                 id="date"
                                 placeholder="Enter Date"
-                                value={orderGrnFilter.date}
-                                onChange={(e) => handleOrderEntryFilterInput(e)}
+                                value={orderFabricDeliveryFilter.date}
+                                onChange={(e) => handleFabricDeliveryFilterInput(e)}
                             />
                             <label className="orderInputLabel">Date</label>
                         </div>
 
-                        <div className="filterTextFieldContainer orderEntryInputMargin">
+                        <div className="accountReportTextField orderEntryInputMargin" style={{width: "22%"}}>
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="text"
                                 id="orderId"
                                 placeholder="Enter Order Id"
-                                value={orderGrnFilter.orderId}
-                                onChange={(e) => handleOrderEntryFilterInput(e)}
+                                value={orderFabricDeliveryFilter.orderId}
+                                onChange={(e) => handleFabricDeliveryFilterInput(e)}
                             />
                             <label className="orderInputLabel">Order Id</label>
                         </div>
 
-                        <div className="filterTextFieldContainer orderEntryInputMargin">
+                        <div className="accountReportTextField orderEntryInputMargin" style={{width: "22%"}}>
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="text"
-                                id="grnNo"
-                                placeholder="Enter GRN No"
-                                value={orderGrnFilter.grnNo}
-                                onChange={(e) => handleOrderEntryFilterInput(e)}
+                                id="dcNo"
+                                placeholder="Enter DC No"
+                                value={orderFabricDeliveryFilter.dcNo}
+                                onChange={(e) => handleFabricDeliveryFilterInput(e)}
                             />
-                            <label className="orderInputLabel">GRN No</label>
+                            <label className="orderInputLabel">DC No</label>
                         </div>
 
-                        <div className="filterTextFieldContainer orderEntryInputMargin">
+                        <div className="accountReportTextField orderEntryInputMargin" style={{width: "22%"}}>
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="text"
                                 id="customerName"
                                 placeholder="Enter Customer Name"
-                                value={orderGrnFilter.customerName}
-                                onChange={(e) => handleOrderEntryFilterInput(e)}
+                                value={orderFabricDeliveryFilter.customerName}
+                                onChange={(e) => handleFabricDeliveryFilterInput(e)}
                             />
                             <label className="orderInputLabel">Customer Name</label>
                         </div>
@@ -170,6 +119,16 @@ const OrderGrn = () => {
 
         const checkIfClickedOutside = (e) => {
             if (
+                (showFilterEntry === true) &&
+                (orderFilterRef.current) &&
+                (!orderFilterRef.current.contains(e.target))
+            ) {
+                setFilterEntry(false);
+            }
+        }
+
+        const checkIfClikedOutside2 = (e) => {
+            if (
                 (showOrderPopUp === true) &&
                 (previewPopUpRef.current) &&
                 (!previewPopUpRef.current.contains(e.target))
@@ -178,38 +137,27 @@ const OrderGrn = () => {
             }
         }
 
-        const checkIfClickedOutsideFilter = (e) => {
+        const checkIfClikedOutside3 = (e) => {
             if (
-                (showFilterEntry === true) &&
-                (previewFilterPopUpRef.current) &&
-                (!previewFilterPopUpRef.current.contains(e.target))
+                (showFabricDeliveryPopUp === true) &&
+                (fabricDeliveryRef.current) &&
+                (!fabricDeliveryRef.current.contains(e.target))
             ) {
-                setFilterEntry(false);
-            }
-        }
-
-        const checkIfClickedOutsideAddGrn = (e) => {
-            console.log("This is run", previewAddGrnRef.current)
-            if (
-                (showGrnSection === true) &&
-                (previewAddGrnRef.current) &&
-                (!previewAddGrnRef.current.contains(e.target))
-            ) {
-                setShowGrnSection(false);
+                setFabricDeliveryPopUp(false);
             }
         }
 
         document.addEventListener("mousedown", checkIfClickedOutside);
-        document.addEventListener("mousedown", checkIfClickedOutsideFilter);
-        document.addEventListener("mousedown", checkIfClickedOutsideAddGrn);
+        document.addEventListener("mousedown", checkIfClikedOutside2);
+        document.addEventListener("mousedown", checkIfClikedOutside3);
 
         return () => {
             document.removeEventListener("mousedown", checkIfClickedOutside);
-            document.removeEventListener("mousedown", checkIfClickedOutsideFilter);
-            document.removeEventListener("mousedown", checkIfClickedOutsideAddGrn);
+            document.removeEventListener("mousedown", checkIfClikedOutside2);
+            document.removeEventListener("mousedown", checkIfClikedOutside3);
         }
 
-    }, [showOrderPopUp, showFilterEntry, showGrnSection]);
+    }, [showFilterEntry, showOrderPopUp, showFabricDeliveryPopUp]);
 
     return (
         <div className="mainContainer">
@@ -223,7 +171,7 @@ const OrderGrn = () => {
                 <div className="orderEntryHeader">
 
                     <div className="orderEntryHeaderLeftSection">
-                        <p className="orderEntryHeaderSubText">Orders &nbsp; <CaretRight size={30} weight="bold" /> &nbsp; GRN</p>
+                        <p className="orderEntryHeaderSubText">Orders &nbsp; <CaretRight size={30} weight="bold" /> &nbsp; Fabric Delivery</p>
                         <div className="orderEntryHeaderIconContainer">
                             <FadersHorizontal
                                 size={28}
@@ -236,8 +184,8 @@ const OrderGrn = () => {
 
                     <div className="orderEntryRightSection">
                         <button
-                            onClick={() => setShowGrnSection(true)}
                             className="orderEntryHeaderButton"
+                            onClick={() => setFabricDeliveryPopUp(true)}
                         >
                             Create
                         </button>
@@ -250,10 +198,10 @@ const OrderGrn = () => {
                         <thead>
                             <tr className="orderEntryTableHeader">
                                 <th className="orderEntryTableHeaderText">Date</th>
-                                <th className="orderEntryTableHeaderText">GRN No</th>
+                                <th className="orderEntryTableHeaderText">DC No</th>
                                 <th className="orderEntryTableHeaderText">Order Id</th>
                                 <th className="orderEntryTableHeaderText">Customer Name</th>
-                                <th className="orderEntryTableHeaderText">Yarn Details</th>
+                                <th className="orderEntryTableHeaderText">Fabric Details</th>
                                 <th className="orderEntryTableHeaderText">Quantity</th>
                                 <th className="orderEntryTableHeaderText">Preview</th>
                                 <th className="orderEntryTableHeaderText">Action</th>
@@ -286,7 +234,6 @@ const OrderGrn = () => {
                                                     <p>Edit</p>
                                                     <MinusCircle size={20} weight="bold" color="#F78D12" />
                                                 </div>
-
                                                 <div className="editActionBodyItemContainer">
                                                     <p>Delete</p>
                                                     <Trash size={20} weight="bold" color="#FD0606" />
@@ -355,30 +302,33 @@ const OrderGrn = () => {
 
             </div>
 
-            
-            {(showOrderPopUp === true) && <SelectOrderPopUp hideOrderPopUp={setOrderPopUp} previewPopUpRef={previewPopUpRef} />}
-
-            {(showFilterEntry === true) && OrderGrnFilter()}
+            {(showFilterEntry === true) && FabricDeliveryFilter()}
 
             {
-                (showGrnSection === true) &&
+                (showOrderPopUp === true) &&
                 (
-                    <GoodReceivedNotes
-                        grnSection={grnSection}
-                        addGrnSection={addGrnSection}
-                        removeGrnSection={removeGrnSection}
-                        bagWeight={bagWeight}
-                        handleAddNewBagWeight={handleAddNewBagWeight}
-                        handleRemoveBagWeight={handleRemoveBagWeight}
-                        setShowGrnSection={setShowGrnSection}
-                        currentAddGrnRef={previewAddGrnRef}
+                    <SelectOrderPopUp
+                        previewPopUpRef={previewPopUpRef}
+                        hideOrderPopUp={setOrderPopUp}
                     />
                 )
             }
+
+            {
+                (showFabricDeliveryPopUp === true) &&
+                (
+                    <FabricDeliveryPopUp
+                        setFabricDeliveryPopUp={setFabricDeliveryPopUp}
+                        fabricDeliveryRef={fabricDeliveryRef}
+                    />
+                )
+            }
+
             
+
         </div>
     )
 
 }
 
-export default OrderGrn;
+export default OrderFabricDelivery;
