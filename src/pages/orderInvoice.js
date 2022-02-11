@@ -228,7 +228,10 @@ const OrderInvoice = () => {
                         {
                             (selectInvoice === true) ?
                                 <td className="orderEntryTableText">
-                                    <input type="checkbox" value="1" id="checkboxOneInput"/>
+                                    <div className="actionCheckboxGroup">
+                                        <input type="checkbox" id="yarnReturn" checked={true} />
+                                        <label for="yarnReturn"/>
+                                    </div>
                                 </td>
                             :
                                 <td className="orderEntryTableText editActionIconContainer">

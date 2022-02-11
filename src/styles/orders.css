@@ -916,3 +916,53 @@ input[type=date]:not([value=""])::-webkit-datetime-edit {
     height: 45px;
     cursor: pointer;
 }
+
+.actionCheckboxGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.actionCheckboxGroup input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+}
+
+.actionCheckboxGroup label {
+    position: relative;
+    cursor: pointer;
+}
+
+.actionCheckboxGroup label:before {
+    content:'';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #FFA412;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 8px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+}
+  
+.actionCheckboxGroup input:checked + label:after {
+    content: '';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 4px;
+    left: 7px;
+    width: 4px;
+    height: 10px;
+    border: solid #FFA412;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}

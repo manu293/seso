@@ -27,6 +27,7 @@ import OrderGrn from "./pages/orderGrn";
 import OrderProductionEntry from "./pages/orderProductionEntry";
 import OrderInvoice from "./pages/orderInvoice";
 import OrderFabricDelivery from "./pages/orderFabricDelivery";
+import OrderYarnReturn from "./pages/orderYarnReturn";
 
 class App extends React.Component {
 
@@ -43,6 +44,7 @@ class App extends React.Component {
                     <Route path="/orders/productionEntry" element={<OrderProductionEntry />} />
                     <Route path="/orders/invoices" element={<OrderInvoice />} />
                     <Route path="/orders/fabricDelivery" element={<OrderFabricDelivery />} />
+                    <Route path="/orders/yarnReturn" element={<OrderYarnReturn />} />
 
                     <Route path="/admin/company" element={<AdminCompany />} />
                     <Route path="/admin/users" element={<AdminUsers />} />
