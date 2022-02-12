@@ -966,3 +966,61 @@ input[type=date]:not([value=""])::-webkit-datetime-edit {
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
+
+.subContractPopUpVendorMiddleSection {
+    height: 100%;
+    overflow-y: auto;
+    margin: 2% 0;
+}
+
+.subContractVendorSection1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.c66b3be50 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: 2%;
+    cursor: pointer;
+}
+
+.e1f5a1fc0dfc {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #152F48;
+    margin-right: 3%;
+}
+
+.e047a33e4e51 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wcb64aae0345e {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cb64aae0345e {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.aa9877e43897 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2%;
+    width: 100%;
+}

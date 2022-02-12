@@ -227,20 +227,24 @@ const Navbar = () => {
                     )
                 }
 
-                <div className={(activePath === "subcontract") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
-                    <div className={(activePath === "subcontract") ? "navActivePadding" : "navInactivePadding"}>
-                        <CheckSquareOffset size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
-                        <p className={(activePath === "subcontract") ? "navItemActiveText" : "navItemText"}>Subcontract</p>
+                <Link to="/subcontract/vendorOrder" className="linkStyle">
+                    <div className={(activePath === "subcontract") ? "navItemActiveContainer navItemMargin" : "navItemContainer navItemMargin"}>
+                        <div className={(activePath === "subcontract") ? "navActivePadding" : "navInactivePadding"}>
+                            <CheckSquareOffset size={16} weight="bold" color="#fff" className="navbarThirdPartIcon" />
+                            <p className={(activePath === "subcontract") ? "navItemActiveText" : "navItemText"}>Subcontract</p>
+                        </div>
                     </div>
-                </div>
+                </Link>
 
                 {   (activePath === "subcontract") &&
                     (
                         <ul className="navSubListContainer">
-                            <li className="navSubItemText">
-                                <div className={(subActivePath === "vendorOrder") ? "navItemActiveCircle" : "navItemCircle"} />
-                                &nbsp;&nbsp; <p className={(subActivePath === "vendorOrder") ? "navSubItemActiveText" : ""}>Vendor Order</p>
-                            </li>
+                            <Link to="/subcontract/vendorOrder" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "vendorOrder") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "vendorOrder") ? "navSubItemActiveText" : ""}>Vendor Order</p>
+                                </li>
+                            </Link>
                             <li className="navSubItemText">
                                 <div className={(subActivePath === "yarnDelivery") ? "navItemActiveCircle" : "navItemCircle"} />
                                 &nbsp;&nbsp; <p className={(subActivePath === "yarnDelivery") ? "navSubItemActiveText" : ""}>Yarn Delivery</p>
