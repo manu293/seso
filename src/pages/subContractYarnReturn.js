@@ -11,13 +11,13 @@ import {
 // local imports
 import Navbar from "../components/navbar";
 import CustomHeader from "../components/customHeader";
+import SubContractYarnReturnPopUp from "../components/subContractYarnReturnPopUp";
 import CreateVendorOrder from "../components/createVendorOrder";
-import YarnDeliveryPopUp from "../components/yarnDeliveryPopUp";
 
 // styles
 import "../styles/orders.css";
 
-const SubContractYarnDelivery = () => {
+const SubContractYarnReturn = () => {
     const orderFilterRef = useRef();
     const orderEntryCreateRef = useRef();
 
@@ -166,7 +166,7 @@ const SubContractYarnDelivery = () => {
                 <div className="orderEntryHeader">
 
                     <div className="orderEntryHeaderLeftSection" style={{width: "600px"}}>
-                        <p className="orderEntryHeaderSubText">Subcontract &nbsp; <CaretRight size={30} weight="bold" /> &nbsp; YARN Delivery</p>
+                        <p className="orderEntryHeaderSubText">Subcontract &nbsp; <CaretRight size={30} weight="bold" /> &nbsp; YARN Return</p>
                         <div className="orderEntryHeaderIconContainer">
                             <FadersHorizontal
                                 size={28}
@@ -272,7 +272,7 @@ const SubContractYarnDelivery = () => {
             {
                 (showVendorPopUp === true) &&
                 (
-                    <YarnDeliveryPopUp
+                    <SubContractYarnReturnPopUp
                         setVendorPopUp={setVendorPopUp}
                     />
                 )
@@ -283,4 +283,4 @@ const SubContractYarnDelivery = () => {
 
 }
 
-export default SubContractYarnDelivery;
+export default SubContractYarnReturn;

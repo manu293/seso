@@ -37,6 +37,7 @@ import OrderYarnReturn from "./pages/orderYarnReturn";
 import SubContractVendorOrder from "./pages/subcontractVendorOrder";
 import SubContractYarnDelivery from "./pages/subContractYarnDelivery";
 import SubContractFabricReceived from "./pages/subContractFabricDelivery";
+import SubContractYarnReturn from "./pages/subContractYarnReturn";
 
 class App extends React.Component {
 
@@ -58,6 +59,7 @@ class App extends React.Component {
                     <Route path="/subcontract/vendorOrder" element={<SubContractVendorOrder />} />
                     <Route path="/subcontract/vendorYarnDelivery" element={<SubContractYarnDelivery />} />
                     <Route path="/subcontract/fabricReceived" element={<SubContractFabricReceived />} />
+                    <Route path="/subcontract/yarnReceived" element={<SubContractYarnReturn />} />
 
                     <Route path="/admin/company" element={<AdminCompany />} />
                     <Route path="/admin/users" element={<AdminUsers />} />
