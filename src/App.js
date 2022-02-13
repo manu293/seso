@@ -8,9 +8,12 @@ import {
 
 // local imports
 import OrderReport from "./pages/orderReport";
+
 import SignUp from "./pages/signUp";
 import Login from "./pages/login";
+
 import NotFound from "./pages/notFound";
+
 import Dashboard from "./pages/dashboard";
 import OrderEntry from "./pages/orderEntry";
 import Accounts from "./pages/accounts";
@@ -18,18 +21,22 @@ import AccountReport from "./pages/accountReport";
 import VendorOrderReport from "./pages/vendorOrderReport";
 import ProductionReport from "./pages/productionReport";
 import Customization from "./pages/customization";
+
 import AdminUsers from "./pages/adminUser";
 import AdminCustomer from "./pages/adminCustomer";
 import AdminVendor from "./pages/adminVendor";
 import AdminCompany from "./pages/adminCompany";
 import AccountEntry from "./pages/accountEntry";
+
 import OrderGrn from "./pages/orderGrn";
 import OrderProductionEntry from "./pages/orderProductionEntry";
 import OrderInvoice from "./pages/orderInvoice";
 import OrderFabricDelivery from "./pages/orderFabricDelivery";
 import OrderYarnReturn from "./pages/orderYarnReturn";
+
 import SubContractVendorOrder from "./pages/subcontractVendorOrder";
 import SubContractYarnDelivery from "./pages/subContractYarnDelivery";
+import SubContractFabricReceived from "./pages/subContractFabricDelivery";
 
 class App extends React.Component {
 
@@ -50,6 +57,7 @@ class App extends React.Component {
 
                     <Route path="/subcontract/vendorOrder" element={<SubContractVendorOrder />} />
                     <Route path="/subcontract/vendorYarnDelivery" element={<SubContractYarnDelivery />} />
+                    <Route path="/subcontract/fabricReceived" element={<SubContractFabricReceived />} />
 
                     <Route path="/admin/company" element={<AdminCompany />} />
                     <Route path="/admin/users" element={<AdminUsers />} />

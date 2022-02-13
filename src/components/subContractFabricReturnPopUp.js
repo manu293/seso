@@ -2,7 +2,7 @@
 import React from "react";
 import {Info, X} from "phosphor-react";
 
-const VendorEntryPopUpFilter = (props) => {
+const SubContractFabricReturnPopUp = (props) => {
     const {setVendorPopUp} = props;
 
     const [fabricDeliveryTab, setFabricDeliveryTab] = React.useState(0);
@@ -123,12 +123,12 @@ const VendorEntryPopUpFilter = (props) => {
         )
     }
 
-    const renderVendorOrderEntrySection = () => {
+    const renderFabricReceivedSection = () => {
         return (
             <div className="subContractPopUpVendorMiddleSection">
 
                 <div className="subContractVendorSection1">
-                    <div className="filterTextFieldContainer" style={{width: "30%", marginTop: "3%"}}>
+                    <div className="filterTextFieldContainer" style={{width: "45%", marginTop: "3%"}}>
                         <input
                             className="loginInSignUpCustomInput"
                             type="date"
@@ -139,7 +139,7 @@ const VendorEntryPopUpFilter = (props) => {
                         <label className="orderInputLabel">Document Date</label>
                     </div>
 
-                    <div className="filterTextFieldContainer" style={{width: "30%",  marginTop: "3%"}}>
+                    <div className="filterTextFieldContainer" style={{width: "45%",  marginTop: "3%"}}>
                         <input
                             className="loginInSignUpCustomInput"
                             type="text"
@@ -147,23 +147,13 @@ const VendorEntryPopUpFilter = (props) => {
                             placeholder="Enter Customer Name"
                             value={vendorOrderDetail.customerName}
                         />
-                        <label className="orderInputLabel">Customer Name</label>
+                        <label className="orderInputLabel">V.FDC No</label>
                     </div>
 
-                    <div className="filterTextFieldContainer" style={{width: "30%",  marginTop: "3%"}}>
-                        <input
-                            className="loginInSignUpCustomInput"
-                            type="text"
-                            id="orderId"
-                            placeholder="Enter Order Id"
-                            value={vendorOrderDetail.orderId}
-                        />
-                        <label className="orderInputLabel">Order Id</label>
-                    </div>
                 </div>
 
                 <div className="subContractVendorSection1">
-                    <div className="filterTextFieldContainer" style={{width: "30%", marginTop: "3%"}}>
+                    <div className="filterTextFieldContainer" style={{width: "45%", marginTop: "3%"}}>
                         <input
                             className="loginInSignUpCustomInput"
                             type="text"
@@ -174,7 +164,7 @@ const VendorEntryPopUpFilter = (props) => {
                         <label className="orderInputLabel">Vendor Order No</label>
                     </div>
 
-                    <div className="filterTextFieldContainer" style={{width: "30%",  marginTop: "3%"}}>
+                    <div className="filterTextFieldContainer" style={{width: "45%",  marginTop: "3%"}}>
                         <input
                             className="loginInSignUpCustomInput"
                             type="text"
@@ -188,13 +178,8 @@ const VendorEntryPopUpFilter = (props) => {
                     <div style={{width: "30%",  marginTop: "3%"}} />
                 </div>
 
-                <div className="c66b3be50" onClick={() => setOrderInfoPopUp(true)}>
-                    <p className="e1f5a1fc0dfc">Order Info</p>
-                    <Info size={22} color="" weight="bold" color="#F78D12" />
-                </div>
-
                 <div className="aa9877e43897">
-                    <div className="filterTextFieldContainer" style={{width: "95%",  marginTop: "3%"}}>
+                    <div className="filterTextFieldContainer" style={{width: "95%"}}>
                         <input
                             className="loginInSignUpCustomInput"
                             type="text"
@@ -207,7 +192,7 @@ const VendorEntryPopUpFilter = (props) => {
 
                     <button
                         className="addNewOrderFooterSubmit"
-                        style={{width: "15%", marginTop: "3%"}}
+                        style={{width: "15%"}}
                         onClick={() => setDiaAndWeight(true)}
                     >
                         {"Dia & Weight"}
@@ -231,7 +216,7 @@ const VendorEntryPopUpFilter = (props) => {
         );
     }
 
-    const renderYarnDeliverySection = () => {
+    const renderYarnReceivedSection = () => {
         return (
             <div className="subContractPopUpVendorMiddleSection">
 
@@ -352,11 +337,11 @@ const VendorEntryPopUpFilter = (props) => {
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="text"
-                                id="sourcingQty"
-                                placeholder="Enter Sorucing Qty"
+                                id="cone"
+                                placeholder="Enter Cone"
                                 value=""
                             />
-                            <label className="orderInputLabel">Sorucing Qty</label>
+                            <label className="orderInputLabel">Cone</label>
                         </div>
 
                     </div>
@@ -386,18 +371,7 @@ const VendorEntryPopUpFilter = (props) => {
 
                     <div className="cb64aae0345e" style={{marginBottom: "3%"}}>
 
-                        <div className="filterTextFieldContainer" style={{width: "18%", marginTop: "3%"}}>
-                            <input
-                                className="loginInSignUpCustomInput"
-                                type="text"
-                                id="yarnStock"
-                                placeholder="Enter Yarn Stock"
-                                value=""
-                            />
-                            <label className="orderInputLabel">Yarn Stock</label>
-                        </div>
-
-                        <div className="filterTextFieldContainer" style={{width: "18%", marginTop: "3%"}}>
+                        <div className="filterTextFieldContainer" style={{width: "30%", marginTop: "3%"}}>
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="text"
@@ -408,7 +382,7 @@ const VendorEntryPopUpFilter = (props) => {
                             <label className="orderInputLabel">Bag</label>
                         </div>
 
-                        <div className="filterTextFieldContainer" style={{width: "18%", marginTop: "3%"}}>
+                        <div className="filterTextFieldContainer" style={{width: "30%", marginTop: "3%"}}>
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="text"
@@ -419,26 +393,15 @@ const VendorEntryPopUpFilter = (props) => {
                             <label className="orderInputLabel">Cones</label>
                         </div>
 
-                        <div className="filterTextFieldContainer" style={{width: "18%", marginTop: "3%"}}>
+                        <div className="filterTextFieldContainer" style={{width: "30%", marginTop: "3%"}}>
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="text"
-                                id="sourcingQty"
-                                placeholder="Enter Sorucing Qty"
+                                id="weight"
+                                placeholder="Enter Weight"
                                 value=""
                             />
-                            <label className="orderInputLabel">Net Weight</label>
-                        </div>
-
-                        <div className="filterTextFieldContainer" style={{width: "18%", marginTop: "3%"}}>
-                            <input
-                                className="loginInSignUpCustomInput"
-                                type="text"
-                                id="sourcingQty"
-                                placeholder="Enter Sorucing Qty"
-                                value=""
-                            />
-                            <label className="orderInputLabel">Gross Weight</label>
+                            <label className="orderInputLabel">Weight</label>
                         </div>
 
                     </div>
@@ -497,7 +460,7 @@ const VendorEntryPopUpFilter = (props) => {
                         className={(fabricDeliveryTab === 0) ? "fabricDeliveryHeaderText fabricPopUpHeaderAcitve" : "fabricDeliveryHeaderText"}
                         onClick={() => setFabricDeliveryTab(0)}
                     >
-                        Vendor order entry
+                        Fabric Received
                     </p>
                     {
                         (showYarnGrn === true) &&
@@ -506,7 +469,7 @@ const VendorEntryPopUpFilter = (props) => {
                                 className={(fabricDeliveryTab === 1) ? "fabricDeliveryHeaderText fabricPopUpHeaderAcitve" : "fabricDeliveryHeaderText"}
                                 onClick={() => setFabricDeliveryTab(1)}
                             >
-                                Yarn Return
+                                Yarn Received
                             </p>
                         )
                     }
@@ -520,7 +483,6 @@ const VendorEntryPopUpFilter = (props) => {
                             <div className={(fabricDeliveryTab === 1) ? "circleIndicatorActive" : "circleIndicator"} />  
                             <div className="lineIndicator" />
                         </div>
-    
                     )
                 }
 
@@ -529,9 +491,9 @@ const VendorEntryPopUpFilter = (props) => {
                         fabricDeliveryTab === 0
                     )
                     ?
-                        renderVendorOrderEntrySection()
+                        renderFabricReceivedSection()
                     :
-                        renderYarnDeliverySection()
+                        renderYarnReceivedSection()
                 }
 
                 <div className="addNewOrderFooter">
@@ -556,4 +518,4 @@ const VendorEntryPopUpFilter = (props) => {
 
 }
 
-export default VendorEntryPopUpFilter;
+export default SubContractFabricReturnPopUp;

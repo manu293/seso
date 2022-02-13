@@ -509,6 +509,7 @@ input[type=date]:not([value=""])::-webkit-datetime-edit {
     width: 250px;
     justify-content: space-evenly;
     align-items: center;
+    cursor: pointer;
 }
 
 .yarnContainerLabel {
@@ -516,6 +517,7 @@ input[type=date]:not([value=""])::-webkit-datetime-edit {
     font-weight: 600;
     font-size: 20px;
     color: #152F48;
+    cursor: pointer;
 }
 
 .yarnContainer input[type='radio']:checked {
@@ -1002,6 +1004,7 @@ input[type=date]:not([value=""])::-webkit-datetime-edit {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .wcb64aae0345e {
