@@ -476,6 +476,12 @@ const VendorEntryPopUpFilter = (props) => {
                     }
                 </div>
 
+                <div className="entryFilterCircleIndicatorContainer" style={{left: "22%", width: "59%"}}>
+                    <div className={(fabricDeliveryTab === 0) ? "circleIndicatorActive" : "circleIndicator"} />
+                    <div className={(fabricDeliveryTab === 1) ? "circleIndicatorActive" : "circleIndicator"} />  
+                    <div className="lineIndicator" />
+                </div>
+
                 {
                     (
                         fabricDeliveryTab === 0

@@ -245,10 +245,12 @@ const Navbar = () => {
                                     &nbsp;&nbsp; <p className={(subActivePath === "vendorOrder") ? "navSubItemActiveText" : ""}>Vendor Order</p>
                                 </li>
                             </Link>
-                            <li className="navSubItemText">
-                                <div className={(subActivePath === "yarnDelivery") ? "navItemActiveCircle" : "navItemCircle"} />
-                                &nbsp;&nbsp; <p className={(subActivePath === "yarnDelivery") ? "navSubItemActiveText" : ""}>Yarn Delivery</p>
-                            </li>
+                            <Link to="/subcontract/vendorYarnDelivery" className="linkStyle">
+                                <li className="navSubItemText">
+                                    <div className={(subActivePath === "yarnDelivery") ? "navItemActiveCircle" : "navItemCircle"} />
+                                    &nbsp;&nbsp; <p className={(subActivePath === "yarnDelivery") ? "navSubItemActiveText" : ""}>Yarn Delivery</p>
+                                </li>
+                            </Link>
                             <li className="navSubItemText">
                                 <div className={(subActivePath === "fabricReceived") ? "navItemActiveCircle" : "navItemCircle"} />
                                 &nbsp;&nbsp; <p className={(subActivePath === "fabricReceived") ? "navSubItemActiveText" : ""}>Fabric Received</p>
