@@ -286,32 +286,28 @@ const Dashboard = () => {
 
                         <div className="recentActivityContainer">
                                 
-                            <p className="lastSectionHeader">Recent Actitiy</p>
+                            <p className="lastSectionHeader">Most Valuable Customer</p>
 
                             <div className="lastSectionBody">
                                 <div className="lastSectionBodyItems">
-                                    <p className="lastSectionBodyItemsHeader">Invoicing</p>
-                                    <p className="lastSectionBodyItemsSubHeader"> 1 hours ago</p>
+                                    <p className="lastSectionBodyItemsHeader">KPR</p>
+                                    <p className="lastSectionBodyItemsSubHeader">
+                                        500&nbsp;&nbsp;<p className="lastSectionBodyItemsSubHeaderSmall">Kgs</p>
+                                    </p>
                                 </div>
+
                                 <div className="lastSectionBodyItems">
-                                    <p className="lastSectionBodyItemsHeader">Report</p>
-                                    <p className="lastSectionBodyItemsSubHeader"> 2 hours ago</p>
+                                    <p className="lastSectionBodyItemsHeader">Sujeesh</p>
+                                    <p className="lastSectionBodyItemsSubHeader">
+                                        200&nbsp;&nbsp;<p className="lastSectionBodyItemsSubHeaderSmall">Kgs</p>
+                                    </p>
                                 </div>
+
                                 <div className="lastSectionBodyItems">
-                                    <p className="lastSectionBodyItemsHeader">Order</p>
-                                    <p className="lastSectionBodyItemsSubHeader"> 1 hours ago</p>
-                                </div>
-                                <div className="lastSectionBodyItems">
-                                    <p className="lastSectionBodyItemsHeader">Invoicing</p>
-                                    <p className="lastSectionBodyItemsSubHeader"> 4 hours ago</p>
-                                </div>
-                                <div className="lastSectionBodyItems">
-                                    <p className="lastSectionBodyItemsHeader">Report</p>
-                                    <p className="lastSectionBodyItemsSubHeader"> 7 hours ago</p>
-                                </div>
-                                <div className="lastSectionBodyItems">
-                                    <p className="lastSectionBodyItemsHeader">New Order</p>
-                                    <p className="lastSectionBodyItemsSubHeader"> 12 hours ago</p>
+                                    <p className="lastSectionBodyItemsHeader">Vijay</p>
+                                    <p className="lastSectionBodyItemsSubHeader">
+                                        100&nbsp;&nbsp;<p className="lastSectionBodyItemsSubHeaderSmall">Kgs</p>
+                                    </p>
                                 </div>
                             </div>
 
