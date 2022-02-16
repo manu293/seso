@@ -47,8 +47,6 @@ const DoughnutChart = () => {
         } 
     }]
 
-
-
   return (
         <Doughnut 
           type="doughnut" 
@@ -58,7 +56,7 @@ const DoughnutChart = () => {
           width={300}
           style={{
               backgroundColor: "inherit",
-              padding: "4%"
+              padding: "4%",
           }}
         />
   );

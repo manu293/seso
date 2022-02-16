@@ -265,69 +265,51 @@ const Accounts = () => {
 
                     </div>
 
-                    {/* <div className="accountRecentActivityContainer">
+                    <div className="accountRecentActivityContainer">
 
-                        <p className="accountRecentAcitivityHeader">Recent Activity</p>
+                        <p className="accountRecentAcitivityHeader">High Revenue Customers</p>
 
                         <div className="accountRecentActivityBodyContainer">
 
                             <div className="accountRecentSingleActivity">
                                 <div className="accountRecentLeft">
-                                    <p className="accountRecentLeftText">Invoicing</p>
+                                    <p className="accountRecentLeftText">Sujeesh</p>
                                 </div>
                                 <div className="accountRecentRight">
-                                    <p className="accountRecentRightText">2 hours</p>
+                                    <p className="accountRecentRightText">1200</p>
                                 </div>
                             </div>
 
                             <div className="accountRecentSingleActivity">
                                 <div className="accountRecentLeft">
-                                    <p className="accountRecentLeftText">Create Order</p>
+                                    <p className="accountRecentLeftText">Sujeesh</p>
                                 </div>
                                 <div className="accountRecentRight">
-                                    <p className="accountRecentRightText">2 hours</p>
+                                    <p className="accountRecentRightText">1200</p>
                                 </div>
                             </div>
 
                             <div className="accountRecentSingleActivity">
                                 <div className="accountRecentLeft">
-                                    <p className="accountRecentLeftText">Report</p>
+                                    <p className="accountRecentLeftText">Sujeesh</p>
                                 </div>
                                 <div className="accountRecentRight">
-                                    <p className="accountRecentRightText">2 hours</p>
+                                    <p className="accountRecentRightText">1200</p>
                                 </div>
                             </div>
 
                             <div className="accountRecentSingleActivity">
                                 <div className="accountRecentLeft">
-                                    <p className="accountRecentLeftText">Invoicing</p>
+                                    <p className="accountRecentLeftText">Sujeesh</p>
                                 </div>
                                 <div className="accountRecentRight">
-                                    <p className="accountRecentRightText">2 hours</p>
-                                </div>
-                            </div>
-
-                            <div className="accountRecentSingleActivity">
-                                <div className="accountRecentLeft">
-                                    <p className="accountRecentLeftText">New Order</p>
-                                </div>
-                                <div className="accountRecentRight">
-                                    <p className="accountRecentRightText">2 hours</p>
-                                </div>
-                            </div>
-
-                            <div className="accountRecentSingleActivity">
-                                <div className="accountRecentLeft">
-                                    <p className="accountRecentLeftText">Report</p>
-                                </div>
-                                <div className="accountRecentRight">
-                                    <p className="accountRecentRightText">2 hours</p>
+                                    <p className="accountRecentRightText">1200</p>
                                 </div>
                             </div>
 
                         </div>
 
-                    </div> */}
+                    </div>
 
                 </div>
 
