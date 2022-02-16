@@ -208,7 +208,9 @@ const SubContractFabricReturnPopUp = (props) => {
                             checked={(showYarnGrn === true) ? true : false}
                             onClick={() => setShowYarnGrn(!showYarnGrn)}
                         />
-                        <label className="yarnContainerLabel" htmlFor="fabricDetail">With YARN GRN</label>
+                        <label className="yarnContainerLabel" htmlFor="fabricDetail">
+                            With Yarn Return
+                        </label>
                     </div>
                 </div>
 

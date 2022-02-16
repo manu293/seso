@@ -223,7 +223,7 @@ const VendorEntryPopUpFilter = (props) => {
                             checked={(showYarnGrn === true) ? true : false}
                             onClick={() => setShowYarnGrn(!showYarnGrn)}
                         />
-                        <label className="yarnContainerLabel" htmlFor="fabricDetail">With YARN GRN</label>
+                        <label className="yarnContainerLabel" htmlFor="fabricDetail">With Yarn Delivery</label>
                     </div>
                 </div>
 
@@ -506,7 +506,7 @@ const VendorEntryPopUpFilter = (props) => {
                                 className={(fabricDeliveryTab === 1) ? "fabricDeliveryHeaderText fabricPopUpHeaderAcitve" : "fabricDeliveryHeaderText"}
                                 onClick={() => setFabricDeliveryTab(1)}
                             >
-                                Yarn Return
+                                Yarn Delivery
                             </p>
                         )
                     }

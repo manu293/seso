@@ -106,7 +106,7 @@ const SubContractYarnReturn = () => {
                                 value={vendorEntryFilter.orderId}
                                 onChange={(e) => handleVendorFilterInput(e)}
                             />
-                            <label className="orderInputLabel">Order Id</label>
+                            <label className="orderInputLabel">Vendor Order No</label>
                         </div>
 
                         <div className="filterTextFieldContainer" style={{width: "18%"}}>
@@ -118,7 +118,7 @@ const SubContractYarnReturn = () => {
                                 value={vendorEntryFilter.vdcNo}
                                 onChange={(e) => handleVendorFilterInput(e)}
                             />
-                            <label className="orderInputLabel">VDC No</label>
+                            <label className="orderInputLabel">VYR.DC No</label>
                         </div>
 
                         <div className="filterTextFieldContainer" style={{width: "18%"}}>
@@ -195,7 +195,7 @@ const SubContractYarnReturn = () => {
                                 <th className="orderEntryTableHeaderText">Vendor Order DC</th>
                                 <th className="orderEntryTableHeaderText">Customer Name</th>
                                 <th className="orderEntryTableHeaderText">Vendors Name</th>
-                                <th className="orderEntryTableHeaderText">Fabric Detail</th>
+                                <th className="orderEntryTableHeaderText">Yarn Detail</th>
                                 <th className="orderEntryTableHeaderText">Qty</th>
                                 <th className="orderEntryTableHeaderText">Preview</th>
                                 <th className="orderEntryTableHeaderText">Action</th>
