@@ -1,18 +1,34 @@
 // imports
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {X, PlusCircle, MinusCircle} from "phosphor-react";
 
 const YarnReturnPopUp = (props) => {
     const {fabricDeliveryRef, setFabricDeliveryPopUp} = props;
 
-    const [fabricDeliveryTab, setFabricDeliveryTab] = React.useState(1);
-    const [showDiaQtySection, setDiaQtySection] = React.useState(false);
+    const [fabricDeliveryTab, setFabricDeliveryTab] = useState(1);
+    const [showYarnSection, setYarnSection] = useState(true);
+    const [showBagAndWeight, setBagAndWeight] = useState(false);
+    const [showDiaQtySection, setDiaQtySection] = useState(false);
     const [diaQty, setDiaQty] = useState([
         {
             dia: "",
             qty: "",
         }
     ]);
+    const [bagWeight, setBagWeight] = useState([
+        {
+            bag: "",
+            weight: "",
+        }
+    ]);
+
+    useEffect(() => {
+        if (showYarnSection === false) {
+            setFabricDeliveryTab(0)
+        } else {
+            setFabricDeliveryTab(1)
+        }
+    }, [showYarnSection])
 
     const renderDiaQtyPopUp = () => {
         return (
@@ -94,6 +110,86 @@ const YarnReturnPopUp = (props) => {
         setDiaQty(inerDia)
     }
 
+    const handleAddNewBagWeight = () => {
+        const newBagWeight = {
+            bag: "",
+            weight: "",
+        };
+
+        const inerDia = [...bagWeight];
+        inerDia.push(newBagWeight);
+        setBagWeight(inerDia);
+    }
+
+    const handleRemoveBagWeight = (indexVal) => {
+        const inerDia = [...bagWeight];
+        inerDia.splice(indexVal, 1);
+        setBagWeight(inerDia)
+    }
+
+    const renderBagAndWeight = () => {
+        return (
+            <div className="detailPopUpContainer">
+                <div className="detailPopUpSection" ref={fabricDeliveryRef}>
+
+                    <div className="detailPopUpSectionHeader">
+                        <X size={40} weight="bold" color="#F78D12" onClick={() => setBagAndWeight(false)} />
+                    </div>
+
+                    <div className="detailPopUpSectionMiddle">
+                        {
+                            bagWeight.map((bWeight, indexVal) => {
+                                return (
+                                    <div className="detailPopUpSectionMiddleElement">
+
+                                        <div className="detailsPopUpLeftSection">
+
+                                            <div className="accountReportTextField">
+                                                <input
+                                                    className="detailsPopUpInput"
+                                                    type="text"
+                                                    id="bag"
+                                                    placeholder="Enter Bag"
+                                                    value={bWeight.bag}
+                                                />
+                                                <label className="orderInputLabel">Bag</label>
+                                            </div>
+
+                                            <div className="accountReportTextField">
+                                                <input
+                                                    className="detailsPopUpInput"
+                                                    type="text"
+                                                    id="qty"
+                                                    placeholder="Enter Weight"
+                                                    value={bWeight.weight}
+                                                />
+                                                <label className="orderInputLabel">Weight</label>
+                                            </div>
+
+                                        </div>
+
+                                        <div className="detailsPopUpRightSection">
+
+                                            <PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewBagWeight()}/>
+                                            {
+                                                (indexVal !== 0) && <MinusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleRemoveBagWeight(indexVal)} /> 
+                                            }
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+
+                    <div className="detailPopUpSectionFooter">
+                        <button className="addNewOrderFooterSubmit">Save</button>
+                    </div>
+
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="entryFilterContainer">
             <div className="enteryFilterSection" ref={fabricDeliveryRef}>
@@ -105,32 +201,59 @@ const YarnReturnPopUp = (props) => {
                     >
                         Fabric Delivery
                     </p>
-                    <p
-                        className={(fabricDeliveryTab === 1) ? "fabricDeliveryHeaderText fabricPopUpHeaderAcitve" : "fabricDeliveryHeaderText"}
-                        onClick={() => setFabricDeliveryTab(1)}
-                    >
-                        Yarn Return
-                    </p>
+                    {
+                        (showYarnSection === true)  &&
+                        (
+                            <p
+                                className={(fabricDeliveryTab === 1) ? "fabricDeliveryHeaderText fabricPopUpHeaderAcitve" : "fabricDeliveryHeaderText"}
+                                onClick={() => setFabricDeliveryTab(1)}
+                            >
+                                Yarn Return
+                            </p>
+                        )
+                    }
                 </div>
 
                 <div className="fabricDeliverySubheaderContainer">
                     <p className="fabricDeliverySubHeaderText">
                         Knit king apparels
                     </p>
-                    <div>
-                        <p className="fabricDeliverySubHeaderText">
-                            FDC.No : &nbsp; CDNDN222
-                        </p>
-                        <p className="fabricDeliverySubHeaderText fabricDeliverySubheaderPadding">
-                            Date : &nbsp; 27/21/2222
-                        </p>
-                    </div>
+                    {
+                            (fabricDeliveryTab === 0)
+                        ?
+                           (
+                            <div>
+                                <p className="fabricDeliverySubHeaderText">
+                                    FDC.No : &nbsp; CDNDN222
+                                </p>
+                                <p className="fabricDeliverySubHeaderText fabricDeliverySubheaderPadding">
+                                    Date : &nbsp; 27/21/2222
+                                </p>
+                            </div>
+                           )
+                        :
+                            (
+                                <div>
+                                    <p className="fabricDeliverySubHeaderText">
+                                        YRDC.No : &nbsp; CDNDN222
+                                    </p>
+                                    <p className="fabricDeliverySubHeaderText fabricDeliverySubheaderPadding">
+                                        Date : &nbsp; 27/21/2222
+                                    </p>
+                                </div>
+                            )
+                    }
                 </div>
 
                 <div className="fabricDeliveryBodyContainer">
 
-                    <div className="customCheckboxGroup">
-                        <input type="checkbox" id="yarnReturn" checked={true} />
+                    <div className="customCheckboxGroup" >
+                        <input 
+                            type="checkbox"
+                            id="yarnReturn"
+                            checked={showYarnSection}
+                            onClick={() => setYarnSection(!showYarnSection)}
+                        />
                         <label for="yarnReturn">With Yarn Return</label>
                     </div>
 
@@ -153,10 +276,10 @@ const YarnReturnPopUp = (props) => {
                         </div>
 
                         <button
-                            onClick={() => setDiaQtySection(true)}
+                            onClick={() => (fabricDeliveryTab === 0) ? setDiaQtySection(true) : setBagAndWeight(true)}
                             className="fabricProgramContainerButton orderEntryInputMargin"
                         >
-                            {"Dia & Weight"}
+                            {(fabricDeliveryTab === 0) ? "Dia & Weight" : "Bag & Weight"}
                         </button>
                     </div>
 
@@ -179,10 +302,10 @@ const YarnReturnPopUp = (props) => {
                         </div>
 
                         <button
-                            onClick={() => setDiaQtySection(true)}
+                            onClick={() => (fabricDeliveryTab === 0) ? setDiaQtySection(true) : setBagAndWeight(true)}
                             className="fabricProgramContainerButton orderEntryInputMargin"
                         >
-                            {"Dia & Weight"}
+                            {(fabricDeliveryTab === 0) ? "Dia & Weight" : "Bag & Weight"}
                         </button>
                     </div>
 
@@ -203,6 +326,10 @@ const YarnReturnPopUp = (props) => {
 
             {
                 (showDiaQtySection === true) && renderDiaQtyPopUp()
+            }
+
+            {
+                (showBagAndWeight === true) && renderBagAndWeight()
             }
         </div>
     )
