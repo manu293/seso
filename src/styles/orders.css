@@ -234,6 +234,7 @@
 .detailPopUpSectionHeader {
     display: flex;
     justify-content: flex-end;
+    cursor: pointer;
 }
 
 .detailPopUpSectionMiddle {

@@ -7,10 +7,18 @@ const FabricDeliveryPopUp = (props) => {
 
     const [fabricDeliveryTab, setFabricDeliveryTab] = React.useState(0);
     const [showDiaQtySection, setDiaQtySection] = React.useState(false);
+    const [showBagWeightSection, setBagWeightSection] = React.useState(false);
     const [diaQty, setDiaQty] = useState([
         {
             dia: "",
+            rolls: "",
             qty: "",
+        }
+    ]);
+    const [bagWeight, setBagWeight] = useState([
+        {
+            bag: "",
+            weight: "",
         }
     ]);
 
@@ -29,7 +37,7 @@ const FabricDeliveryPopUp = (props) => {
                                 return (
                                     <div className="detailPopUpSectionMiddleElement">
 
-                                        <div className="detailsPopUpLeftSection">
+                                        <div className="detailsPopUpLeftSection" style={{width: "80%"}}>
 
                                             <div className="accountReportTextField">
                                                 <input
@@ -50,12 +58,23 @@ const FabricDeliveryPopUp = (props) => {
                                                     placeholder="Enter Document Date"
                                                     value={dQty.qty}
                                                 />
+                                                <label className="orderInputLabel">Rolls</label>
+                                            </div>
+
+                                            <div className="accountReportTextField">
+                                                <input
+                                                    className="detailsPopUpInput"
+                                                    type="text"
+                                                    id="qty"
+                                                    placeholder="Enter Document Date"
+                                                    value={dQty.qty}
+                                                />
                                                 <label className="orderInputLabel">Qty</label>
                                             </div>
 
                                         </div>
 
-                                        <div className="detailsPopUpRightSection">
+                                        <div className="detailsPopUpRightSection" style={{width: "20%", cursor: "pointer"}}>
 
                                             <PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddNewDiaQty()}/>
                                             {
@@ -77,9 +96,90 @@ const FabricDeliveryPopUp = (props) => {
         )
     }
 
+    const renderBagAndWeight = () => {
+        return (
+            <div className="detailPopUpContainer">
+                <div className="detailPopUpSection" ref={fabricDeliveryRef}>
+
+                    <div className="detailPopUpSectionHeader">
+                        <X size={40} weight="bold" color="#F78D12" onClick={() => setBagWeightSection(false)} />
+                    </div>
+
+                    <div className="detailPopUpSectionMiddle">
+                        {
+                            bagWeight.map((bWeight, indexVal) => {
+                                return (
+                                    <div className="detailPopUpSectionMiddleElement">
+
+                                        <div className="detailsPopUpLeftSection" style={{width: "80%"}}>
+
+                                            <div className="accountReportTextField">
+                                                <input
+                                                    className="detailsPopUpInput"
+                                                    type="text"
+                                                    id="bag"
+                                                    placeholder="Enter Bag"
+                                                    value={bWeight.bag}
+                                                />
+                                                <label className="orderInputLabel">Bag</label>
+                                            </div>
+
+                                            <div className="accountReportTextField">
+                                                <input
+                                                    className="detailsPopUpInput"
+                                                    type="text"
+                                                    id="weight"
+                                                    placeholder="Enter Weight"
+                                                    value={bWeight.weight}
+                                                />
+                                                <label className="orderInputLabel">Weight</label>
+                                            </div>
+
+                                        </div>
+
+                                        <div className="detailsPopUpRightSection" style={{width: "20%", cursor: "pointer"}}>
+
+                                            <PlusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleAddBagAndWeight()}/>
+                                            {
+                                                (indexVal !== 0) && <MinusCircle size={28} weight="bold" color="#FFA412" onClick={() => handleRemoveBagAndWeight(indexVal)} /> 
+                                            }
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+
+                    <div className="detailPopUpSectionFooter">
+                        <button className="addNewOrderFooterSubmit">Save</button>
+                    </div>
+
+                </div>
+            </div>
+        )
+    }
+
+    const handleAddBagAndWeight = () => {
+        const newBagWeight = {
+            bag: "",
+            weight: "",
+        };
+
+        const inerDia = [...diaQty];
+        inerDia.push(newBagWeight);
+        setBagWeight(inerDia);
+    }
+
+    const handleRemoveBagAndWeight = (indexVal) => {
+        const inerDia = [...diaQty];
+        inerDia.splice(indexVal, 1);
+        setBagWeight(inerDia)
+    }
+
     const handleAddNewDiaQty = () => {
         const newDiaQty = {
             dia: "",
+            rolls: "",
             qty: "",
         };
 
@@ -119,7 +219,7 @@ const FabricDeliveryPopUp = (props) => {
                     </p>
                     <div>
                         <p className="fabricDeliverySubHeaderText">
-                            FDC.No : &nbsp; CDNDN222
+                            YRDC.No : &nbsp; CDNDN222
                         </p>
                         <p className="fabricDeliverySubHeaderText fabricDeliverySubheaderPadding">
                             Date : &nbsp; 27/21/2222
@@ -153,10 +253,10 @@ const FabricDeliveryPopUp = (props) => {
                         </div>
 
                         <button
-                            onClick={() => setDiaQtySection(true)}
+                            onClick={() => (fabricDeliveryTab === 0) ? setDiaQtySection(true) : setBagWeightSection(true)}
                             className="fabricProgramContainerButton orderEntryInputMargin"
                         >
-                            {"Dia & Weight"}
+                            {(fabricDeliveryTab === 0) ? "Dia & Weight" : "Bag & Weight"}
                         </button>
                     </div>
 
@@ -179,10 +279,10 @@ const FabricDeliveryPopUp = (props) => {
                         </div>
 
                         <button
-                            onClick={() => setDiaQtySection(true)}
+                            onClick={() => (fabricDeliveryTab === 0) ? setDiaQtySection(true) : setBagWeightSection(true)}
                             className="fabricProgramContainerButton orderEntryInputMargin"
                         >
-                            {"Dia & Weight"}
+                            {(fabricDeliveryTab === 0) ? "Dia & Weight" : "Bag & Weight"}
                         </button>
                     </div>
 
@@ -203,6 +303,10 @@ const FabricDeliveryPopUp = (props) => {
 
             {
                 (showDiaQtySection === true) && renderDiaQtyPopUp()
+            }
+
+            {
+                (showBagWeightSection === true) && renderBagAndWeight()
             }
         </div>
     )
