@@ -13,7 +13,10 @@ const GoodReceivedNotes = (props) => {
         setShowGrnSection,
         currentAddGrnRef
     } = props;
+
     const [showBagSection, setBagSection] = useState(false);
+    const [grnNo, setGrnNo] = useState("DCNM-12");
+    const [custDC, setCustDC] = useState("CKSM-02");
 
     const renderGrnMiddleSection = (grn, indexVal) => { 
         return (
@@ -201,7 +204,25 @@ const GoodReceivedNotes = (props) => {
                     <p className="goodReceivedNotePopUpNameHeaderText">Knit King Appeal</p>
 
                     <div>
-                        <p className="goodReceivedNotePopUpNameHeaderText">FDC No: CKWNMFN9292</p>
+                        <p className="goodReceivedNotePopUpNameHeaderText" style={{display: "flex", alignItems: "baseline", flexDirection: "row"}}>
+                            Customer DC No:&nbsp;
+                            <input
+                                type="text"
+                                id="custDC"
+                                value={custDC}
+                                className="goodReceivedNotePopUpNameHeaderInput"
+                                onChange={(e) => setCustDC(e.target.value)}
+                            />
+                        </p>
+                        <p className="goodReceivedNotePopUpNameHeaderText" style={{display: "flex", alignItems: "baseline", flexDirection: "row", marginTop: "5%"}}>
+                            GRN No:&nbsp;
+                            <input
+                                type="text"
+                                value={grnNo}
+                                className="goodReceivedNotePopUpNameHeaderInput"
+                                onChange={(e) => setGrnNo(e.target.value)}
+                            />
+                        </p>
                         <p className="goodReceivedNotePopUpNameHeaderText" style={{marginTop: "5%"}}>
                             Date: 23/12/2022
                         </p>
