@@ -22,14 +22,6 @@ const YarnReturnPopUp = (props) => {
         }
     ]);
 
-    useEffect(() => {
-        if (showYarnSection === false) {
-            setFabricDeliveryTab(0)
-        } else {
-            setFabricDeliveryTab(1)
-        }
-    }, [showYarnSection])
-
     const renderDiaQtyPopUp = () => {
         return (
             <div className="detailPopUpContainer">
