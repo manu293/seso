@@ -6,8 +6,8 @@
 
 .logInLeftSection {
     width: 70%;
-    background-image: url(https://ik.imagekit.io/id85c1jhrpf/login_pic_dvwjvhEUV?ik-sdk-version=javascript-1.4.3&updatedAt=1643128049934);
-    background-size: contain;
+    background-image: url(https://ik.imagekit.io/id85c1jhrpf/Group_401_Ee63yFNJW.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1645074780987);
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -57,18 +57,17 @@
 }
 
 .logInWelcomeSection {
-    /* color: linear-gradient(45deg, #ED1C6B 100%, #0867B5 100%); */
+    /* color: linear-gradient(to right, #ED1C6B, #0867B5); */
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 24px;
     line-height: 36px;
     text-align: center;
     width: 80%;
-    /* background-color: inherit; */
     letter-spacing: 0.5px;
-    background: -webkit-linear-gradient(#ED1C6B, #0867B5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(to right,#ED1C6B, #0867B5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .logInWelcomeSubSection {
@@ -90,6 +89,7 @@
 
 .logInFormInputContainer {
     display: flex;
+    width: 90%;
     flex-direction: column;
     background-color: inherit;
 }
@@ -122,21 +122,26 @@
     line-height: 21px;
     font-family: 'Poppins', sans-serif;
     margin-top: 4%;
+    color: #F78D12;
+    text-decoration:underline;
 }
 
 .logInFormSubmitButton {
     background: linear-gradient(90deg, #FBAE2F 0%, #F89116 105%);
-    border: 0.5px solid rgba(21, 47, 72, 0.3);
-    border-radius: 20px;
+    box-shadow: 16px 16px 32px rgba(244, 248, 250, 0.2);
+    border: none;
+    outline: none;
+    border-radius: 8px;
     text-align: center;
     color: #fff;
     font-family: 'Poppins', sans-serif;;
     font-weight: bold;
-    font-size: 22px;
-    line-height: 36px;
+    font-size: 18px;
+    line-height: 27px;
     width: 100%;
     margin: 8% 0;
     cursor: pointer;
+    height: 46px;
 }
 
 .dividerAlignmentContainer {
@@ -215,7 +220,7 @@
     top: 50%;
     transform: translateY(-50%);
     background-color: white;
-    color: #262E36;
+    color: #152F48;
     padding: 0 0.3rem;
     margin: 0 0.5rem;
     transition: .1s ease-out;
@@ -226,10 +231,10 @@
 .loginComponentInputField {
     font-size: 1rem;
     outline: none;
-    border: 1px solid #262E36;
+    border: 1px solid #C8C8C8;
     border-radius: 5px;  
     padding: 1rem 0.7rem;
-    color: #262E36;
+    color: #152F48;
     transition: 0.1s ease-out;
     width: 100%;
 }
