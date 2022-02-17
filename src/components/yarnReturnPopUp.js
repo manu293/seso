@@ -9,6 +9,8 @@ const YarnReturnPopUp = (props) => {
     const [showYarnSection, setYarnSection] = useState(true);
     const [showBagAndWeight, setBagAndWeight] = useState(false);
     const [showDiaQtySection, setDiaQtySection] = useState(false);
+    const [fdcNo, setFdcNo] = useState("DCNCN2221");
+    const [yarnNo, setYarnNo] = useState("DCNCN2221");
     const [diaQty, setDiaQty] = useState([
         {
             dia: "",
@@ -215,8 +217,16 @@ const YarnReturnPopUp = (props) => {
                         ?
                            (
                             <div>
-                                <p className="fabricDeliverySubHeaderText">
-                                    FDC.No : &nbsp; CDNDN222
+                                <p className="goodReceivedNotePopUpNameHeaderText" style={{display: "flex", alignItems: "baseline", flexDirection: "row", fontSize:  "16px", height: "22px"}}>
+                                    FDC.No:&nbsp;
+                                    <input
+                                        type="text"
+                                        id="fdcNo"
+                                        value={fdcNo}
+                                        style={{fontSize: "16px"}}
+                                        className="goodReceivedNotePopUpNameHeaderInput"
+                                        onChange={(e) => setFdcNo(e.target.value)}
+                                    />
                                 </p>
                                 <p className="fabricDeliverySubHeaderText fabricDeliverySubheaderPadding">
                                     Date : &nbsp; 27/21/2222
@@ -226,8 +236,16 @@ const YarnReturnPopUp = (props) => {
                         :
                             (
                                 <div>
-                                    <p className="fabricDeliverySubHeaderText">
-                                        YRDC.No : &nbsp; CDNDN222
+                                    <p className="goodReceivedNotePopUpNameHeaderText" style={{display: "flex", alignItems: "baseline", flexDirection: "row", fontSize:  "16px", height: "22px"}}>
+                                        YRDC.No:&nbsp;
+                                        <input
+                                            type="text"
+                                            id="yarnNo"
+                                            value={yarnNo}
+                                            style={{fontSize: "16px"}}
+                                            className="goodReceivedNotePopUpNameHeaderInput"
+                                            onChange={(e) => setYarnNo(e.target.value)}
+                                        />
                                     </p>
                                     <p className="fabricDeliverySubHeaderText fabricDeliverySubheaderPadding">
                                         Date : &nbsp; 27/21/2222
