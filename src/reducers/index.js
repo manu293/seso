@@ -1,4 +1,9 @@
 // imports
 import { combineReducers } from "redux";
 
-export default combineReducers({});
+// local imports
+import auth from "./auth.reducer";
+
+export default combineReducers({
+    auth
+});

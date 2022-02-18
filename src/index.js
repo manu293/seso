@@ -12,22 +12,17 @@ import reducers from "./reducers";
 // global styles
 import "./styles/index.css";
 
-// ReactDOM.render(
-//     <StoreProvider
-//         store={createStore(
-//             reducers,
-//             {},
-//             compose(
-//                 applyMiddleware(ReduxThunk)
-//             )
-//         )}
-//     >
-//         <App />
-//     </StoreProvider>,
-//   document.getElementById('root')
-// );
-
 ReactDOM.render(
-    <App />,
+    <StoreProvider
+        store={createStore(
+            reducers,
+            {},
+            compose(
+                applyMiddleware(ReduxThunk)
+            )
+        )}
+    >
+        <App />
+    </StoreProvider>,
   document.getElementById('root')
 );

@@ -1,6 +1,6 @@
 // imports
 import React from "react";
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import {
     Queue,
     SignOut,
@@ -11,17 +11,20 @@ import {
     AddressBook,
     CirclesFour
 } from "phosphor-react";
+import {connect} from "react-redux";
 
 // local imports
+import {logoutUser} from "../actions";
 import NavbarIcon from "../assets/icon.png";
 
 // styles
 import "../styles/navbar.css";
 
-const Navbar = () => {
+const Navbar = (props) => {
     let activePath = "dashboard";
     let subActivePath = "";
     const location = useLocation();
+    const history = useNavigate();
 
     switch(location.pathname) {
         case "/dashboard":
@@ -139,6 +142,11 @@ const Navbar = () => {
         default:
             activePath = "dashboard";
             break;
+    }
+
+    const handleUserLogOutClick = () => {
+        props.logoutUser();
+        history("/login");
     }
 
     return (
@@ -378,7 +386,10 @@ const Navbar = () => {
 
             </div>
 
-            <div className="navbarFooterContainer">
+            <div
+                className="navbarFooterContainer"
+                onClick={() => handleUserLogOutClick()}
+            >
                 <SignOut
                     size={18}
                     weight="bold"
@@ -393,4 +404,8 @@ const Navbar = () => {
     
 }
 
-export default Navbar;
+const mapStateToProps = () => {
+    return {};
+}
+
+export default connect(mapStateToProps, {logoutUser})(Navbar);
