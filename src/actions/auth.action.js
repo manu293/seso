@@ -3,7 +3,8 @@ import {SESO_BASE_URL} from "../helpers/api";
 import {
     USER_LOGOUT,
     USER_LOGIN_SUCCESS,
-    USER_LOGIN_LOADING
+    USER_LOGIN_LOADING,
+    USER_LOGIN_ERROR
 } from "../helpers/types";
 
 export const logUserIn = (userCred) => async dispatch => {
@@ -24,7 +25,7 @@ export const logUserIn = (userCred) => async dispatch => {
             (loginResponse.data) &&
             (loginResponse.data.message === "success")
         ) {
-            sessionStorage.setItem("isCurrentUserLoggedIn", "true");
+            localStorage.setItem("isCurrentUserLoggedIn", "true");
             dispatch({
                 type: USER_LOGIN_SUCCESS,
             });
@@ -40,12 +41,16 @@ export const logUserIn = (userCred) => async dispatch => {
             type: USER_LOGIN_LOADING,
             payload: false,
         });
+        dispatch({
+            type: USER_LOGIN_ERROR,
+            payload: true,
+        });
     })
 
 }
 
 export const logoutUser = () => dispatch => {
-    sessionStorage.removeItem("isCurrentUserLoggedIn");
+    localStorage.removeItem("isCurrentUserLoggedIn");
     dispatch({
         type: USER_LOGOUT,
     });

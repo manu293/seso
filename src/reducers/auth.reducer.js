@@ -11,11 +11,11 @@ const BLANK_STATE = {
     loading: false,
 };
 
-const sessionUserLoginState = JSON.parse(sessionStorage.getItem("isCurrentUserLoggedIn"));
+const sessionUserLoginState = JSON.parse(localStorage.getItem("isCurrentUserLoggedIn"));
 
 const INITIAL_STATE = (
     (sessionUserLoginState !== null) &&
-    (sessionUserLoginState === "true")
+    (sessionUserLoginState === true)
 ) ? {
         ...BLANK_STATE,
         loggedIn: true,

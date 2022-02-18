@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 
 // local imports
+import PrivateRoute from "./components/privateRoute";
+
 import OrderReport from "./pages/orderReport";
 
 import SignUp from "./pages/signUp";
@@ -47,33 +49,196 @@ class App extends React.Component {
                 <Routes>
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
 
-                    <Route path="/orders/orderEntry" element={<OrderEntry />} />
-                    <Route path="/orders/grn" element={<OrderGrn />} />
-                    <Route path="/orders/productionEntry" element={<OrderProductionEntry />} />
-                    <Route path="/orders/invoices" element={<OrderInvoice />} />
-                    <Route path="/orders/fabricDelivery" element={<OrderFabricDelivery />} />
-                    <Route path="/orders/yarnReturn" element={<OrderYarnReturn />} />
+                    <Route
+                        path="/"
+                        element={
+                            <PrivateRoute>
+                                <Dashboard />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/dashboard"
+                        element={
+                            <PrivateRoute>
+                                <Dashboard />
+                            </PrivateRoute>
+                        }
+                    />
 
-                    <Route path="/subcontract/vendorOrder" element={<SubContractVendorOrder />} />
-                    <Route path="/subcontract/vendorYarnDelivery" element={<SubContractYarnDelivery />} />
-                    <Route path="/subcontract/fabricReceived" element={<SubContractFabricReceived />} />
-                    <Route path="/subcontract/yarnReceived" element={<SubContractYarnReturn />} />
+                    <Route
+                        path="/orders/orderEntry"
+                        element={
+                            <PrivateRoute>
+                                <OrderEntry />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/orders/grn"
+                        element={
+                            <PrivateRoute>
+                                <OrderGrn />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/orders/productionEntry"
+                        element={
+                            <PrivateRoute>
+                                <OrderProductionEntry />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/orders/invoices"
+                        element={
+                            <PrivateRoute>
+                                <OrderInvoice />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/orders/fabricDelivery"
+                        element={
+                            <PrivateRoute>
+                                <OrderFabricDelivery />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/orders/yarnReturn"
+                        element={
+                            <PrivateRoute>
+                                <OrderYarnReturn />
+                            </PrivateRoute>
+                        }
+                    />
 
-                    <Route path="/admin/company" element={<AdminCompany />} />
-                    <Route path="/admin/users" element={<AdminUsers />} />
-                    <Route path="/admin/vendor" element={<AdminVendor />} />
-                    <Route path="/admin/customer" element={<AdminCustomer />} />
-                    <Route path="/admin/customization" element={<Customization />} />
+                    <Route
+                        path="/subcontract/vendorOrder"
+                        element={
+                            <PrivateRoute>
+                                <SubContractVendorOrder />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/subcontract/vendorYarnDelivery"
+                        element={
+                            <PrivateRoute>
+                                <SubContractYarnDelivery />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/subcontract/fabricReceived"
+                        element={
+                            <PrivateRoute>
+                                <SubContractFabricReceived />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/subcontract/yarnReceived"
+                        element={
+                            <PrivateRoute>
+                                <SubContractYarnReturn />
+                            </PrivateRoute>
+                        }
+                    />
 
-                    <Route path="/report/orderReport" element={<OrderReport />} />
-                    <Route path="/report/vendorOrderReport" element={<VendorOrderReport />} />
-                    <Route path="/report/productionReport" element={<ProductionReport />} />
+                    <Route
+                        path="/admin/company"
+                        element={
+                            <PrivateRoute>
+                                <AdminCompany />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/admin/users"
+                        element={
+                            <PrivateRoute>
+                                <AdminUsers />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/admin/vendor"
+                        element={
+                            <PrivateRoute>
+                                <AdminVendor />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/admin/customer"
+                        element={
+                            <PrivateRoute>
+                                <AdminCustomer />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/admin/customization"
+                        element={
+                            <PrivateRoute>
+                                <Customization />
+                            </PrivateRoute>
+                        }
+                    />
 
-                    <Route path="/accounts" element={<Accounts />} />
-                    <Route path="/accounts/report" element={<AccountReport />} />
-                    <Route path="/accounts/accountEntry" element={<AccountEntry />} />
+                    <Route
+                        path="/report/orderReport"
+                        element={
+                            <PrivateRoute>
+                                <OrderReport />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/report/vendorOrderReport"
+                        element={
+                            <PrivateRoute>
+                                <VendorOrderReport />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/report/productionReport"
+                        element={
+                            <PrivateRoute>
+                                <ProductionReport />
+                            </PrivateRoute>
+                        }
+                    />
+
+                    <Route
+                        path="/accounts"
+                        element={
+                            <PrivateRoute>
+                                <Accounts />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/accounts/report"
+                        element={
+                            <PrivateRoute>
+                                <AccountReport />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/accounts/accountEntry"
+                        element={
+                            <PrivateRoute>
+                                <AccountEntry />
+                            </PrivateRoute>
+                        }
+                    />
 
                     <Route path="*" element={<NotFound />} />
                 </Routes>
