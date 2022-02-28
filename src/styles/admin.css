@@ -102,8 +102,13 @@
     cursor: pointer;
 }
 
-.addAdminUserBodyContainer {
+.addAdminUserForm {
     width: 60%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.addAdminUserBodyContainer {
     height: calc(100% - 15%);
     overflow-y: scroll;
 }
@@ -111,7 +116,6 @@
 .addAdminUserButtonContainer {
     padding-top: 6%;
     display: flex;
-    width: 60%;
     justify-content: space-between;
 }
 

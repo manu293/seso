@@ -18,6 +18,8 @@ export const logUserIn = (userCred) => async dispatch => {
     await SESO_BASE_URL.post("auth/login" ,{
         email: userEmail,
         password: userPassword
+    }, {
+        withCredentials: true,
     })
     .then((loginResponse) => {
         if (
