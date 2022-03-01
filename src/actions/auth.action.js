@@ -51,9 +51,17 @@ export const logUserIn = (userCred) => async dispatch => {
 
 }
 
-export const logoutUser = () => dispatch => {
-    localStorage.removeItem("isCurrentUserLoggedIn");
-    dispatch({
-        type: USER_LOGOUT,
+export const logoutUser = (history) => async dispatch => {
+    await SESO_BASE_URL.post("auth/logout", {withCredentials: true})
+    .then((logoutResponse) => {
+        if (logoutResponse.status === 200 || logoutResponse.status === 201) {
+            history("/login");
+        }
+    })
+    .catch((err) => {
+        console.log("Logout error", err)
+        if (err.response.status === 401) {
+            history("/login");
+        }
     });
 }

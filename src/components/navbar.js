@@ -145,8 +145,7 @@ const Navbar = (props) => {
     }
 
     const handleUserLogOutClick = () => {
-        props.logoutUser();
-        history("/login");
+        props.logoutUser(history);
     }
 
     return (
