@@ -5,14 +5,17 @@ import {
     CaretRight,
     DotsThreeVertical,
     Eye,
-    X
+    X,
+    Printer
 } from "phosphor-react";
+import pdfMake from "pdfmake/build/pdfmake";
 
 // local imports
 import Navbar from "../components/navbar";
 import CustomHeader from "../components/customHeader";
 import VendorEntryPopUpFilter from "../components/vendorEntryPopUp";
 import CreateVendorOrder from "../components/createVendorOrder";
+import {generateVendorOrderPdf} from "../helpers/pdf";
 
 // styles
 import "../styles/orders.css";
@@ -20,10 +23,12 @@ import "../styles/orders.css";
 const SubContractVendorOrder = () => {
     const orderFilterRef = useRef();
     const orderEntryCreateRef = useRef();
+    const orderPdfRef = useRef();
 
     const [showFilterEntry, setFilterEntry] = useState(false);
     const [showAddOrder, setAddOrder] = useState(false);
     const [showVendorPopUp, setVendorPopUp] = useState(false);
+    const [pdfData, setPdfData] = useState(null);
     const [vendorEntryFilter, setOrderEntryFilter] = useState({
         date: "",
         vdcNo: "",
@@ -37,6 +42,22 @@ const SubContractVendorOrder = () => {
         intermediateInput[e.target.id] = e.target.value;
         setOrderEntryFilter(intermediateInput);
     }
+
+    useEffect(() => {
+        return () => {
+            setPdfData(null);
+            setOrderEntryFilter({
+                date: "",
+                vdcNo: "",
+                orderId: "",
+                customerName: "",
+                vendorName: "",
+            });
+            setVendorPopUp(false);
+            setFilterEntry(false);
+            setAddOrder(false);
+        }
+    },[])
 
     useEffect(() => {
 
@@ -60,15 +81,27 @@ const SubContractVendorOrder = () => {
             }
         }
 
+        const checkIfClickedOutside3 = (e) => {
+            if (
+                (pdfData !== null) &&
+                (orderPdfRef.current) &&
+                (!orderPdfRef.current.contains(e.target))
+            ) {
+                setPdfData(null);
+            }
+        }
+
         document.addEventListener("mousedown", checkIfClickedOutside);
         document.addEventListener("mousedown", checkIfClickedOutside2);
+        document.addEventListener("mousedown", checkIfClickedOutside3);
 
         return () => {
             document.removeEventListener("mousedown", checkIfClickedOutside);
             document.removeEventListener("mousedown", checkIfClickedOutside2);
+            document.removeEventListener("mousedown", checkIfClickedOutside3);
         }
 
-    }, [showFilterEntry, showAddOrder]);
+    }, [showFilterEntry, showAddOrder, pdfData]);
 
     const VendorOrderEntryFilter = () => {
         return (
@@ -154,6 +187,35 @@ const SubContractVendorOrder = () => {
         )
     }
 
+    const renderPdfData = () => {
+        return (
+            <div className="entryFilterContainer">
+                <div className="entryFilterBodyContainer" ref={orderPdfRef} style={{height: "85vh"}}>
+                    <div className="entryFilterHeaderSection">
+                        <X
+                            size={25}
+                            weight="bold"
+                            color="#FFA412"
+                            onClick={() => setPdfData(null)}
+                        />
+                    </div>
+
+                    <div className="filterMiddleSection" style={{margin: 0}}>
+                        <iframe src={pdfData} style={{width: "100%"}} />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    const generatePdf = () => {
+        const docDefinition = generateVendorOrderPdf();
+        const pdfDocGenerator  = pdfMake.createPdf(docDefinition);
+        pdfDocGenerator.getDataUrl((dataUrl) => {
+            setPdfData(dataUrl);
+        });
+    }
+
     return (
         <div className="mainContainer">
 
@@ -172,6 +234,12 @@ const SubContractVendorOrder = () => {
                                 size={28}
                                 weight="bold"
                                 onClick={() => setFilterEntry(true)}
+                            />
+
+                            <Printer
+                                size={28}
+                                weight="bold"
+                                onClick={() => generatePdf()}
                             />
                         </div>
                     </div>
@@ -291,6 +359,10 @@ const SubContractVendorOrder = () => {
                         setVendorPopUp={setVendorPopUp}
                     />
                 )
+            }
+
+            {
+                (pdfData !== null) && renderPdfData()
             }
 
         </div>

@@ -5,14 +5,17 @@ import {
     CaretRight,
     DotsThreeVertical,
     Eye,
-    X
+    X,
+    Printer
 } from "phosphor-react";
+import pdfMake from "pdfmake/build/pdfmake";
 
 // local imports
 import Navbar from "../components/navbar";
 import CustomHeader from "../components/customHeader";
 import CreateVendorOrder from "../components/createVendorOrder";
 import YarnDeliveryPopUp from "../components/yarnDeliveryPopUp";
+import {generateVendorYarnPdf} from "../helpers/pdf";
 
 // styles
 import "../styles/orders.css";
@@ -20,10 +23,12 @@ import "../styles/orders.css";
 const SubContractYarnDelivery = () => {
     const orderFilterRef = useRef();
     const orderEntryCreateRef = useRef();
+    const orderPdfRef = useRef();
 
     const [showFilterEntry, setFilterEntry] = useState(false);
     const [showAddOrder, setAddOrder] = useState(false);
     const [showVendorPopUp, setVendorPopUp] = useState(false);
+    const [pdfData, setPdfData] = useState(null);
     const [vendorEntryFilter, setOrderEntryFilter] = useState({
         date: "",
         vdcNo: "",
@@ -37,6 +42,20 @@ const SubContractYarnDelivery = () => {
         intermediateInput[e.target.id] = e.target.value;
         setOrderEntryFilter(intermediateInput);
     }
+
+    useEffect(() => {
+        setPdfData(null);
+        setOrderEntryFilter({
+            date: "",
+            vdcNo: "",
+            orderId: "",
+            customerName: "",
+            vendorName: "",
+        });
+        setVendorPopUp(false);
+        setAddOrder(false);
+        setFilterEntry(false);
+    },[])
 
     useEffect(() => {
 
@@ -60,15 +79,27 @@ const SubContractYarnDelivery = () => {
             }
         }
 
+        const checkIfClickedOutside3 = (e) => {
+            if (
+                (pdfData !== null) &&
+                (orderPdfRef.current) &&
+                (!orderPdfRef.current.contains(e.target))
+            ) {
+                setPdfData(null);
+            }
+        }
+
         document.addEventListener("mousedown", checkIfClickedOutside);
         document.addEventListener("mousedown", checkIfClickedOutside2);
+        document.addEventListener("mousedown", checkIfClickedOutside3);
 
         return () => {
             document.removeEventListener("mousedown", checkIfClickedOutside);
             document.removeEventListener("mousedown", checkIfClickedOutside2);
+            document.removeEventListener("mousedown", checkIfClickedOutside3);
         }
 
-    }, [showFilterEntry, showAddOrder]);
+    }, [showFilterEntry, showAddOrder, pdfData]);
 
     const vendorYarnDeliveryFilter = () => {
         return (
@@ -154,6 +185,36 @@ const SubContractYarnDelivery = () => {
         )
     }
 
+    const generatePdf = () => {
+        const docDefinition = generateVendorYarnPdf();
+        const pdfDocGenerator  = pdfMake.createPdf(docDefinition);
+        pdfDocGenerator.getDataUrl((dataUrl) => {
+            setPdfData(dataUrl);
+        });
+    }
+
+
+    const renderPdfData = () => {
+        return (
+            <div className="entryFilterContainer">
+                <div className="entryFilterBodyContainer" ref={orderPdfRef} style={{height: "85vh"}}>
+                    <div className="entryFilterHeaderSection">
+                        <X
+                            size={25}
+                            weight="bold"
+                            color="#FFA412"
+                            onClick={() => setPdfData(null)}
+                        />
+                    </div>
+
+                    <div className="filterMiddleSection" style={{margin: 0}}>
+                        <iframe src={pdfData} style={{width: "100%"}} />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="mainContainer">
 
@@ -172,6 +233,12 @@ const SubContractYarnDelivery = () => {
                                 size={28}
                                 weight="bold"
                                 onClick={() => setFilterEntry(true)}
+                            />
+
+                            <Printer
+                                size={28}
+                                weight="bold"
+                                onClick={() => generatePdf()}
                             />
                         </div>
                     </div>
@@ -276,6 +343,10 @@ const SubContractYarnDelivery = () => {
                         setVendorPopUp={setVendorPopUp}
                     />
                 )
+            }
+
+            {
+                (pdfData !== null) && renderPdfData()
             }
 
         </div>
