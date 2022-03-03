@@ -60,8 +60,6 @@ export const logoutUser = (history) => async dispatch => {
     })
     .catch((err) => {
         console.log("Logout error", err)
-        if (err.response.status === 401) {
-            history("/login");
-        }
+        history("/login");
     });
 }
