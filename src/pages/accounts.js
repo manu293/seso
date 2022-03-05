@@ -12,11 +12,13 @@ import {
   } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import {X} from "phosphor-react";
+import pdfMake from "pdfmake/build/pdfmake";
 
 // local imports
 import CustomHeader from "../components/customHeader";
 import Navbar from "../components/navbar";
 import DoughnutChart from "../components/customDoughnut";
+import {generateGstReportPdf} from "../helpers/pdf";
 
 // styles
 import "../styles/accounts.css";
@@ -32,8 +34,10 @@ ChartJS.register(
 
 const Accounts = () => {
     const accountPopUpRef = useRef();
+    const orderPdfRef = useRef();
 
     const [showAccountsPopUp, setAccountsPopUp] = React.useState(false);
+    const [pdfData, setPdfData] = useState(null);
     const [filterSection, setFilterSection] = useState({
         fromDate: "",
         toDate: "",
@@ -57,13 +61,25 @@ const Accounts = () => {
             }
         }
 
-        document.addEventListener("mousedown", checkIfClickedOutsideAcountsPopUp);
-
-        return () => {
-            document.removeEventListener("mousedown", checkIfClickedOutsideAcountsPopUp)
+        const checkIfClickedOutside3 = (e) => {
+            if (
+                (pdfData !== null) &&
+                (orderPdfRef.current) &&
+                (!orderPdfRef.current.contains(e.target))
+            ) {
+                setPdfData(null);
+            }
         }
 
-    }, [showAccountsPopUp])
+        document.addEventListener("mousedown", checkIfClickedOutsideAcountsPopUp);
+        document.addEventListener("mousedown", checkIfClickedOutside3);
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutsideAcountsPopUp);
+            document.removeEventListener("mousedown", checkIfClickedOutside3);
+        }
+
+    }, [showAccountsPopUp, pdfData]);
 
     const showAccountPopUpSection = () => {
         return (
@@ -100,7 +116,7 @@ const Accounts = () => {
                             <input
                                 className="loginInSignUpCustomInput"
                                 type="date"
-                                id="fromDate"
+                                id="toDate"
                                 placeholder="Enter Date"
                                 value={filterSection.toDate}
                                 onChange={(e) => handleAccountPopUpInputSection(e)}
@@ -110,12 +126,48 @@ const Accounts = () => {
                     </div>
 
                     <div className="entryFilterFooterSection">
-                        <button className="entryFilterFooterButton">Extract</button>
+                        <button
+                            className="entryFilterFooterButton"
+                            disabled={(filterSection.fromDate.length > 0) && (filterSection.toDate.length > 0) ? false : true}
+                            onClick={() => generatePdf()}
+                        >
+                            Extract
+                        </button>
                     </div>
 
                 </div>
             </div>
         )
+    }
+
+    const generatePdf = () => {
+        const docDefinition = generateGstReportPdf();
+        const pdfDocGenerator  = pdfMake.createPdf(docDefinition);
+        pdfDocGenerator.getDataUrl((dataUrl) => {
+            setAccountsPopUp(false);
+            setPdfData(dataUrl);
+        });
+    }
+
+    const renderPdfData = () => {
+        return (
+            <div className="entryFilterContainer">
+                <div className="entryFilterBodyContainer" ref={orderPdfRef} style={{height: "85vh"}}>
+                    <div className="entryFilterHeaderSection">
+                        <X
+                            size={25}
+                            weight="bold"
+                            color="#FFA412"
+                            onClick={() => setPdfData(null)}
+                        />
+                    </div>
+
+                    <div className="filterMiddleSection" style={{margin: 0}}>
+                        <iframe src={pdfData} style={{width: "100%"}} />
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     return (
@@ -317,6 +369,10 @@ const Accounts = () => {
 
             {
                 (showAccountsPopUp === true) && showAccountPopUpSection()
+            }
+
+            {
+                (pdfData !== null) && renderPdfData()
             }
 
         </div>
