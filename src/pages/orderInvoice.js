@@ -8,13 +8,16 @@ import {
     X,
     Trash,
     FilePlus,
-    Square
+    Square,
+    Printer
 } from "phosphor-react";
+import pdfMake from "pdfmake/build/pdfmake";
 
 // local imports
 import Navbar from "../components/navbar";
 import CustomHeader from "../components/customHeader";
 import GenerateInvoicePopUp from "../components/generateInvoicePopUp";
+import {generateInvoicePdf} from "../helpers/pdf";
 
 // styles
 import "../styles/orders.css";
@@ -23,11 +26,13 @@ const OrderInvoice = () => {
     const previewPopUpRef = useRef();
     const previewFilterPopUpRef = useRef();
     const previewAddGrnRef = useRef();
+    const orderPdfRef = useRef();
 
     const [selectInvoice, setSelectInvoice] = useState(false);
     const [showFilterEntry, setFilterEntry] = useState(false);
     const [showOrderPopUp, setOrderPopUp] = useState(false);
     const [showGrnSection, setShowGrnSection] = useState(false);
+    const [pdfData, setPdfData] = useState(null);
     const [showNewOrderInvoice, setShowNewOrderInvoice] = useState(false);
     const [invoiceTab, setInvoiceTab] = useState(0);
     const [showActionSection, setActionSection] = useState("");
@@ -188,17 +193,29 @@ const OrderInvoice = () => {
             }
         }
 
+        const checkIfClickedOutside3 = (e) => {
+            if (
+                (pdfData !== null) &&
+                (orderPdfRef.current) &&
+                (!orderPdfRef.current.contains(e.target))
+            ) {
+                setPdfData(null);
+            }
+        }
+
         document.addEventListener("mousedown", checkIfClickedOutside);
         document.addEventListener("mousedown", checkIfClickedOutsideFilter);
         document.addEventListener("mousedown", checkIfClickedOutsideAddGrn);
+        document.addEventListener("mousedown", checkIfClickedOutside3);
 
         return () => {
             document.removeEventListener("mousedown", checkIfClickedOutside);
             document.removeEventListener("mousedown", checkIfClickedOutsideFilter);
             document.removeEventListener("mousedown", checkIfClickedOutsideAddGrn);
+            document.removeEventListener("mousedown", checkIfClickedOutside3);
         }
 
-    }, [showOrderPopUp, showFilterEntry, showGrnSection]);
+    }, [showOrderPopUp, showFilterEntry, showGrnSection, pdfData]);
 
     const renderPendingInvoiceTable = () => {
         return (
@@ -337,6 +354,35 @@ const OrderInvoice = () => {
         )
     }
 
+    const generatePdf = () => {
+        const docDefinition = generateInvoicePdf();
+        const pdfDocGenerator  = pdfMake.createPdf(docDefinition);
+        pdfDocGenerator.getDataUrl((dataUrl) => {
+            setPdfData(dataUrl);
+        });
+    }
+
+    const renderPdfData = () => {
+        return (
+            <div className="entryFilterContainer">
+                <div className="entryFilterBodyContainer" ref={orderPdfRef} style={{height: "85vh"}}>
+                    <div className="entryFilterHeaderSection">
+                        <X
+                            size={25}
+                            weight="bold"
+                            color="#FFA412"
+                            onClick={() => setPdfData(null)}
+                        />
+                    </div>
+
+                    <div className="filterMiddleSection" style={{margin: 0}}>
+                        <iframe src={pdfData} style={{width: "100%"}} />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="mainContainer">
 
@@ -355,6 +401,12 @@ const OrderInvoice = () => {
                                 size={28}
                                 weight="bold"
                                 onClick={() => setFilterEntry(true)}
+                            />
+
+                            <Printer
+                                size={28}
+                                weight="bold"
+                                onClick={() => generatePdf()}
                             />
                         </div>
                     </div>
@@ -429,6 +481,10 @@ const OrderInvoice = () => {
                         removeNewOrderInvoice={removeNewOrderInvoice}
                         setShowNewOrderInvoice={setShowNewOrderInvoice}
                     />
+            }
+
+            {
+                (pdfData !== null) && renderPdfData()
             }
 
         </div>
