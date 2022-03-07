@@ -88,6 +88,17 @@ p {
   animation: big 1.5s ease-in-out;
 }
 
+.greenCircleProgressWithoutAnimation {
+  fill: none;
+  stroke-width: 10px;
+  stroke: #22AB49;
+  stroke-linecap: round;
+  stroke-dasharray: 326.56;
+  stroke-dashoffset: 60;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+}
+
 .yellowCircleProgress {
   fill: none;
   stroke-width: 10px;
