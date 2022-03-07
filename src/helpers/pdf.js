@@ -3527,9 +3527,9 @@ const renderInvoicePdf = () => {
             text: "INVOICE",
             bold: true,
             color: "#0881F6",
-            fontSize: 32,
+            fontSize: 50,
             alignment: "right",
-            margin: [0, 0, 100, 0],
+            margin: [0, 0, 25, 0],
           },
         ],
         alignment: "left",
@@ -3656,8 +3656,8 @@ const renderInvoicePdf = () => {
                 fillColor: "#E3F4FD",
                 fontSize: 18,
                 bold: true,
-                alignment: "center",
-                margin: [5, 10, 5, 10],
+                alignment: "left",
+                margin: [10, 10, 5, 10],
               },
               {
                 text: "Fabric Description",
@@ -3665,8 +3665,8 @@ const renderInvoicePdf = () => {
                 fillColor: "#E3F4FD",
                 fontSize: 18,
                 bold: true,
-                alignment: "center",
-                margin: [5, 10, 5, 10],
+                alignment: "left",
+                margin: [0, 10, 5, 10],
               },
               {
                 text: "Quantity",
@@ -3674,8 +3674,8 @@ const renderInvoicePdf = () => {
                 fillColor: "#E3F4FD",
                 fontSize: 18,
                 bold: true,
-                alignment: "center",
-                margin: [5, 10, 5, 10],
+                alignment: "left",
+                margin: [0, 10, 5, 10],
               },
               {
                 text: "Price",
@@ -3683,8 +3683,8 @@ const renderInvoicePdf = () => {
                 fillColor: "#E3F4FD",
                 fontSize: 18,
                 bold: true,
-                alignment: "center",
-                margin: [5, 10, 5, 10],
+                alignment: "left",
+                margin: [0, 10, 5, 10],
               },
               {
                 text: "Amount",
@@ -3692,16 +3692,59 @@ const renderInvoicePdf = () => {
                 fillColor: "#E3F4FD",
                 fontSize: 18,
                 bold: true,
-                alignment: "center",
+                alignment: "left",
+                margin: [0, 10, 5, 10],
+              },
+            ],
+            [
+              {
+                text: "1",
+                alignment: "left",
+                fontSize: 16,
+                margin: [15, 10, 5, 10],
+              },
+              {
+                stack: [
+                  {
+                    text: "Single Jersey",
+                    fontSize: 16,
+                    bold: true,
+                  },
+                  {
+                    text: "30’s - SSM - LL :31cm - GG: 24",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                ],
+                alignment: "left",
+
+                margin: [10, 10, 5, 10],
+              },
+              {
+                text: "3000.000",
+                alignment: "left",
+                fontSize: 16,
                 margin: [5, 10, 5, 10],
               },
+              {
+                text: "10",
+                alignment: "left",
+                fontSize: 16,
+                margin: [10, 10, 5, 10],
+              },
+              {
+                text: "30000.00",
+                alignment: "left",
+                fontSize: 16,
+                margin: [10, 10, 5, 10],
+              },
             ],
             [
               {
                 text: "1",
-                alignment: "center",
+                alignment: "left",
                 fontSize: 16,
-                margin: [25, 10, 5, 10],
+                margin: [15, 10, 5, 10],
               },
               {
                 stack: [
@@ -3716,70 +3759,27 @@ const renderInvoicePdf = () => {
                     margin: [0, 5, 0, 0],
                   },
                 ],
-                alignment: "center",
+                alignment: "left",
 
-                margin: [25, 10, 5, 10],
+                margin: [10, 10, 5, 10],
               },
               {
                 text: "3000.000",
-                alignment: "center",
+                alignment: "left",
                 fontSize: 16,
-                margin: [25, 10, 5, 10],
+                margin: [5, 10, 5, 10],
               },
               {
                 text: "10",
-                alignment: "center",
+                alignment: "left",
                 fontSize: 16,
-                margin: [25, 10, 5, 10],
+                margin: [10, 10, 5, 10],
               },
               {
                 text: "30000.00",
-                alignment: "center",
+                alignment: "left",
                 fontSize: 16,
-                margin: [25, 10, 5, 10],
-              },
-            ],
-            [
-              {
-                text: "1",
-                alignment: "center",
-                fontSize: 16,
-                margin: [25, 10, 5, 10],
-              },
-              {
-                stack: [
-                  {
-                    text: "Single Jersey",
-                    fontSize: 16,
-                    bold: true,
-                  },
-                  {
-                    text: "30’s - SSM - LL :31cm - GG: 24",
-                    fontSize: 10,
-                    margin: [0, 5, 0, 0],
-                  },
-                ],
-                alignment: "center",
-
-                margin: [25, 10, 5, 10],
-              },
-              {
-                text: "3000.000",
-                alignment: "center",
-                fontSize: 16,
-                margin: [25, 10, 5, 10],
-              },
-              {
-                text: "10",
-                alignment: "center",
-                fontSize: 16,
-                margin: [25, 10, 5, 10],
-              },
-              {
-                text: "30000.00",
-                alignment: "center",
-                fontSize: 16,
-                margin: [25, 10, 5, 10],
+                margin: [10, 10, 5, 10],
               },
             ],
             [
