@@ -6,3 +6,4 @@ export const USER_LOGIN_ERROR = "USER_LOGIN_ERROR";
 
 // admin types
 export const GET_ADMIN_CUSTOMERS = "GET_ADMIN_CUSTOMERS";
+export const GET_ADMIN_VENDORS = "GET_ADMIN_VENDORS";

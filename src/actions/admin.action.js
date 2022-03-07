@@ -1,7 +1,8 @@
 // local imports
 import { SESO_BASE_URL } from "../helpers/api";
-import { GET_ADMIN_CUSTOMERS } from "../helpers/types";
+import { GET_ADMIN_CUSTOMERS, GET_ADMIN_VENDORS } from "../helpers/types";
 
+// admin customers
 export const fetchAdminCustomers = (history) => async (dispatch) => {
   await SESO_BASE_URL.get("admin/customer", { withCredentials: true })
     .then((adminCustomerResponse) => {
@@ -61,6 +62,28 @@ export const editAdminCustomer = (history, customerDetail) => async () => {
     { withCredentials: true }
   )
     .then()
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
+
+// admin vendors
+export const fetchAdminVendors = (history) => async (dispatch) => {
+  await SESO_BASE_URL.get("admin/vendor", { withCredentials: true })
+    .then((adminVendorResponse) => {
+      if (
+        adminVendorResponse.status === 200 &&
+        adminVendorResponse.data &&
+        adminVendorResponse.data.length > 0
+      ) {
+        dispatch({
+          type: GET_ADMIN_VENDORS,
+          payload: adminVendorResponse.data,
+        });
+      }
+    })
     .catch((err) => {
       if (err.response.status === 401) {
         history("/login");
