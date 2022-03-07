@@ -15,190 +15,173 @@ const generateVendorOrderPdf = () => {
 const renderVendorOrderPdf = () => {
   return {
     pageSize: "A4",
-    pageOrientation: "landscape",
+    pageOrientation: "porrait",
     pageMargins: 10,
     content: [
       {
         table: {
-          widths: [550, "*"],
+          widths: ["*", 200],
           body: [
             [
               {
-                table: {
-                  widths: ["*"],
-
-                  body: [
-                    [
-                      {
-                        text: "CONFIDENT KNITTING WORKS",
-                        color: "#F01717",
-                        alignment: "center",
-                        fontSize: 18,
-                        bold: true,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Thiyagi palaniswamy nagar",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Pooluvapatti, Tirupur",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Ph.no : 7339580177",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "GSTIN : 33AAIFC7327E1ZP",
-                        color: "#2E89E0",
-                        alignment: "center",
-                        fontSize: 14,
-                        bold: true,
-                      },
-                    ],
-                  ],
-                },
-                layout: "noBorders",
+                stack: [
+                  {
+                    text: "CONFIDENT KNITTING WORKS",
+                    color: "#F01717",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    text: "Thiyagi palaniswamy nagar",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Pooluvapatti, Tirupur",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Ph.no : 7339580177",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "GSTIN : 33AAIFC7327E1ZP",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 14,
+                    bold: true,
+                    margin: [0, 5, 0, 10],
+                  },
+                ],
               },
               {
-                table: {
-                  widths: ["*", "*"],
-                  body: [
-                    [
-                      {
-                        text: "VENDOR ORDER",
-                        color: "#2E89E0",
-                        alignment: "center",
-                        fontSize: 18,
-                        bold: true,
-                        colSpan: 2,
-                        margin: [0, 0, 0, 10],
-                      },
-                      {},
-                    ],
-                    [
+                stack: [
+                  {
+                    text: "VENDOR ORDER",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    colSpan: 2,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    columns: [
                       {
                         text: "V.DC No : 101",
                         color: "#152F48",
                         alignment: "left",
                         fontSize: 10,
                         bold: true,
-                        margin: [15, 0, 0, 0],
+                        margin: [5, 0, 0, 0],
                       },
                       {
                         text: "Date : 27/08/2021",
                         color: "#152F48",
-                        alignment: "center",
+                        alignment: "right",
                         fontSize: 10,
                         bold: true,
                       },
                     ],
-                    [
-                      {
-                        text: "VYR.DC No : 100/K21",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 10,
-                        bold: true,
-                        margin: [15, 10, 0, 0],
-                      },
-                      {},
-                    ],
-                  ],
-                },
-                margin: [0, 10, 0, 0],
-                layout: "noBorders",
+                    margin: [0, 15, 0, 0],
+                  },
+                  {
+                    text: "VYR.DC No : 100/K21",
+                    color: "#152F48",
+                    alignment: "left",
+                    fontSize: 10,
+                    bold: true,
+                    margin: [5, 10, 0, 0],
+                  },
+                ],
               },
             ],
           ],
         },
       },
       {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
+      },
+      {
         table: {
-          widths: ["*"],
+          widths: ["*", "*"],
           body: [
             [
               {
-                table: {
-                  widths: ["*", "*"],
-                  body: [
-                    [
-                      {
-                        text: "To,",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 9,
-                      },
-                      {},
-                    ],
-                    [
-                      {
-                        text: "Senior Techno Knits",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 14,
-                        bold: true,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {
-                        text: "GSTIN : 33BBIFC7327E2ZP",
-                        color: "#152F48",
-                        alignment: "right",
-                        fontSize: 14,
-                        bold: true,
-                        margin: [0, 0, 10, 0],
-                      },
-                    ],
-                    [
-                      {
-                        text: "Thiyagi palaniswamy nagar",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 12,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {
-                        text: "Phn No : 7339580177",
-                        color: "#152F48",
-                        alignment: "right",
-                        fontSize: 14,
-                        bold: true,
-                        rowSpan: 2,
-                        margin: [0, 10, 10, 0],
-                      },
-                    ],
-                    [
-                      {
-                        text: "Pooluvapatti, Tirupur",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 12,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {},
-                    ],
-                  ],
-                },
-                margin: [10, 10, 10, 10],
-                layout: "noBorders",
+                text: "To,",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 9,
               },
+              {},
+            ],
+            [
+              {
+                text: "Senior Techno Knits",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 14,
+                bold: true,
+                margin: [10, 0, 0, 0],
+              },
+              {
+                text: "GSTIN : 33BBIFC7327E2ZP",
+                color: "#152F48",
+                alignment: "right",
+                fontSize: 14,
+                bold: true,
+                margin: [0, 0, 10, 0],
+              },
+            ],
+            [
+              {
+                text: "Thiyagi palaniswamy nagar",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 12,
+                margin: [10, 0, 0, 0],
+              },
+              {
+                text: "Phn No : 7339580177",
+                color: "#152F48",
+                alignment: "right",
+                fontSize: 14,
+                bold: true,
+                rowSpan: 2,
+                margin: [0, 10, 10, 0],
+              },
+            ],
+            [
+              {
+                text: "Pooluvapatti, Tirupur",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 12,
+                margin: [10, 0, 0, 0],
+              },
+              {},
             ],
           ],
         },
+        margin: [10, 10, 10, 10],
+        layout: "noBorders",
+      },
+      {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
       },
       {
         margin: [0, 10, 0, 0],
@@ -251,9 +234,9 @@ const renderVendorOrderPdf = () => {
                 text: "Net Weight",
                 color: "#152F48",
                 bold: true,
-                fillColor: "#E3F4FD",
                 alignment: "center",
-                margin: [8, 20, 5, 8],
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
               },
             ],
             [
@@ -667,186 +650,172 @@ const generateVendorYarnPdf = () => {
 const renderVendorYarnPdf = () => {
   return {
     pageSize: "A4",
-    pageOrientation: "landscape",
+    pageOrientation: "potrait",
     pageMargins: 10,
     content: [
       {
         table: {
-          widths: [550, "*"],
+          widths: ["*", 200],
           body: [
             [
               {
-                table: {
-                  widths: ["*"],
-
-                  body: [
-                    [
-                      {
-                        text: "CONFIDENT KNITTING WORKS",
-                        color: "#F01717",
-                        alignment: "center",
-                        fontSize: 18,
-                        bold: true,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Thiyagi palaniswamy nagar",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Pooluvapatti, Tirupur",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Ph.no : 7339580177",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "GSTIN : 33AAIFC7327E1ZP",
-                        color: "#2E89E0",
-                        alignment: "center",
-                        fontSize: 14,
-                        bold: true,
-                      },
-                    ],
-                  ],
-                },
-                layout: "noBorders",
+                stack: [
+                  {
+                    text: "CONFIDENT KNITTING WORKS",
+                    color: "#F01717",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    text: "Thiyagi palaniswamy nagar",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Pooluvapatti, Tirupur",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Ph.no : 7339580177",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "GSTIN : 33AAIFC7327E1ZP",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 14,
+                    bold: true,
+                    margin: [0, 5, 0, 10],
+                  },
+                ],
               },
               {
-                table: {
-                  widths: ["*", "*"],
-                  body: [
-                    [
+                stack: [
+                  {
+                    text: "Vendor Yarn DC",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    colSpan: 2,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    columns: [
                       {
-                        text: "Vendor Yarn DC",
-                        color: "#2E89E0",
-                        alignment: "center",
-                        fontSize: 18,
-                        bold: true,
-                        colSpan: 2,
-                        margin: [0, 0, 0, 10],
-                      },
-                      {},
-                    ],
-                    [
-                      {
-                        text: "V.DC No : 101",
+                        text: "VYR.DC No : 100/K21",
                         color: "#152F48",
                         alignment: "left",
                         fontSize: 10,
                         bold: true,
-                        margin: [15, 0, 0, 0],
+                        margin: [0, 0, 0, 0],
                       },
                       {
                         text: "Date : 27/08/2021",
                         color: "#152F48",
-                        alignment: "center",
+                        alignment: "right",
                         fontSize: 10,
                         bold: true,
                       },
                     ],
-                  ],
-                },
-                margin: [0, 20, 0, 0],
-                layout: "noBorders",
+                    margin: [0, 25, 0, 0],
+                  },
+                ],
               },
             ],
           ],
         },
       },
       {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
+      },
+      {
         table: {
-          widths: ["*"],
+          widths: ["*", "*"],
           body: [
             [
               {
-                table: {
-                  widths: ["*", "*"],
-                  body: [
-                    [
-                      {
-                        text: "To,",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 9,
-                      },
-                      {},
-                    ],
-                    [
-                      {
-                        text: "Senior Techno Knits",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 14,
-                        bold: true,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {
-                        text: "GSTIN : 33BBIFC7327E2ZP",
-                        color: "#152F48",
-                        alignment: "right",
-                        fontSize: 14,
-                        bold: true,
-                        margin: [0, 0, 10, 0],
-                      },
-                    ],
-                    [
-                      {
-                        text: "Thiyagi palaniswamy nagar",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 12,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {
-                        text: "Phn No : 7339580177",
-                        color: "#152F48",
-                        alignment: "right",
-                        fontSize: 14,
-                        bold: true,
-                        rowSpan: 2,
-                        margin: [0, 10, 10, 0],
-                      },
-                    ],
-                    [
-                      {
-                        text: "Pooluvapatti, Tirupur",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 12,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {},
-                    ],
-                  ],
-                },
-                margin: [10, 10, 10, 10],
-                layout: "noBorders",
+                text: "To,",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 9,
               },
+              {},
+            ],
+            [
+              {
+                text: "Senior Techno Knits",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 14,
+                bold: true,
+                margin: [10, 0, 0, 0],
+              },
+              {
+                text: "GSTIN : 33BBIFC7327E2ZP",
+                color: "#152F48",
+                alignment: "right",
+                fontSize: 14,
+                bold: true,
+                margin: [0, 0, 10, 0],
+              },
+            ],
+            [
+              {
+                text: "Thiyagi palaniswamy nagar",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 12,
+                margin: [10, 0, 0, 0],
+              },
+              {
+                text: "Phn No : 7339580177",
+                color: "#152F48",
+                alignment: "right",
+                fontSize: 14,
+                bold: true,
+                rowSpan: 2,
+                margin: [0, 10, 10, 0],
+              },
+            ],
+            [
+              {
+                text: "Pooluvapatti, Tirupur",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 12,
+                margin: [10, 0, 0, 0],
+              },
+              {},
             ],
           ],
         },
+        margin: [10, 10, 10, 10],
+        layout: "noBorders",
+      },
+      {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
       },
       {
         margin: [0, 10, 0, 0],
         layout: "noBorders",
         table: {
           headerRows: 1,
-          widths: [50, "*", 100, 100, 100, 100],
+          widths: [50, "*", 50, 50, 100, 100],
           body: [
             [
               {
@@ -1337,197 +1306,180 @@ const generateVendorYarnReturnPdf = () => {
 const renderVendorYarnReturnPdf = () => {
   return {
     pageSize: "A4",
-    pageOrientation: "landscape",
+    pageOrientation: "potrait",
     pageMargins: 10,
     content: [
       {
         table: {
-          widths: [550, "*"],
+          widths: ["*", 200],
           body: [
             [
               {
-                table: {
-                  widths: ["*"],
-
-                  body: [
-                    [
-                      {
-                        text: "CONFIDENT KNITTING WORKS",
-                        color: "#F01717",
-                        alignment: "center",
-                        fontSize: 18,
-                        bold: true,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Thiyagi palaniswamy nagar",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Pooluvapatti, Tirupur",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Ph.no : 7339580177",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "GSTIN : 33AAIFC7327E1ZP",
-                        color: "#2E89E0",
-                        alignment: "center",
-                        fontSize: 14,
-                        bold: true,
-                      },
-                    ],
-                  ],
-                },
-                layout: "noBorders",
+                stack: [
+                  {
+                    text: "CONFIDENT KNITTING WORKS",
+                    color: "#F01717",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    text: "Thiyagi palaniswamy nagar",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Pooluvapatti, Tirupur",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Ph.no : 7339580177",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "GSTIN : 33AAIFC7327E1ZP",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 14,
+                    bold: true,
+                    margin: [0, 5, 0, 10],
+                  },
+                ],
               },
               {
-                table: {
-                  widths: ["*", "*"],
-                  body: [
-                    [
+                stack: [
+                  {
+                    text: "Yarn Return",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    colSpan: 2,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    columns: [
                       {
-                        text: "Yarn Return",
-                        color: "#2E89E0",
-                        alignment: "center",
-                        fontSize: 18,
-                        bold: true,
-                        colSpan: 2,
-                        margin: [0, 0, 0, 10],
-                      },
-                      {},
-                    ],
-                    [
-                      {
-                        text: "V.DC No : 101",
+                        text: "YR.DC No : 101",
                         color: "#152F48",
                         alignment: "left",
                         fontSize: 10,
                         bold: true,
-                        margin: [15, 0, 0, 0],
+                        margin: [5, 0, 0, 0],
                       },
                       {
                         text: "Date : 27/08/2021",
                         color: "#152F48",
-                        alignment: "center",
+                        alignment: "right",
                         fontSize: 10,
                         bold: true,
                       },
                     ],
-                    [
-                      {
-                        text: "C.DC No : 100/K21",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 10,
-                        bold: true,
-                        margin: [15, 10, 0, 0],
-                      },
-                      {},
-                    ],
-                  ],
-                },
-                margin: [0, 10, 0, 0],
-                layout: "noBorders",
+                    margin: [0, 15, 0, 0],
+                  },
+                  {
+                    text: "C.DC No : 100/K21",
+                    color: "#152F48",
+                    alignment: "left",
+                    fontSize: 10,
+                    bold: true,
+                    margin: [5, 10, 0, 0],
+                  },
+                ],
               },
             ],
           ],
         },
       },
       {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
+      },
+      {
         table: {
-          widths: ["*"],
+          widths: ["*", "*"],
           body: [
             [
               {
-                table: {
-                  widths: ["*", "*"],
-                  body: [
-                    [
-                      {
-                        text: "To,",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 9,
-                      },
-                      {},
-                    ],
-                    [
-                      {
-                        text: "Senior Techno Knits",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 14,
-                        bold: true,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {
-                        text: "GSTIN : 33BBIFC7327E2ZP",
-                        color: "#152F48",
-                        alignment: "right",
-                        fontSize: 14,
-                        bold: true,
-                        margin: [0, 0, 10, 0],
-                      },
-                    ],
-                    [
-                      {
-                        text: "Thiyagi palaniswamy nagar",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 12,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {
-                        text: "Phn No : 7339580177",
-                        color: "#152F48",
-                        alignment: "right",
-                        fontSize: 14,
-                        bold: true,
-                        rowSpan: 2,
-                        margin: [0, 10, 10, 0],
-                      },
-                    ],
-                    [
-                      {
-                        text: "Pooluvapatti, Tirupur",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 12,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {},
-                    ],
-                  ],
-                },
-                margin: [10, 10, 10, 10],
-                layout: "noBorders",
+                text: "To,",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 9,
               },
+              {},
+            ],
+            [
+              {
+                text: "Senior Techno Knits",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 14,
+                bold: true,
+                margin: [10, 0, 0, 0],
+              },
+              {
+                text: "GSTIN : 33BBIFC7327E2ZP",
+                color: "#152F48",
+                alignment: "right",
+                fontSize: 14,
+                bold: true,
+                margin: [0, 0, 10, 0],
+              },
+            ],
+            [
+              {
+                text: "Thiyagi palaniswamy nagar",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 12,
+                margin: [10, 0, 0, 0],
+              },
+              {
+                text: "Phn No : 7339580177",
+                color: "#152F48",
+                alignment: "right",
+                fontSize: 14,
+                bold: true,
+                rowSpan: 2,
+                margin: [0, 10, 10, 0],
+              },
+            ],
+            [
+              {
+                text: "Pooluvapatti, Tirupur",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 12,
+                margin: [10, 0, 0, 0],
+              },
+              {},
             ],
           ],
         },
+        margin: [10, 10, 10, 10],
+        layout: "noBorders",
+      },
+      {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
       },
       {
         margin: [0, 10, 0, 0],
         layout: "noBorders",
         table: {
           headerRows: 1,
-          widths: [50, "*", 100, 100, 100, 100],
+          widths: [50, "*", 50, 50, 100, 100],
           body: [
             [
               {
@@ -2018,179 +1970,165 @@ const generateVendorFabricPdf = () => {
 const renderVendorFabricPdf = () => {
   return {
     pageSize: "A4",
-    pageOrientation: "landscape",
+    pageOrientation: "potrait",
     pageMargins: 10,
     content: [
       {
         table: {
-          widths: [550, "*"],
+          widths: ["*", 200],
           body: [
             [
               {
-                table: {
-                  widths: ["*"],
-
-                  body: [
-                    [
-                      {
-                        text: "CONFIDENT KNITTING WORKS",
-                        color: "#F01717",
-                        alignment: "center",
-                        fontSize: 18,
-                        bold: true,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Thiyagi palaniswamy nagar",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Pooluvapatti, Tirupur",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "Ph.no : 7339580177",
-                        color: "#152F48",
-                        alignment: "center",
-                        fontSize: 10,
-                      },
-                    ],
-                    [
-                      {
-                        text: "GSTIN : 33AAIFC7327E1ZP",
-                        color: "#2E89E0",
-                        alignment: "center",
-                        fontSize: 14,
-                        bold: true,
-                      },
-                    ],
-                  ],
-                },
-                layout: "noBorders",
+                stack: [
+                  {
+                    text: "CONFIDENT KNITTING WORKS",
+                    color: "#F01717",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    text: "Thiyagi palaniswamy nagar",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Pooluvapatti, Tirupur",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Ph.no : 7339580177",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "GSTIN : 33AAIFC7327E1ZP",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 14,
+                    bold: true,
+                    margin: [0, 5, 0, 10],
+                  },
+                ],
               },
               {
-                table: {
-                  widths: ["*", "*"],
-                  body: [
-                    [
-                      {
-                        text: "Vendor Fabric",
-                        color: "#2E89E0",
-                        alignment: "center",
-                        fontSize: 18,
-                        bold: true,
-                        colSpan: 2,
-                        margin: [0, 0, 0, 10],
-                      },
-                      {},
-                    ],
-                    [
+                stack: [
+                  {
+                    text: "VENDOR ORDER",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    colSpan: 2,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    columns: [
                       {
                         text: "V.DC No : 101",
                         color: "#152F48",
                         alignment: "left",
                         fontSize: 10,
                         bold: true,
-                        margin: [15, 0, 0, 0],
+                        margin: [5, 0, 0, 0],
                       },
                       {
                         text: "Date : 27/08/2021",
                         color: "#152F48",
-                        alignment: "center",
+                        alignment: "right",
                         fontSize: 10,
                         bold: true,
                       },
                     ],
-                  ],
-                },
-                margin: [0, 20, 0, 0],
-                layout: "noBorders",
+                    margin: [0, 15, 0, 0],
+                  },
+                ],
               },
             ],
           ],
         },
       },
       {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
+      },
+      {
         table: {
-          widths: ["*"],
+          widths: ["*", "*"],
           body: [
             [
               {
-                table: {
-                  widths: ["*", "*"],
-                  body: [
-                    [
-                      {
-                        text: "To,",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 9,
-                      },
-                      {},
-                    ],
-                    [
-                      {
-                        text: "Senior Techno Knits",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 14,
-                        bold: true,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {
-                        text: "GSTIN : 33BBIFC7327E2ZP",
-                        color: "#152F48",
-                        alignment: "right",
-                        fontSize: 14,
-                        bold: true,
-                        margin: [0, 0, 10, 0],
-                      },
-                    ],
-                    [
-                      {
-                        text: "Thiyagi palaniswamy nagar",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 12,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {
-                        text: "Phn No : 7339580177",
-                        color: "#152F48",
-                        alignment: "right",
-                        fontSize: 14,
-                        bold: true,
-                        rowSpan: 2,
-                        margin: [0, 10, 10, 0],
-                      },
-                    ],
-                    [
-                      {
-                        text: "Pooluvapatti, Tirupur",
-                        color: "#152F48",
-                        alignment: "left",
-                        fontSize: 12,
-                        margin: [10, 0, 0, 0],
-                      },
-                      {},
-                    ],
-                  ],
-                },
-                margin: [10, 10, 10, 10],
-                layout: "noBorders",
+                text: "To,",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 9,
               },
+              {},
+            ],
+            [
+              {
+                text: "Senior Techno Knits",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 14,
+                bold: true,
+                margin: [10, 0, 0, 0],
+              },
+              {
+                text: "GSTIN : 33BBIFC7327E2ZP",
+                color: "#152F48",
+                alignment: "right",
+                fontSize: 14,
+                bold: true,
+                margin: [0, 0, 10, 0],
+              },
+            ],
+            [
+              {
+                text: "Thiyagi palaniswamy nagar",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 12,
+                margin: [10, 0, 0, 0],
+              },
+              {
+                text: "Phn No : 7339580177",
+                color: "#152F48",
+                alignment: "right",
+                fontSize: 14,
+                bold: true,
+                rowSpan: 2,
+                margin: [0, 10, 10, 0],
+              },
+            ],
+            [
+              {
+                text: "Pooluvapatti, Tirupur",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 12,
+                margin: [10, 0, 0, 0],
+              },
+              {},
             ],
           ],
         },
+        margin: [10, 10, 10, 10],
+        layout: "noBorders",
+      },
+      {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
       },
       {
         margin: [0, 10, 0, 0],
