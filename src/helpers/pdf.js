@@ -4253,7 +4253,6 @@ const renderOrderReportPdf = (snapShot) => {
               {
                 text: "Knit King Apparels",
                 color: "#152F48",
-                bold: true,
                 fontSize: 16,
               },
               {
