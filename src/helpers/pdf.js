@@ -3520,6 +3520,7 @@ const renderInvoicePdf = () => {
           {
             text: "CONFIDENT KNITTING WORKS",
             bold: true,
+            color: "#152F48",
             fontSize: 22,
             margin: [0, 0, 0, 0],
           },
@@ -3540,6 +3541,7 @@ const renderInvoicePdf = () => {
           {
             text: "Thiyagi palaniswamy nagar",
             fontSize: 16,
+            color: "#152F48",
             margin: [0, 0, 0, 0],
           },
           {
@@ -3557,14 +3559,10 @@ const renderInvoicePdf = () => {
           {
             text: "Pooluvapatti, Tirupur",
             fontSize: 16,
+            color: "#152F48",
             margin: [0, 0, 0, 0],
           },
-          {
-            text: "",
-            color: "#0881F6",
-            fontSize: 20,
-            alignment: "right",
-          },
+          {},
         ],
         margin: [0, 10, 0, 0],
       },
@@ -3573,6 +3571,7 @@ const renderInvoicePdf = () => {
           {
             text: "Ph.no : 7339580177",
             fontSize: 16,
+            color: "#152F48",
             margin: [0, 0, 0, 0],
           },
           {
@@ -3591,6 +3590,7 @@ const renderInvoicePdf = () => {
           {
             text: "GSTIN : 33AAIFC7327E1ZP",
             fontSize: 16,
+            color: "#152F48",
             bold: true,
             margin: [0, 0, 0, 0],
           },
@@ -3700,6 +3700,7 @@ const renderInvoicePdf = () => {
               {
                 text: "1",
                 alignment: "left",
+                color: '#152F48',
                 fontSize: 16,
                 margin: [15, 10, 5, 10],
               },
@@ -3709,10 +3710,12 @@ const renderInvoicePdf = () => {
                     text: "Single Jersey",
                     fontSize: 16,
                     bold: true,
+                    color: '#152F48',
                   },
                   {
                     text: "30’s - SSM - LL :31cm - GG: 24",
                     fontSize: 10,
+                    color: '#152F48',
                     margin: [0, 5, 0, 0],
                   },
                 ],
@@ -3723,6 +3726,7 @@ const renderInvoicePdf = () => {
               {
                 text: "3000.000",
                 alignment: "left",
+                color: '#152F48',
                 fontSize: 16,
                 margin: [5, 10, 5, 10],
               },
@@ -3730,12 +3734,14 @@ const renderInvoicePdf = () => {
                 text: "10",
                 alignment: "left",
                 fontSize: 16,
+                color: '#152F48',
                 margin: [10, 10, 5, 10],
               },
               {
                 text: "30000.00",
                 alignment: "left",
                 fontSize: 16,
+                color: '#152F48',
                 margin: [10, 10, 5, 10],
               },
             ],
@@ -3744,6 +3750,7 @@ const renderInvoicePdf = () => {
                 text: "1",
                 alignment: "left",
                 fontSize: 16,
+                color: '#152F48',
                 margin: [15, 10, 5, 10],
               },
               {
@@ -3751,11 +3758,13 @@ const renderInvoicePdf = () => {
                   {
                     text: "Single Jersey",
                     fontSize: 16,
+                    color: '#152F48',
                     bold: true,
                   },
                   {
                     text: "30’s - SSM - LL :31cm - GG: 24",
                     fontSize: 10,
+                    color: '#152F48',
                     margin: [0, 5, 0, 0],
                   },
                 ],
@@ -3766,18 +3775,21 @@ const renderInvoicePdf = () => {
               {
                 text: "3000.000",
                 alignment: "left",
+                color: '#152F48',
                 fontSize: 16,
                 margin: [5, 10, 5, 10],
               },
               {
                 text: "10",
                 alignment: "left",
+                color: '#152F48',
                 fontSize: 16,
                 margin: [10, 10, 5, 10],
               },
               {
                 text: "30000.00",
                 alignment: "left",
+                color: '#152F48',
                 fontSize: 16,
                 margin: [10, 10, 5, 10],
               },
@@ -3899,29 +3911,33 @@ const renderInvoicePdf = () => {
                 text: "Rs.30,000.00",
                 alignmnet: "center",
                 bold: true,
-                fontSize: 18,
+                fontSize: 15,
                 margin: [0, 5, 0, 0],
+                color: "#152F48",
               },
               {
                 text: "Rs.75.00",
                 alignmnet: "center",
-                fontSize: 18,
+                fontSize: 15,
                 bold: true,
                 margin: [0, 5, 0, 0],
+                color: "#152F48",
               },
               {
                 text: "Rs.75.00",
                 alignmnet: "center",
-                fontSize: 18,
+                fontSize: 15,
                 bold: true,
                 margin: [0, 5, 0, 0],
+                color: "#152F48",
               },
               {
                 text: "Rs.150.00",
                 alignmnet: "center",
-                fontSize: 18,
+                fontSize: 15,
                 bold: true,
                 margin: [0, 5, 0, 0],
+                color: "#152F48",
               },
               {},
             ],
@@ -3966,6 +3982,7 @@ const renderInvoicePdf = () => {
                 text: "Bank Details",
                 bold: true,
                 fontSize: 16,
+                color: "#152F48",
                 margin: [10, 10, 0, 8],
               },
               {},
@@ -3975,18 +3992,21 @@ const renderInvoicePdf = () => {
               {
                 text: "Account No : ",
                 bold: true,
+                color: "#152F48",
                 fontSize: 16,
                 margin: [10, 8, 0, 8],
               },
               {
                 text: "IFCS Code : ",
                 bold: true,
+                color: "#152F48",
                 fontSize: 16,
                 margin: [30, 8, 0, 8],
               },
               {
                 text: "PAN No : ",
                 bold: true,
+                color: "#152F48",
                 fontSize: 16,
                 margin: [30, 8, 0, 8],
               },
@@ -3995,12 +4015,14 @@ const renderInvoicePdf = () => {
               {
                 text: "Branch : ",
                 bold: true,
+                color: "#152F48",
                 fontSize: 16,
                 margin: [10, 8, 0, 8],
               },
               {
                 text: "Brank Name : ",
                 bold: true,
+                color: "#152F48",
                 fontSize: 16,
                 margin: [30, 8, 0, 8],
               },
@@ -4012,6 +4034,7 @@ const renderInvoicePdf = () => {
       {
         text: "For Confident Knitting Works",
         alignment: "right",
+        color: "#152F48",
         bold: true,
         fontSize: 16,
         margin: [0, 15, 0, 0],
@@ -4026,17 +4049,20 @@ const renderInvoicePdf = () => {
               {
                 text: "Received By",
                 bold: true,
+                color: "#152F48",
                 fontSize: 16,
               },
               {
                 text: "Prepared By",
                 bold: true,
+                color: "#152F48",
                 fontSize: 16,
                 alignment: "center",
               },
               {
                 text: "Authorised Signatory",
                 bold: true,
+                color: "#152F48",
                 fontSize: 16,
                 alignment: "right",
               },
@@ -4047,6 +4073,7 @@ const renderInvoicePdf = () => {
       {
         text: "Thank You for your Business",
         bold: true,
+        color: "#152F48",
         alignment: "center",
         fontSize: 20,
         margin: [0, 15, 0, 0],
@@ -4054,14 +4081,27 @@ const renderInvoicePdf = () => {
       {
         text: "*Terms and Conditions",
         bold: true,
+        color: "#152F48",
         fontSize: 16,
         margin: [0, 15, 0, 0],
       },
       {
         ul: [
-          "No purchase or sales involved",
-          "Towards Knitting service charges. No purchase or sales involved",
-          "Arbitrations  subject to Tirupur Jurisdiction",
+          {
+            text: "No purchase or sales involved",
+            color: "#152F48",
+            fontSize: 16,
+          },
+          {
+            text: "Towards Knitting service charges. No purchase or sales involved",
+            color: "#152F48",
+            fontSize: 16,
+          },
+          {
+            text: "Arbitrations  subject to Tirupur Jurisdiction",
+            color: "#152F48",
+            fontSize: 16,
+          },
         ],
         margin: [30, 10, 0, 0],
       },
