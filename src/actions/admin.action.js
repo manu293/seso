@@ -90,3 +90,48 @@ export const fetchAdminVendors = (history) => async (dispatch) => {
       }
     });
 };
+
+export const addAdminVendors = (history, vendorDetails) => async () => {
+  await SESO_BASE_URL.post(
+    "admin/vendor",
+    {
+      customername: vendorDetails.customername,
+      email: vendorDetails.email,
+      mobile: parseInt(vendorDetails.mobilenumber, 10),
+      gstNo: vendorDetails.gstno,
+      panNo: vendorDetails.panno,
+      address: vendorDetails.address,
+      imageurl: vendorDetails.imageurl,
+    },
+    { withCredentials: true }
+  )
+    .then()
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
+
+export const editAdminVendor = (history, customerDetail) => async () => {
+  await SESO_BASE_URL.put(
+    "admin/vendor",
+    {
+      customername: customerDetail.customername,
+      email: customerDetail.email,
+      mobile: parseInt(customerDetail.mobile, 10),
+      gstNo: customerDetail.gstno,
+      panNo: customerDetail.panno,
+      address: customerDetail.address,
+      imageurl: customerDetail.imageurl,
+      id: customerDetail.id,
+    },
+    { withCredentials: true }
+  )
+    .then()
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
