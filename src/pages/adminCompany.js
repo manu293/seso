@@ -1,37 +1,50 @@
 // imports
 import React, { useRef, useState, useEffect } from "react";
 import { CaretLeft, Eye, Trash, MinusCircle, Pencil } from "phosphor-react";
+import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
 
 // local imports
 import Navbar from "../components/navbar";
 import CustomHeader from "../components/customHeader";
 import AdminUserProfile from "../assets/adminUser.png";
+import {
+  fetchAdminEmployees,
+  addAdminEmployees,
+  editAdminEmployees,
+} from "../actions";
 
 // styles
 import "../styles/orders.css";
 import "../styles/admin.css";
 
-const AdminCompany = () => {
+const AdminCompany = (props) => {
   const adminCompanyPopUpRef = useRef();
+
+  const history = useNavigate();
+
   const [companyTab, setCompanyTab] = useState(0);
+
   const [newEmployee, setNewEmployee] = useState({
-    employeeAvatar: "",
+    imageurl: "",
     employeeName: "",
-    typeOfEmployee: "",
-    emailId: "",
-    mobileNumber: "",
-    address: "",
+    typeofemployee: "",
+    mobile: "",
   });
   const [newMachine, setNewMachine] = useState({
-    machineNo: "",
-    machineMake: "",
+    machineno: "",
+    machinemake: "",
     dia: "",
     gauge: "",
   });
   const [newFabric, setFabric] = useState({
-    fabricName: "",
-    fabricType: "",
+    fabricname: "",
+    fabrictype: "",
   });
+
+  const [employeeId, setEmployeeId] = useState(null);
+  const [fabricId, setFabricId] = useState(null);
+  const [machineId, setMachineId] = useState(null);
 
   const [adminCustomerPopUp, setAdminCustomerPopUp] = useState(false);
 
@@ -62,109 +75,170 @@ const AdminCompany = () => {
     setFabric(intermediateNewUser);
   };
 
+  const handleNewEmployeeEntry = (e) => {
+    const intermediateNewUser = { ...newEmployee };
+    intermediateNewUser[e.target.id] = e.target.value;
+    setNewEmployee(intermediateNewUser);
+  };
+
+  const clearCompanyEmployeeDetail = () => {
+    setNewEmployee({
+      imageurl: "",
+      employeeName: "",
+      typeofemployee: "",
+      mobile: "",
+    });
+  };
+
+  const clearCompanyFabricTypeDetail = () => {
+    setFabric({
+      fabricname: "",
+      fabrictype: "",
+    });
+  };
+
+  const clearCompanyMachineDetail = () => {
+    setNewMachine({
+      machineno: "",
+      machinemake: "",
+      dia: "",
+      gauge: "",
+    });
+  };
+
+  const handleAdminCompanyCancel = () => {
+    clearCompanyEmployeeDetail();
+    clearCompanyMachineDetail();
+    clearCompanyFabricTypeDetail();
+    setAdminCustomerPopUp(false);
+    setEmployeeId(null);
+  };
+
+  const handleEmployeeAvatarUpdate = (targetId, e) => {
+    if (e.target.files && e.target.files[0]) {
+      const imageUrl = URL.createObjectURL(e.target.files[0]);
+      const intermediateNewUser = { ...newEmployee };
+      intermediateNewUser[targetId] = imageUrl;
+      setNewEmployee(intermediateNewUser);
+    }
+  };
+
+  const updateAdminEmployeeDetail = (employee) => {
+    setNewEmployee({ ...employee });
+    setAdminCustomerPopUp(true);
+    setEmployeeId(employee.id);
+  };
+
+  const handleEmployeeSubmitDetails = async (e) => {
+    if (employeeId !== null) {
+      e.preventDefault();
+      const editEmployee = {
+        id: employeeId,
+        ...newEmployee,
+      };
+      await props.editAdminEmployees(history, editEmployee);
+      await props.fetchAdminEmployees(history);
+      clearCompanyEmployeeDetail();
+      setAdminCustomerPopUp(false);
+      setEmployeeId(null);
+    } else {
+      e.preventDefault();
+      await props.addAdminEmployees(history, newEmployee);
+      await props.fetchAdminEmployees(history);
+      clearCompanyEmployeeDetail();
+      setAdminCustomerPopUp(false);
+    }
+  };
+
   const handleEmployeeDetailPopUp = () => {
     return (
       <div className="entryFilterContainer">
         <div className="addAdminContainer" ref={adminCompanyPopUpRef}>
-          <div className="addAdminUserBodyContainer">
-            <div className="avatar-upload">
-              <div className="avatar-edit">
-                <input
-                  type="file"
-                  id="employeeAvatar"
-                  accept=".png, .jpg, .jpeg"
-                  onChange={(e) => handleEmployeeAvatar("employeeAvatar", e)}
-                />
-                <label htmlFor="employeeAvatar">
-                  <Pencil size={22} weight="bold" color="#FFA412" />
-                </label>
-              </div>
-              <div className="avatar-preview">
-                {newEmployee.employeeAvatar.length === 0 ? (
-                  <div id="imagePreviewTextContainer">
-                    <p className="addUserImagePreviewText">Upload Photo</p>
-                  </div>
-                ) : (
-                  <div
-                    id="imagePreview"
-                    style={{
-                      backgroundImage: `url(${newEmployee.employeeAvatar})`,
-                    }}
+          <form
+            className="addAdminUserForm"
+            onSubmit={(e) => handleEmployeeSubmitDetails(e)}
+          >
+            <div className="addAdminUserBodyContainer">
+              <div className="avatar-upload">
+                <div className="avatar-edit">
+                  <input
+                    type="file"
+                    id="imageurl"
+                    accept=".png, .jpg, .jpeg"
+                    onChange={(e) => handleEmployeeAvatarUpdate("imageurl", e)}
                   />
-                )}
+                  <label htmlFor="imageurl">
+                    <Pencil size={22} weight="bold" color="#FFA412" />
+                  </label>
+                </div>
+                <div className="avatar-preview">
+                  {newEmployee.imageurl.length === 0 ? (
+                    <div id="imagePreviewTextContainer">
+                      <p className="addUserImagePreviewText">Upload Photo</p>
+                    </div>
+                  ) : (
+                    <div
+                      id="imagePreview"
+                      style={{
+                        backgroundImage: `url(${newEmployee.imageurl})`,
+                      }}
+                    />
+                  )}
+                </div>
+              </div>
+
+              <div className="accountReportTextField addAdminUserMargin">
+                <input
+                  className="loginInSignUpCustomInput"
+                  type="text"
+                  id="employeeName"
+                  placeholder="Enter Employee Name"
+                  value={newEmployee.employeeName}
+                  required={true}
+                  onChange={(e) => handleNewEmployeeEntry(e)}
+                />
+                <label className="orderInputLabel">Employee Name</label>
+              </div>
+
+              <div className="accountReportTextField addAdminUserMargin">
+                <input
+                  className="loginInSignUpCustomInput"
+                  type="text"
+                  id="typeofemployee"
+                  placeholder="Enter Type Of Employee"
+                  value={newEmployee.typeofemployee}
+                  required={true}
+                  onChange={(e) => handleNewEmployeeEntry(e)}
+                />
+                <label className="orderInputLabel">Type Of Employee</label>
+              </div>
+
+              <div className="accountReportTextField addAdminUserMargin">
+                <input
+                  className="loginInSignUpCustomInput"
+                  type="number"
+                  id="mobile"
+                  placeholder="Enter Mobile Number"
+                  value={newEmployee.mobile}
+                  required={true}
+                  onChange={(e) => handleNewEmployeeEntry(e)}
+                />
+                <label className="orderInputLabel">Mobile Number</label>
               </div>
             </div>
 
-            <div className="accountReportTextField addAdminUserMargin">
-              <input
-                className="loginInSignUpCustomInput"
-                type="text"
-                id="employeeName"
-                placeholder="Enter Name"
-                value={newEmployee.companyName}
-                onChange={(e) => handleEmployeeInput(e)}
-              />
-              <label className="orderInputLabel">Name</label>
+            <div className="addAdminUserButtonContainer">
+              <button
+                className="addAdminUserCancelButton"
+                onClick={() => handleAdminCompanyCancel()}
+              >
+                Cancel
+              </button>
+              <button className="addAdminUserSaveButton" type="submit">
+                Save
+              </button>
             </div>
-
-            <div className="accountReportTextField addAdminUserMargin">
-              <input
-                className="loginInSignUpCustomInput"
-                type="text"
-                id="typeOfEmployee"
-                placeholder="Enter Type Of Employee"
-                value={newEmployee.typeOfEmployee}
-                onChange={(e) => handleEmployeeInput(e)}
-              />
-              <label className="orderInputLabel">GST No</label>
-            </div>
-
-            <div className="accountReportTextField addAdminUserMargin">
-              <input
-                className="loginInSignUpCustomInput"
-                type="text"
-                id="emailId"
-                placeholder="Enter Email Id"
-                value={newEmployee.emailId}
-                onChange={(e) => handleEmployeeInput(e)}
-              />
-              <label className="orderInputLabel">Email Id</label>
-            </div>
-
-            <div className="accountReportTextField addAdminUserMargin">
-              <input
-                className="loginInSignUpCustomInput"
-                type="text"
-                id="mobileNumber"
-                placeholder="Enter Mobile Number"
-                value={newEmployee.mobileNumber}
-                onChange={(e) => handleEmployeeInput(e)}
-              />
-              <label className="orderInputLabel">Mobile Number</label>
-            </div>
-
-            <div className="accountReportTextField addAdminUserMargin">
-              <textarea
-                className="loginInSignUpCustomInput"
-                type="text"
-                id="address"
-                placeholder="Enter Address"
-                value={newEmployee.address}
-                onChange={(e) => handleEmployeeInput(e)}
-              />
-              <label className="orderInputLabel">Address</label>
-            </div>
-          </div>
-
-          <div className="addAdminUserButtonContainer">
-            <button
-              className="addAdminUserCancelButton"
-              onClick={() => setAdminCustomerPopUp(false)}
-            >
-              Cancel
-            </button>
-            <button className="addAdminUserSaveButton">Save</button>
-          </div>
+          </form>
         </div>
       </div>
     );
@@ -296,57 +370,56 @@ const AdminCompany = () => {
           </tr>
         </thead>
 
-        <tbody>
-          <tr className="adminUserTableBodyRow">
-            <th className="adminUserTableBodyCustomerName">
-              <div className="adminUserTableBodyProfileSection">
-                <img
-                  style={{ width: "100%" }}
-                  src={AdminUserProfile}
-                  alt="New List"
-                />
-              </div>
-              <p className="adminUserTableBodyCustomerNameText">New User1</p>
-            </th>
-            <th className="adminUserTableBodyText">test@test.com</th>
-            <th className="adminUserTableBodyText">8574637283</th>
-            <th className="adminUserTableBodyIcon">
-              <Eye size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <MinusCircle size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <Trash size={22} weight="bold" color="#FD0606" />
-            </th>
-          </tr>
-
-          <tr className="adminUserTableBodyRow">
-            <th className="adminUserTableBodyCustomerName">
-              <div className="adminUserTableBodyProfileSection">
-                <img
-                  style={{ width: "100%" }}
-                  src={AdminUserProfile}
-                  alt="New List"
-                />
-              </div>
-              <p className="adminUserTableBodyCustomerNameText">New User2</p>
-            </th>
-            <th className="adminUserTableBodyText">test22@test.com</th>
-            <th className="adminUserTableBodyText">9574637283</th>
-            <th className="adminUserTableBodyIcon">
-              <Eye size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <MinusCircle size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <Trash size={22} weight="bold" color="#FD0606" />
-            </th>
-          </tr>
-        </tbody>
+        <tbody>{renderEmployeeTableBody()}</tbody>
       </table>
     );
+  };
+
+  const renderEmployeeTableBody = () => {
+    const { employees } = props;
+
+    if (employees.length === 0) {
+      return null;
+    } else {
+      return employees.map((employee) => {
+        return (
+          <tr className="adminUserTableBodyRow" key={`employee-${employee.id}`}>
+            <th className="adminUserTableBodyCustomerName">
+              {employee.imageurl !== null && employee.imageurl.length > 0 && (
+                <div className="adminUserTableBodyProfileSection">
+                  <img
+                    style={{ width: "100%" }}
+                    src={employee.imageurl}
+                    alt="New List"
+                  />
+                </div>
+              )}
+              <p className="adminUserTableBodyCustomerNameText">
+                {employee.employeeName}
+              </p>
+            </th>
+            <th className="adminUserTableBodyText">
+              {employee.typeofemployee}
+            </th>
+            <th className="adminUserTableBodyText">{employee.mobile}</th>
+            <th className="adminUserTableBodyIcon">
+              <Eye size={22} weight="bold" color="#F78D12" />
+            </th>
+            <th className="adminUserTableBodyIcon">
+              <MinusCircle
+                size={22}
+                weight="bold"
+                color="#F78D12"
+                onClick={() => updateAdminEmployeeDetail(employee)}
+              />
+            </th>
+            <th className="adminUserTableBodyIcon">
+              <Trash size={22} weight="bold" color="#FD0606" />
+            </th>
+          </tr>
+        );
+      });
+    }
   };
 
   const renderMachineDetailTable = () => {
@@ -494,6 +567,9 @@ const AdminCompany = () => {
         !adminCompanyPopUpRef.current.contains(e.target)
       ) {
         setAdminCustomerPopUp(false);
+        clearCompanyEmployeeDetail();
+        clearCompanyMachineDetail();
+        clearCompanyFabricTypeDetail();
       }
     };
 
@@ -503,6 +579,12 @@ const AdminCompany = () => {
       document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   }, [adminCustomerPopUp]);
+
+  useEffect(() => {
+    if (props.employees.length === 0) {
+      props.fetchAdminEmployees();
+    }
+  }, []);
 
   switch (companyTab) {
     case 0:
@@ -607,4 +689,14 @@ const AdminCompany = () => {
   );
 };
 
-export default AdminCompany;
+const mapStateToProps = (state) => {
+  return {
+    employees: state.admin.employees,
+  };
+};
+
+export default connect(mapStateToProps, {
+  fetchAdminEmployees,
+  addAdminEmployees,
+  editAdminEmployees,
+})(AdminCompany);

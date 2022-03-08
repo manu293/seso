@@ -1,6 +1,10 @@
 // local imports
 import { SESO_BASE_URL } from "../helpers/api";
-import { GET_ADMIN_CUSTOMERS, GET_ADMIN_VENDORS } from "../helpers/types";
+import {
+  GET_ADMIN_CUSTOMERS,
+  GET_ADMIN_VENDORS,
+  GET_ADMIN_EMPLOYEE,
+} from "../helpers/types";
 
 // admin customers
 export const fetchAdminCustomers = (history) => async (dispatch) => {
@@ -125,6 +129,67 @@ export const editAdminVendor = (history, customerDetail) => async () => {
       address: customerDetail.address,
       imageurl: customerDetail.imageurl,
       id: customerDetail.id,
+    },
+    { withCredentials: true }
+  )
+    .then()
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
+
+// admin employees
+export const fetchAdminEmployees = (history) => async (dispatch) => {
+  await SESO_BASE_URL.get("admin/employee", { withCredentials: true })
+    .then((adminEmployeeResponse) => {
+      if (
+        adminEmployeeResponse.status === 200 &&
+        adminEmployeeResponse.data &&
+        adminEmployeeResponse.data.length > 0
+      ) {
+        dispatch({
+          type: GET_ADMIN_EMPLOYEE,
+          payload: adminEmployeeResponse.data,
+        });
+      }
+    })
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
+
+export const addAdminEmployees = (history, employereDetail) => async () => {
+  await SESO_BASE_URL.post(
+    "admin/employee",
+    {
+      employeeName: employereDetail.employeeName,
+      mobile: parseInt(employereDetail.mobile, 10),
+      imageurl: employereDetail.imageurl,
+      typeofemployee: employereDetail.typeofemployee,
+    },
+    { withCredentials: true }
+  )
+    .then()
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
+
+export const editAdminEmployees = (history, employereDetail) => async () => {
+  await SESO_BASE_URL.put(
+    "admin/employee",
+    {
+      employeeName: employereDetail.employeeName,
+      mobile: parseInt(employereDetail.mobile, 10),
+      imageurl: employereDetail.imageurl,
+      typeofemployee: employereDetail.typeofemployee,
+      id: employereDetail.id,
     },
     { withCredentials: true }
   )
