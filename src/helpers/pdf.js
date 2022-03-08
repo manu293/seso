@@ -1420,7 +1420,7 @@ const renderVendorYarnReturnPdf = () => {
             ],
             [
               {
-                text: "Senior Techno Knits",
+                text: "KNIT KING APPARELS",
                 color: "#152F48",
                 alignment: "left",
                 fontSize: 14,
@@ -1435,34 +1435,6 @@ const renderVendorYarnReturnPdf = () => {
                 bold: true,
                 margin: [0, 0, 10, 0],
               },
-            ],
-            [
-              {
-                text: "Thiyagi palaniswamy nagar",
-                color: "#152F48",
-                alignment: "left",
-                fontSize: 12,
-                margin: [10, 0, 0, 0],
-              },
-              {
-                text: "Phn No : 7339580177",
-                color: "#152F48",
-                alignment: "right",
-                fontSize: 14,
-                bold: true,
-                rowSpan: 2,
-                margin: [0, 10, 10, 0],
-              },
-            ],
-            [
-              {
-                text: "Pooluvapatti, Tirupur",
-                color: "#152F48",
-                alignment: "left",
-                fontSize: 12,
-                margin: [10, 0, 0, 0],
-              },
-              {},
             ],
           ],
         },
