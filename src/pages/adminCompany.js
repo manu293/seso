@@ -7,11 +7,16 @@ import { connect } from "react-redux";
 // local imports
 import Navbar from "../components/navbar";
 import CustomHeader from "../components/customHeader";
-import AdminUserProfile from "../assets/adminUser.png";
 import {
   fetchAdminEmployees,
   addAdminEmployees,
   editAdminEmployees,
+  fetchAdminMachine,
+  addAdminMachines,
+  editAdminMachines,
+  fetchAdminFabric,
+  addAdminFabric,
+  editAdminFabric,
 } from "../actions";
 
 // styles
@@ -47,21 +52,6 @@ const AdminCompany = (props) => {
   const [machineId, setMachineId] = useState(null);
 
   const [adminCustomerPopUp, setAdminCustomerPopUp] = useState(false);
-
-  const handleEmployeeAvatar = (targetId, e) => {
-    if (e.target.files && e.target.files[0]) {
-      const imageUrl = URL.createObjectURL(e.target.files[0]);
-      const intermediateNewUser = { ...newEmployee };
-      intermediateNewUser[targetId] = imageUrl;
-      setNewEmployee(intermediateNewUser);
-    }
-  };
-
-  const handleEmployeeInput = (e) => {
-    const intermediateNewUser = { ...newEmployee };
-    intermediateNewUser[e.target.id] = e.target.value;
-    setNewEmployee(intermediateNewUser);
-  };
 
   const handleMachineInput = (e) => {
     const intermediateNewUser = { ...newMachine };
@@ -127,6 +117,12 @@ const AdminCompany = (props) => {
     setNewEmployee({ ...employee });
     setAdminCustomerPopUp(true);
     setEmployeeId(employee.id);
+  };
+
+  const updateAdminMachineDetails = (machine) => {
+    setNewMachine({ ...machine });
+    setAdminCustomerPopUp(true);
+    setMachineId(machine.id);
   };
 
   const handleEmployeeSubmitDetails = async (e) => {
@@ -244,113 +240,175 @@ const AdminCompany = (props) => {
     );
   };
 
+  const handleMachineSubmitDetails = async (e) => {
+    if (machineId !== null) {
+      e.preventDefault();
+      const editMachine = {
+        id: machineId,
+        ...newMachine,
+      };
+      await props.editAdminMachines(history, editMachine);
+      await props.fetchAdminMachine(history);
+      clearCompanyEmployeeDetail();
+      setAdminCustomerPopUp(false);
+      setMachineId(null);
+    } else {
+      e.preventDefault();
+      await props.addAdminMachines(history, newMachine);
+      await props.fetchAdminMachine(history);
+      clearCompanyEmployeeDetail();
+      setAdminCustomerPopUp(false);
+    }
+  };
+
   const handleMachineDetailsPopUp = () => {
     return (
       <div className="entryFilterContainer">
-        <div className="addAdminContainer">
-          <div className="addAdminUserBodyContainer">
-            <div className="accountReportTextField addAdminUserMargin">
-              <input
-                className="loginInSignUpCustomInput"
-                type="text"
-                id="machineNo"
-                placeholder="Enter Machine No"
-                value={newMachine.machineNo}
-                onChange={(e) => handleMachineInput(e)}
-              />
-              <label className="orderInputLabel">Machine No</label>
+        <div className="addAdminContainer" ref={adminCompanyPopUpRef}>
+          <form
+            className="addAdminUserForm"
+            onSubmit={(e) => handleMachineSubmitDetails(e)}
+          >
+            <div className="addAdminUserBodyContainer">
+              <div className="accountReportTextField addAdminUserMargin">
+                <input
+                  className="loginInSignUpCustomInput"
+                  type="text"
+                  id="machineno"
+                  placeholder="Enter Machine No"
+                  value={newMachine.machineno}
+                  required={true}
+                  onChange={(e) => handleMachineInput(e)}
+                />
+                <label className="orderInputLabel">Machine No</label>
+              </div>
+
+              <div className="accountReportTextField addAdminUserMargin">
+                <input
+                  className="loginInSignUpCustomInput"
+                  type="text"
+                  id="machinemake"
+                  placeholder="Enter Machine Make"
+                  value={newMachine.machinemake}
+                  required={true}
+                  onChange={(e) => handleMachineInput(e)}
+                />
+                <label className="orderInputLabel">Machine Make</label>
+              </div>
+
+              <div className="accountReportTextField addAdminUserMargin">
+                <input
+                  className="loginInSignUpCustomInput"
+                  type="text"
+                  id="dia"
+                  placeholder="Enter Dia"
+                  value={newMachine.dia}
+                  required={true}
+                  onChange={(e) => handleMachineInput(e)}
+                />
+                <label className="orderInputLabel">Dia</label>
+              </div>
+
+              <div className="accountReportTextField addAdminUserMargin">
+                <input
+                  className="loginInSignUpCustomInput"
+                  type="text"
+                  id="gauge"
+                  placeholder="Enter Gauge"
+                  value={newMachine.gauge}
+                  required={true}
+                  onChange={(e) => handleMachineInput(e)}
+                />
+                <label className="orderInputLabel">Gauge</label>
+              </div>
             </div>
 
-            <div className="accountReportTextField addAdminUserMargin">
-              <input
-                className="loginInSignUpCustomInput"
-                type="text"
-                id="machineMake"
-                placeholder="Enter Machine Make"
-                value={newMachine.machineMake}
-                onChange={(e) => handleMachineInput(e)}
-              />
-              <label className="orderInputLabel">Machine Make</label>
+            <div className="addAdminUserButtonContainer">
+              <button
+                className="addAdminUserCancelButton"
+                onClick={() => handleAdminCompanyCancel()}
+              >
+                Cancel
+              </button>
+              <button className="addAdminUserSaveButton" type="submit">
+                Save
+              </button>
             </div>
-
-            <div className="accountReportTextField addAdminUserMargin">
-              <input
-                className="loginInSignUpCustomInput"
-                type="text"
-                id="dia"
-                placeholder="Enter DIA"
-                value={newMachine.dia}
-                onChange={(e) => handleMachineInput(e)}
-              />
-              <label className="orderInputLabel">Dia</label>
-            </div>
-
-            <div className="accountReportTextField addAdminUserMargin">
-              <input
-                className="loginInSignUpCustomInput"
-                type="text"
-                id="gauge"
-                placeholder="Enter Gauge"
-                value={newMachine.gauge}
-                onChange={(e) => handleMachineInput(e)}
-              />
-              <label className="orderInputLabel">Gauge</label>
-            </div>
-          </div>
-
-          <div className="addAdminUserButtonContainer">
-            <button
-              className="addAdminUserCancelButton"
-              onClick={() => setAdminCustomerPopUp(false)}
-            >
-              Cancel
-            </button>
-            <button className="addAdminUserSaveButton">Save</button>
-          </div>
+          </form>
         </div>
       </div>
     );
   };
 
+  const handleFabricSubmitDetails = async (e) => {
+    if (fabricId !== null) {
+      e.preventDefault();
+      const editFabric = {
+        id: fabricId,
+        ...newFabric,
+      };
+      await props.editAdminFabric(history, editFabric);
+      await props.fetchAdminFabric(history);
+      clearCompanyEmployeeDetail();
+      setAdminCustomerPopUp(false);
+      setFabricId(null);
+    } else {
+      e.preventDefault();
+      await props.addAdminFabric(history, newFabric);
+      await props.fetchAdminFabric(history);
+      clearCompanyEmployeeDetail();
+      setAdminCustomerPopUp(false);
+    }
+  };
+
   const handleFabricDetailPopUp = () => {
     return (
       <div className="entryFilterContainer">
-        <div className="addAdminContainer">
-          <div className="addAdminUserBodyContainer">
-            <div className="accountReportTextField addAdminUserMargin">
-              <input
-                className="loginInSignUpCustomInput"
-                type="text"
-                id="fabricName"
-                placeholder="Enter Fabric Name"
-                value={newFabric.fabricName}
-                onChange={(e) => hanleFabricInput(e)}
-              />
-              <label className="orderInputLabel">Fabric Name</label>
+        <div className="addAdminContainer" ref={adminCompanyPopUpRef}>
+          <form
+            className="addAdminUserForm"
+            onSubmit={(e) => handleFabricSubmitDetails(e)}
+          >
+            <div className="addAdminUserBodyContainer">
+              <div className="accountReportTextField addAdminUserMargin">
+                <input
+                  className="loginInSignUpCustomInput"
+                  type="text"
+                  id="fabricname"
+                  placeholder="Enter Fabric Name"
+                  value={newFabric.fabricname}
+                  required={true}
+                  onChange={(e) => hanleFabricInput(e)}
+                />
+                <label className="orderInputLabel">Fabric Name</label>
+              </div>
+
+              <div className="accountReportTextField addAdminUserMargin">
+                <input
+                  className="loginInSignUpCustomInput"
+                  type="text"
+                  id="fabrictype"
+                  placeholder="Enter Fabric Type"
+                  value={newFabric.fabrictype}
+                  required={true}
+                  onChange={(e) => hanleFabricInput(e)}
+                />
+                <label className="orderInputLabel">Fabric Type</label>
+              </div>
             </div>
 
-            <div className="accountReportTextField addAdminUserMargin">
-              <input
-                className="loginInSignUpCustomInput"
-                type="text"
-                id="fabricType"
-                placeholder="Enter Fabric Type"
-                value={newFabric.fabricType}
-                onChange={(e) => hanleFabricInput(e)}
-              />
-              <label className="orderInputLabel">Fabric Type</label>
+            <div className="addAdminUserButtonContainer">
+              <button
+                className="addAdminUserCancelButton"
+                onClick={() => handleAdminCompanyCancel()}
+              >
+                Cancel
+              </button>
+              <button className="addAdminUserSaveButton" type="submit">
+                Save
+              </button>
             </div>
-          </div>
-
-          <div className="addAdminUserButtonContainer">
-            <button
-              className="addAdminUserCancelButton"
-              onClick={() => setAdminCustomerPopUp(false)}
-            >
-              Cancel
-            </button>
-            <button className="addAdminUserSaveButton">Save</button>
-          </div>
+          </form>
         </div>
       </div>
     );
@@ -436,55 +494,7 @@ const AdminCompany = (props) => {
           </tr>
         </thead>
 
-        <tbody>
-          <tr className="adminUserTableBodyRow">
-            <th className="adminUserTableBodyCustomerName">
-              <div className="adminUserTableBodyProfileSection">
-                <img
-                  style={{ width: "100%" }}
-                  src={AdminUserProfile}
-                  alt="New List"
-                />
-              </div>
-              <p className="adminUserTableBodyCustomerNameText">New User1</p>
-            </th>
-            <th className="adminUserTableBodyText">test@test.com</th>
-            <th className="adminUserTableBodyText">8574637283</th>
-            <th className="adminUserTableBodyIcon">
-              <Eye size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <MinusCircle size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <Trash size={22} weight="bold" color="#FD0606" />
-            </th>
-          </tr>
-
-          <tr className="adminUserTableBodyRow">
-            <th className="adminUserTableBodyCustomerName">
-              <div className="adminUserTableBodyProfileSection">
-                <img
-                  style={{ width: "100%" }}
-                  src={AdminUserProfile}
-                  alt="New List"
-                />
-              </div>
-              <p className="adminUserTableBodyCustomerNameText">New User2</p>
-            </th>
-            <th className="adminUserTableBodyText">test22@test.com</th>
-            <th className="adminUserTableBodyText">9574637283</th>
-            <th className="adminUserTableBodyIcon">
-              <Eye size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <MinusCircle size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <Trash size={22} weight="bold" color="#FD0606" />
-            </th>
-          </tr>
-        </tbody>
+        <tbody>{renderMachineTableBody()}</tbody>
       </table>
     );
   };
@@ -503,57 +513,77 @@ const AdminCompany = (props) => {
           </tr>
         </thead>
 
-        <tbody>
-          <tr className="adminUserTableBodyRow">
-            <th className="adminUserTableBodyCustomerName">
-              <div className="adminUserTableBodyProfileSection">
-                <img
-                  style={{ width: "100%" }}
-                  src={AdminUserProfile}
-                  alt="New List"
-                />
-              </div>
-              <p className="adminUserTableBodyCustomerNameText">New User1</p>
-            </th>
-            <th className="adminUserTableBodyText">test@test.com</th>
-            <th className="adminUserTableBodyText">8574637283</th>
-            <th className="adminUserTableBodyIcon">
-              <Eye size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <MinusCircle size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <Trash size={22} weight="bold" color="#FD0606" />
-            </th>
-          </tr>
-
-          <tr className="adminUserTableBodyRow">
-            <th className="adminUserTableBodyCustomerName">
-              <div className="adminUserTableBodyProfileSection">
-                <img
-                  style={{ width: "100%" }}
-                  src={AdminUserProfile}
-                  alt="New List"
-                />
-              </div>
-              <p className="adminUserTableBodyCustomerNameText">New User2</p>
-            </th>
-            <th className="adminUserTableBodyText">test22@test.com</th>
-            <th className="adminUserTableBodyText">9574637283</th>
-            <th className="adminUserTableBodyIcon">
-              <Eye size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <MinusCircle size={22} weight="bold" color="#F78D12" />
-            </th>
-            <th className="adminUserTableBodyIcon">
-              <Trash size={22} weight="bold" color="#FD0606" />
-            </th>
-          </tr>
-        </tbody>
+        <tbody>{renderFabricTableBody()}</tbody>
       </table>
     );
+  };
+
+  const renderFabricTableBody = () => {
+    const { fabrics } = props;
+
+    if (fabrics.length === 0) {
+      return null;
+    } else {
+      return fabrics.map((fabric) => {
+        return (
+          <tr className="adminUserTableBodyRow" key={`employee-${fabric.id}`}>
+            <th className="adminUserTableBodyText">{fabric.fabricname}</th>
+            <th className="adminUserTableBodyText">{fabric.fabrictype}</th>
+            <th className="adminUserTableBodyText"></th>
+            <th className="adminUserTableBodyIcon">
+              <Eye size={22} weight="bold" color="#F78D12" />
+            </th>
+            <th className="adminUserTableBodyIcon">
+              <MinusCircle
+                size={22}
+                weight="bold"
+                color="#F78D12"
+                onClick={() => updateAdminFabricDetails(fabric)}
+              />
+            </th>
+            <th className="adminUserTableBodyIcon">
+              <Trash size={22} weight="bold" color="#FD0606" />
+            </th>
+          </tr>
+        );
+      });
+    }
+  };
+
+  const renderMachineTableBody = () => {
+    const { machines } = props;
+
+    if (machines.length === 0) {
+      return null;
+    } else {
+      return machines.map((machine) => {
+        return (
+          <tr className="adminUserTableBodyRow" key={`employee-${machine.id}`}>
+            <th className="adminUserTableBodyText">{machine.machineno}</th>
+            <th className="adminUserTableBodyText">{machine.machinemake}</th>
+            <th className="adminUserTableBodyText">{machine.dia}</th>
+            <th className="adminUserTableBodyText">{machine.gauge}</th>
+            <th className="adminUserTableBodyIcon">
+              <MinusCircle
+                size={22}
+                weight="bold"
+                color="#F78D12"
+                onClick={() => updateAdminMachineDetails(machine)}
+              />
+            </th>
+            <th className="adminUserTableBodyIcon">
+              <Trash size={22} weight="bold" color="#FD0606" />
+            </th>
+          </tr>
+        );
+      });
+    }
+  };
+
+  const updateAdminFabricDetails = (fabric) => {
+    setFabric({ ...fabric });
+    setAdminCustomerPopUp(true);
+    setFabricId(fabric.id);
   };
 
   let renderTableContainer = renderEmployeeDetailTable();
@@ -583,6 +613,14 @@ const AdminCompany = (props) => {
   useEffect(() => {
     if (props.employees.length === 0) {
       props.fetchAdminEmployees();
+    }
+
+    if (props.machines.length === 0) {
+      props.fetchAdminMachine();
+    }
+
+    if (props.fabrics.length === 0) {
+      props.fetchAdminFabric();
     }
   }, []);
 
@@ -692,6 +730,8 @@ const AdminCompany = (props) => {
 const mapStateToProps = (state) => {
   return {
     employees: state.admin.employees,
+    machines: state.admin.machines,
+    fabrics: state.admin.fabrics,
   };
 };
 
@@ -699,4 +739,10 @@ export default connect(mapStateToProps, {
   fetchAdminEmployees,
   addAdminEmployees,
   editAdminEmployees,
+  fetchAdminMachine,
+  addAdminMachines,
+  editAdminMachines,
+  fetchAdminFabric,
+  addAdminFabric,
+  editAdminFabric,
 })(AdminCompany);

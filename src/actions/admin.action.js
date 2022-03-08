@@ -4,6 +4,8 @@ import {
   GET_ADMIN_CUSTOMERS,
   GET_ADMIN_VENDORS,
   GET_ADMIN_EMPLOYEE,
+  GET_ADMIN_MACHINE,
+  GET_ADMIN_FABRIC,
 } from "../helpers/types";
 
 // admin customers
@@ -190,6 +192,124 @@ export const editAdminEmployees = (history, employereDetail) => async () => {
       imageurl: employereDetail.imageurl,
       typeofemployee: employereDetail.typeofemployee,
       id: employereDetail.id,
+    },
+    { withCredentials: true }
+  )
+    .then()
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
+
+// admin machines
+export const fetchAdminMachine = (history) => async (dispatch) => {
+  await SESO_BASE_URL.get("admin/machine", { withCredentials: true })
+    .then((adminMachineResponse) => {
+      if (
+        adminMachineResponse.status === 200 &&
+        adminMachineResponse.data &&
+        adminMachineResponse.data.length > 0
+      ) {
+        dispatch({
+          type: GET_ADMIN_MACHINE,
+          payload: adminMachineResponse.data,
+        });
+      }
+    })
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
+
+export const addAdminMachines = (history, machineDetails) => async () => {
+  await SESO_BASE_URL.post(
+    "admin/machine",
+    {
+      machineno: machineDetails.machineno,
+      machinemake: machineDetails.machinemake,
+      dia: machineDetails.dia,
+      gauge: machineDetails.gauge,
+    },
+    { withCredentials: true }
+  )
+    .then()
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
+
+export const editAdminMachines = (history, machineDetails) => async () => {
+  await SESO_BASE_URL.put(
+    "admin/machine",
+    {
+      machineno: machineDetails.machineno,
+      machinemake: machineDetails.machinemake,
+      dia: machineDetails.dia,
+      gauge: machineDetails.gauge,
+      id: machineDetails.id,
+    },
+    { withCredentials: true }
+  )
+    .then()
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
+
+// admin fabrics
+export const fetchAdminFabric = (history) => async (dispatch) => {
+  await SESO_BASE_URL.get("admin/fabrictype", { withCredentials: true })
+    .then((adminFabricResponse) => {
+      if (
+        adminFabricResponse.status === 200 &&
+        adminFabricResponse.data &&
+        adminFabricResponse.data.length > 0
+      ) {
+        dispatch({
+          type: GET_ADMIN_FABRIC,
+          payload: adminFabricResponse.data,
+        });
+      }
+    })
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
+
+export const addAdminFabric = (history, fabricDetails) => async () => {
+  await SESO_BASE_URL.post(
+    "admin/fabrictype",
+    {
+      fabricname: fabricDetails.fabricname,
+      fabrictype: fabricDetails.fabrictype,
+    },
+    { withCredentials: true }
+  )
+    .then()
+    .catch((err) => {
+      if (err.response.status === 401) {
+        history("/login");
+      }
+    });
+};
+
+export const editAdminFabric = (history, fabricDetails) => async () => {
+  await SESO_BASE_URL.put(
+    "admin/fabrictype",
+    {
+      fabricname: fabricDetails.fabricname,
+      fabrictype: fabricDetails.fabrictype,
+      id: fabricDetails.id,
     },
     { withCredentials: true }
   )
