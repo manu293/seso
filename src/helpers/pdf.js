@@ -1893,9 +1893,17 @@ const renderVendorYarnReturnPdf = () => {
         ],
       },
       {
-        margin: [20, 10, 20, 10],
+        margin: [20, 20, 20, 5],
         columns: [
           {
+            layout: {
+              hLineWidth: function (i, node) {
+                return i === 1 ? 1 : 0;
+              },
+              vLineWidth: function (i, node) {
+                return 0;
+              },
+            },
             table: {
               widths: ["*", "*", "*", "*"],
               body: [
@@ -1927,9 +1935,15 @@ const renderVendorYarnReturnPdf = () => {
                 ],
               ],
             },
-            layout: "noBorders",
           },
         ],
+      },
+      {
+        text: "Remarks",
+        color: "#152F48",
+        alignment: "left",
+        fontSize: 10,
+        margin: [20, 0, 0, 0],
       },
     ],
   };
@@ -5783,7 +5797,7 @@ const renderGrnPdf = () => {
         ],
       },
       {
-        margin: [20, 10, 20, 10],
+        margin: [20, 10, 20, 5],
         columns: [
           {
             table: {
@@ -5817,7 +5831,14 @@ const renderGrnPdf = () => {
                 ],
               ],
             },
-            layout: "noBorders",
+            layout: {
+              hLineWidth: function (i, node) {
+                return i === 1 ? 1 : 0;
+              },
+              vLineWidth: function (i, node) {
+                return 0;
+              },
+            },
           },
         ],
       },
@@ -6194,7 +6215,7 @@ const renderFabricDc = () => {
         ],
       },
       {
-        margin: [20, 10, 20, 10],
+        margin: [20, 10, 20, 5],
         columns: [
           {
             table: {
@@ -6228,16 +6249,41 @@ const renderFabricDc = () => {
                 ],
               ],
             },
-            layout: "noBorders",
+            layout: {
+              hLineWidth: function (i, node) {
+                return i === 1 ? 1 : 0;
+              },
+              vLineWidth: function (i, node) {
+                return 0;
+              },
+            },
           },
         ],
       },
       {
-        text: "Remarks",
+        text: "Terms & Conditions",
         color: "#152F48",
         alignment: "left",
         margin: [20, 0, 0, 0],
         fontSize: 10,
+      },
+      {
+        columns: [
+          {
+            text: "We are responsible only for gray cloth",
+            color: "#152F48",
+            alignment: "center",
+            fontSize: 10,
+          },
+          {
+            text: "Scourings must to remove oil stains",
+            color: "#152F48",
+            alignment: "center",
+            fontSize: 10,
+          },
+        ],
+
+        margin: [0, 5, 0, 0],
       },
     ],
   };
