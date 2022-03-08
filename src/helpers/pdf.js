@@ -5449,6 +5449,828 @@ const renderOrderReportPdf = (snapShot) => {
   };
 };
 
+const generateGrnPdf = () => {
+  return renderGrnPdf();
+};
+
+const renderGrnPdf = () => {
+  return {
+    pageSize: "A4",
+    pageOrientation: "portrait",
+    pageMargins: 10,
+    content: [
+      {
+        table: {
+          widths: ["*", 200],
+          body: [
+            [
+              {
+                stack: [
+                  {
+                    text: "CONFIDENT KNITTING WORKS",
+                    color: "#F01717",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    text: "Thiyagi palaniswamy nagar",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Pooluvapatti, Tirupur",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Ph.no : 7339580177",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "GSTIN : 33AAIFC7327E1ZP",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 14,
+                    bold: true,
+                    margin: [0, 5, 0, 10],
+                  },
+                ],
+              },
+              {
+                stack: [
+                  {
+                    text: "GRN",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    colSpan: 2,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    columns: [
+                      {
+                        text: "GRN No : 101",
+                        color: "#152F48",
+                        alignment: "left",
+                        fontSize: 10,
+                        bold: true,
+                        margin: [5, 0, 0, 0],
+                      },
+                      {
+                        text: "Date : 27/08/2021",
+                        color: "#152F48",
+                        alignment: "right",
+                        fontSize: 10,
+                        bold: true,
+                      },
+                    ],
+                    margin: [0, 15, 0, 0],
+                  },
+                  {
+                    text: "C.DC No : 100/K21",
+                    color: "#152F48",
+                    alignment: "left",
+                    fontSize: 10,
+                    bold: true,
+                    margin: [5, 10, 0, 0],
+                  },
+                ],
+              },
+            ],
+          ],
+        },
+      },
+      {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
+      },
+      {
+        table: {
+          widths: ["*", "*"],
+          body: [
+            [
+              {
+                text: "To,",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 9,
+              },
+              {},
+            ],
+            [
+              {
+                text: "KNIT KING APPARELS",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 14,
+                bold: true,
+                margin: [10, 0, 0, 0],
+              },
+              {
+                text: "GSTIN : 33BBIFC7327E2ZP",
+                color: "#152F48",
+                alignment: "right",
+                fontSize: 14,
+                bold: true,
+                margin: [0, 0, 10, 0],
+              },
+            ],
+          ],
+        },
+        margin: [10, 10, 10, 10],
+        layout: "noBorders",
+      },
+      {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
+      },
+      {
+        margin: [0, 10, 0, 0],
+        layout: "noBorders",
+        table: {
+          headerRows: 1,
+          widths: [50, "*", 70, 50, 100, 90],
+          body: [
+            [
+              {
+                text: "S.No",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "Yarn Description",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "Cones",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "Bag",
+                color: "#152F48",
+                bold: true,
+                alignment: "center",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "Gross Weight",
+                color: "#152F48",
+                bold: true,
+                alignment: "center",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "Net Weight",
+                color: "#152F48",
+                bold: true,
+                alignment: "center",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+            ],
+            [
+              {
+                text: "1",
+                color: "#152F48",
+                fontSize: 11,
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "30’s - SSM   Grey - Combed",
+                color: "#152F48",
+                alignment: "center",
+                fontSize: 11,
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                color: "#152F48",
+                alignment: "center",
+                fontSize: 11,
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "10",
+                color: "#152F48",
+                alignment: "center",
+                fontSize: 11,
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "602.000",
+                color: "#152F48",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "600.000",
+                color: "#152F48",
+                alignment: "center",
+                fontSize: 11,
+                margin: [8, 8, 5, 8],
+              },
+            ],
+            [
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+            ],
+            [
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+            ],
+            [
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "Total",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "10",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "602.00",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "600.000",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+            ],
+          ],
+        },
+      },
+      {
+        margin: [20, 5, 20, 15],
+        columns: [
+          {
+            text: "For Confident Knitting Works",
+            alignment: "right",
+            color: "#152F48",
+            fontSize: 11,
+          },
+        ],
+      },
+      {
+        margin: [20, 10, 20, 10],
+        columns: [
+          {
+            table: {
+              widths: ["*", "*", "*", "*"],
+              body: [
+                [
+                  {
+                    text: "Received By",
+                    color: "#152F48",
+                    alignment: "left",
+                    fontSize: 10,
+                  },
+                  {
+                    text: "Vehicle No",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                  },
+                  {
+                    text: "Prepared By",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                  },
+                  {
+                    text: "Authorized Signatory",
+                    color: "#152F48",
+                    alignment: "right",
+                    fontSize: 10,
+                  },
+                ],
+              ],
+            },
+            layout: "noBorders",
+          },
+        ],
+      },
+      {
+        text: "Remarks",
+        color: "#152F48",
+        alignment: "left",
+        margin: [20, 0, 0, 0],
+        fontSize: 10,
+      },
+    ],
+  };
+};
+
+const generateFabricDc = () => {
+  return renderFabricDc();
+};
+
+const renderFabricDc = () => {
+  return {
+    pageSize: "A4",
+    pageOrientation: "portrait",
+    pageMargins: 10,
+    content: [
+      {
+        table: {
+          widths: ["*", 200],
+          body: [
+            [
+              {
+                stack: [
+                  {
+                    text: "CONFIDENT KNITTING WORKS",
+                    color: "#F01717",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    text: "Thiyagi palaniswamy nagar",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Pooluvapatti, Tirupur",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "Ph.no : 7339580177",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                    margin: [0, 5, 0, 0],
+                  },
+                  {
+                    text: "GSTIN : 33AAIFC7327E1ZP",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 14,
+                    bold: true,
+                    margin: [0, 5, 0, 10],
+                  },
+                ],
+              },
+              {
+                stack: [
+                  {
+                    text: "Delivery Challan",
+                    color: "#2E89E0",
+                    alignment: "center",
+                    fontSize: 18,
+                    bold: true,
+                    colSpan: 2,
+                    margin: [0, 10, 0, 0],
+                  },
+                  {
+                    columns: [
+                      {
+                        text: "F.DC No : 101",
+                        color: "#152F48",
+                        alignment: "left",
+                        fontSize: 10,
+                        bold: true,
+                        margin: [5, 0, 0, 0],
+                      },
+                      {
+                        text: "Date : 27/08/2021",
+                        color: "#152F48",
+                        alignment: "right",
+                        fontSize: 10,
+                        bold: true,
+                      },
+                    ],
+                    margin: [0, 15, 0, 0],
+                  },
+                  {
+                    text: "C.DC No : 100/K21",
+                    color: "#152F48",
+                    alignment: "left",
+                    fontSize: 10,
+                    bold: true,
+                    margin: [5, 10, 0, 0],
+                  },
+                ],
+              },
+            ],
+          ],
+        },
+      },
+      {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
+      },
+      {
+        table: {
+          widths: ["*", "*"],
+          body: [
+            [
+              {
+                text: "To,",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 9,
+              },
+              {},
+            ],
+            [
+              {
+                text: "KNIT KING APPARELS",
+                color: "#152F48",
+                alignment: "left",
+                fontSize: 14,
+                bold: true,
+                margin: [10, 0, 0, 0],
+              },
+              {
+                text: "GSTIN : 33BBIFC7327E2ZP",
+                color: "#152F48",
+                alignment: "right",
+                fontSize: 14,
+                bold: true,
+                margin: [0, 0, 10, 0],
+              },
+            ],
+          ],
+        },
+        margin: [10, 10, 10, 10],
+        layout: "noBorders",
+      },
+      {
+        canvas: [
+          { type: "line", x1: -10, y1: 0, x2: 600, y2: 0, lineWidth: 1 },
+        ],
+      },
+      {
+        margin: [0, 10, 0, 0],
+        layout: "noBorders",
+        table: {
+          headerRows: 1,
+          widths: [50, "*", 70, 50, 100, 90],
+          body: [
+            [
+              {
+                text: "S.No",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "Fabric Description",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "LL/GSM",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "Dia",
+                color: "#152F48",
+                bold: true,
+                alignment: "center",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "Rolls",
+                color: "#152F48",
+                bold: true,
+                alignment: "center",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "Weight (kgs)",
+                color: "#152F48",
+                bold: true,
+                alignment: "center",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+            ],
+            [
+              {
+                text: "1",
+                color: "#152F48",
+                fontSize: 11,
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "30’s - SSM   Grey - Combed",
+                color: "#152F48",
+                alignment: "center",
+                fontSize: 11,
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "30 cm",
+                color: "#152F48",
+                alignment: "center",
+                fontSize: 11,
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "18",
+                color: "#152F48",
+                alignment: "center",
+                fontSize: 11,
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "100",
+                color: "#152F48",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "600.000",
+                color: "#152F48",
+                alignment: "center",
+                fontSize: 11,
+                margin: [8, 8, 5, 8],
+              },
+            ],
+            [
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+            ],
+            [
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                margin: [8, 8, 5, 8],
+              },
+            ],
+            [
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                fillColor: "#E3F4FD",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "Total",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "100",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+              {
+                text: "600.000",
+                color: "#152F48",
+                bold: true,
+                fillColor: "#E3F4FD",
+                alignment: "center",
+                margin: [8, 8, 5, 8],
+              },
+            ],
+          ],
+        },
+      },
+      {
+        margin: [20, 5, 20, 15],
+        columns: [
+          {
+            text: "For Confident Knitting Works",
+            alignment: "right",
+            color: "#152F48",
+            fontSize: 11,
+          },
+        ],
+      },
+      {
+        margin: [20, 10, 20, 10],
+        columns: [
+          {
+            table: {
+              widths: ["*", "*", "*", "*"],
+              body: [
+                [
+                  {
+                    text: "Received By",
+                    color: "#152F48",
+                    alignment: "left",
+                    fontSize: 10,
+                  },
+                  {
+                    text: "Vehicle No",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                  },
+                  {
+                    text: "Prepared By",
+                    color: "#152F48",
+                    alignment: "center",
+                    fontSize: 10,
+                  },
+                  {
+                    text: "Authorized Signatory",
+                    color: "#152F48",
+                    alignment: "right",
+                    fontSize: 10,
+                  },
+                ],
+              ],
+            },
+            layout: "noBorders",
+          },
+        ],
+      },
+      {
+        text: "Remarks",
+        color: "#152F48",
+        alignment: "left",
+        margin: [20, 0, 0, 0],
+        fontSize: 10,
+      },
+    ],
+  };
+};
+
 export {
   generateVendorOrderPdf,
   generateVendorYarnPdf,
@@ -5458,4 +6280,6 @@ export {
   generateAccountLedger,
   generateInvoicePdf,
   generateOrderReportPdf,
+  generateGrnPdf,
+  generateFabricDc,
 };
