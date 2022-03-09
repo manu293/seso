@@ -10,3 +10,7 @@ export const GET_ADMIN_VENDORS = "GET_ADMIN_VENDORS";
 export const GET_ADMIN_EMPLOYEE = "GET_ADMIN_EMPLOYEE";
 export const GET_ADMIN_MACHINE = "GET_ADMIN_MACHINE";
 export const GET_ADMIN_FABRIC = "GET_ADMIN_FABRIC";
+
+// accounts types
+export const GET_CREDIT_NOTES = "GET_CREDIT_NOTES";
+export const GET_DEBIT_NOTES = "GET_DEBIT_NOTES";
